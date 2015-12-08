@@ -9,23 +9,23 @@ Charleston SC 29401
 "PediaAppointment"
 
 From the minds of Dustin Guthrie & Lindsay Williams
-Dustin Guthrie:  https://github.com/DustinGuthrie
-Lindsay Williams:  https://github.com/williamsl25
+- Dustin Guthrie:  https://github.com/DustinGuthrie
+- Lindsay Williams:  https://github.com/williamsl25
 8th January 2016
 
 Pitch:
 PediaAppointment is a mobile application which will allow parents to schedule pediatrician appointments at any time and from any place regardless of standard doctors office hours.  The app will allow you to search for then save a primary pediatrician, add family members, and most importantly send vitals/health information to the doctor’s office when scheduling an appointment.
 
 Technology:
-1. JavaScript
-2. Angular
-3. HTML/CSS
-4. NodeJS
-5. Ionic
-6. MongoDB
-7. MongoLabs
-8. Heroku
-9. Google API
+- JavaScript
+- Angular
+- HTML/CSS
+- NodeJS
+-  Ionic
+-  MongoDB
+-  MongoLabs
+-  Heroku
+-  Google API
 
 MVP Features:
 - User will be able to log in or create a New User account.
@@ -156,36 +156,36 @@ Wireframe (See Google Doc)
 //Tenative Database Collections//
 
 Users:
-ID
-First Name
-Last Name
-Phone
-Email
-Password
+- ID
+- First Name
+- Last Name
+- Phone
+- Email
+- Password
 
 Dependents:
-ID
-Parent ID
-Pediatrician ID
-First Name
-Last Name
-Date of Birth
-Pharmacy
-Medication
-Medical History
+- ID
+- Parent ID
+- Pediatrician ID
+- First Name
+- Last Name
+- Date of Birth
+- Pharmacy
+- Medication
+- Medical History
 
 Pediatricians:
-ID
-Dependent ID
-Name
-Phone
-Address
-Email
+- ID
+- Dependent ID
+- Name
+- Phone
+- Address
+- Email
 
 Appointments:
-ID
-User ID
-Dependent ID
-Symptoms
-Date
-Time
+- ID
+- User ID
+- Dependent ID
+- Symptoms
+- Date
+- Time
