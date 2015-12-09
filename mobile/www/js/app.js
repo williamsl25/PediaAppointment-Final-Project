@@ -4,8 +4,8 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', [
-  'ionic', 'starter.controllers'
+angular.module('PediaAppointment', [
+  'ionic', 'PediaAppointment.controllers'
 ])
 
 .run(function($ionicPlatform) {
@@ -69,7 +69,77 @@ angular.module('starter', [
         controller: 'PlaylistCtrl'
       }
     }
+  })
+
+    // ********Here is where we are adding in New items
+      .state('app.home', {
+        url: '/home',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/appointment.html',
+            controller: 'PlaylistCtrl'
+          }
+        }
+      })
+
+      .state('app.userprofile', {
+        url: '/userprofile',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/userprofile.html',
+            controller: 'PlaylistCtrl'
+          }
+        }
+      })
+
+      .state('app.appointment', {
+        url: '/appointment',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/appointment.html',
+            controller: 'PlaylistCtrl'
+          }
+        }
+      })
+
+      .state('app.confirmation', {
+        url: '/confirmation',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/confirmation.html',
+            controller: 'PlaylistCtrl'
+          }
+        }
+      })
+
+      .state('app.contact', {
+        url: '/contact',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/contact.html',
+            controller: 'PlaylistCtrl'
+          }
+        }
+      })
+// *****We will need to fix this as logout would
+// not be an actual screen but return to login page ******
+      .state('app.logout', {
+        url: '/logout',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/loginhome.html',
+            controller: 'PlaylistCtrl'
+          }
+        }
+      // })
+
+
+
   });
+
+
+
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/home');
 });
