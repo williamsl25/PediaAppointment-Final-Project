@@ -11,7 +11,6 @@ Charleston SC 29401
 From the minds of Dustin Guthrie & Lindsay Williams
 - Dustin Guthrie:  https://github.com/DustinGuthrie
 - Lindsay Williams:  https://github.com/williamsl25
-8th January 2016
 
 Pitch:
 PediaAppointment is a mobile application which will allow parents to schedule pediatrician appointments at any time and from any place regardless of standard doctors office hours.  The app will allow you to search for then save a primary pediatrician, add family members, and most importantly send vitals/health information to the doctor’s office when scheduling an appointment.
