@@ -26,13 +26,30 @@ angular.module('PediaAppointment.controllers', [])
     $scope.modal = modal;
   });
 
+// *****Added for Google Map *******
+  $ionicModal.fromTemplateUrl('templates/map.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
   };
 
+  //Close the map modal
+  $scope.closeMap = function() {
+    $scope.modal.hide();
+  };
+
   // Open the login modal
   $scope.login = function() {
+    $scope.modal.show();
+  };
+
+//Open the map modal
+  $scope.map = function(){
     $scope.modal.show();
   };
 
