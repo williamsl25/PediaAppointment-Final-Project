@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('PediaAppointment.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -14,6 +14,13 @@ angular.module('starter.controllers', [])
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+// ***** Added to work with New Code ****
+    $ionicModal.fromTemplateUrl('templates/loginhome.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
