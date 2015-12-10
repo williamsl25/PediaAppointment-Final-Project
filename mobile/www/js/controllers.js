@@ -33,6 +33,13 @@ angular.module('PediaAppointment.controllers', [])
     $scope.modal = modal;
   });
 
+  // *****Added for Reset Password *******
+    // $ionicModal.fromTemplateUrl('templates/resetpassword.html', {
+    //   scope: $scope
+    // }).then(function(modal) {
+    //   $scope.modal = modal;
+    // });
+
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
@@ -42,6 +49,11 @@ angular.module('PediaAppointment.controllers', [])
   $scope.closeMap = function() {
     $scope.modal.hide();
   };
+
+  // //Close the reset password modal
+  // $scope.closeReset = function() {
+  //   $scope.modal.hide();
+  // };
 
   // Open the login modal
   $scope.login = function() {
@@ -53,6 +65,10 @@ angular.module('PediaAppointment.controllers', [])
     $scope.modal.show();
   };
 
+  // //Open the reset password modal
+  // $scope.reset = function(){
+  //   $scope.modal.show();
+  // };
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
@@ -63,6 +79,17 @@ angular.module('PediaAppointment.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+
+  // $scope.doReset = function() {
+  //   console.log('Doing Password Reset', $scope.loginData);
+
+    // Simulate a login delay. Remove this and replace with your login
+    // code if using a login system
+  //   $timeout(function() {
+  //     $scope.closeLogin();
+  //   }, 1000);
+  // };
+
 })
 
 .controller('PlaylistsCtrl', function($scope) {

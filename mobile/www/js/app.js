@@ -126,7 +126,7 @@ angular.module('PediaAppointment', [
       .state('app.logout', {
         url: '/logout',
         views: {
-          'menuContent': {
+          'loginHome': {
             templateUrl: 'templates/loginhome.html',
             controller: 'PlaylistCtrl'
           }
