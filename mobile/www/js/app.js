@@ -43,6 +43,15 @@ angular.module('PediaAppointment', [
     }
   })
 
+  .state('app.newuser', {
+    url: '/newuser',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/newuser.html'
+      }
+    }
+  })
+
   .state('app.browse', {
       url: '/browse',
       views: {
