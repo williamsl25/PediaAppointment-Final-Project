@@ -1,4 +1,4 @@
-<ion-view view-title="New User">
+<ion-view hide-nav-bar="true"view-title="New User">
   <ion-header-bar>
     <div class="buttons">
       <button class="button button-clear" ng-click="closeLogin()">Close</button>
@@ -24,7 +24,7 @@
           <span class="input-label">Email</span>
           <input type="text" ng-model="user.email">
         </label>
-          <button ng-click="addUser(user)" class="button button-block button-assertive" type="submit">Save Profile</button>
+          <button ng-click="addUser(user)" class="button button-block button-positive" type="submit">Save Profile</button>
 
       </div>
     </form>
