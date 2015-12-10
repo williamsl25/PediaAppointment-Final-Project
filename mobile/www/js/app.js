@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('PediaAppointment', [
-  'ionic', 'PediaAppointment.controllers'
+  'ionic', 'PediaAppointment.controllers', 'users'
 ])
 
 .run(function($ionicPlatform) {
@@ -33,33 +33,16 @@ angular.module('PediaAppointment', [
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
-  .state('app.newuser', {
-    url: '/newuser',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/newuser.html'
-      }
-    }
-  })
-
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
+// ---moved to user.module.js------------------------------
+  // .state('app.newuser', {
+  //   url: '/newuser',
+  //   views: {
+  //     'login': {
+  //       templateUrl: 'templates/newuser.html'
+  //     }
+  //   }
+  // })
+// ------------------------------------------------------------
     .state('app.playlists', {
       url: '/playlists',
       views: {
@@ -90,16 +73,17 @@ angular.module('PediaAppointment', [
           }
         }
       })
-
-      .state('app.userprofile', {
-        url: '/userprofile',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/userprofile.html',
-            controller: 'PlaylistCtrl'
-          }
-        }
-      })
+// moved to user.module.js--------------------------------
+      // .state('app.userprofile', {
+      //   url: '/userprofile',
+      //   views: {
+      //     'menuContent': {
+      //       templateUrl: 'templates/user/userprofile.html',
+      //       // controller: 'PlaylistCtrl'
+      //     }
+      //   }
+      // })
+  // -----------------------------------------------
 
       .state('app.appointment', {
         url: '/appointment',
@@ -135,7 +119,7 @@ angular.module('PediaAppointment', [
       .state('app.logout', {
         url: '/logout',
         views: {
-          'loginHome': {
+          'login': {
             templateUrl: 'templates/loginhome.html',
             controller: 'PlaylistCtrl'
           }
