@@ -3,6 +3,13 @@ img{
   width: 60%;
   height: 100%;
 }
-.newuser a{
+/*.newuser a{
   text-decoration: none;
+}*/
+.forgotpassword{
+  text-decoration: underline;
+  padding-left: 30px;
+}
+.newuserbutton{
+  margin-top: 200px;
 }

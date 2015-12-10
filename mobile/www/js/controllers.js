@@ -50,6 +50,11 @@ angular.module('PediaAppointment.controllers', [])
     $scope.modal.hide();
   };
 
+  //Close the Dependent modal
+  $scope.closeDependent = function() {
+    $scope.modal.hide();
+  };
+
   // //Close the reset password modal
   // $scope.closeReset = function() {
   //   $scope.modal.hide();
@@ -65,6 +70,10 @@ angular.module('PediaAppointment.controllers', [])
     $scope.modal.show();
   };
 
+  //Open the Dependent modal
+    $scope.addDependent = function(){
+      $scope.modal.show();
+    };
   // //Open the reset password modal
   // $scope.reset = function(){
   //   $scope.modal.show();
