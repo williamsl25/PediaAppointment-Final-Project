@@ -1,0 +1,33 @@
+<ion-view view-title="New User">
+  <ion-header-bar>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+    <form ng-submit="addProfile()">
+      <div class="list-inset">
+        <label class="item item-input">
+          <span class="input-label">First Name</span>
+          <input type="text" ng-model="user.firstname">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Last Name</span>
+          <input type="text" ng-model="user.lastname">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Phone</span>
+          <input type="text" ng-model="user.phone">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="text" ng-model="user.email">
+        </label>
+          <button ng-click="addUser(user)" class="button button-block button-assertive" type="submit">Save Profile</button>
+
+      </div>
+    </form>
+
+  </ion-content>
+</ion-view>
