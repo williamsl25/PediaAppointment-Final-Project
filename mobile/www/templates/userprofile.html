@@ -25,16 +25,13 @@
           <span class="input-label">Email</span>
           <input type="text" ng-model="user.email">
         </label>
-        <label class="item item-input">
-          <span class="input-label">Dependent</span>
-          <input type="text" ng-model="user.dependent">
-          <a class="button button-clear button-positive icon-left ion-arrow-down-b "></a>
-          <button class="button button-outline button-positive icon ion-person-add"></button>
-        </label>
-        <label class="item">
+        <div class="buttons">
+          <button class="button button-outline button-block button-positive icon ion-person-add" ng-click="map()">  Add Dependent</button>
+        </div>
           <button class="button button-block button-assertive" type="submit">Save Profile</button>
-        </label>
+
       </div>
     </form>
+
   </ion-content>
 </ion-view>
