@@ -3,3 +3,6 @@ img{
   width: 60%;
   height: 100%;
 }
+.newuser a{
+  text-decoration: none;
+}
