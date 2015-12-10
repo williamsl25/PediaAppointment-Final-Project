@@ -1,4 +1,10 @@
-<ion-view view-title="PediaAppointment">
+<!-- <ion-view view-title="PediaAppointment"> -->
+
+<ion-nav-bar class="bar-light"></ion-nav-bar>
+<ion-view>
+  <ion-nav-title>
+    <img src="img/splash.png">
+  </ion-nav-title>
   <!-- <ion-content> -->
 
     <!-- <ion-header-bar>
@@ -26,7 +32,16 @@
           </label>
           <label class="item">
             <button class="button button-block button-positive" type="submit">Log in</button>
+            <p class="text-center">
+                <button class="button button-clear" ng-click="reset()">Forgot Password</button>
+              <!-- <a href="#/forgot-password" ng-click="reset()">Forgot password</a> -->
+            </p>
+
           </label>
+          <label class="item">
+            <a href="#/templates/newuser" style="text-decoration: none"><button class="button button-block button-positive" type="">New User</button></a>
+          </label>
+
         </div>
       </form>
 
