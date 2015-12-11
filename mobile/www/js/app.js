@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('PediaAppointment', [
-  'ionic', 'PediaAppointment.controllers', 'users',
+  'ionic', 'PediaAppointment.controllers', 'users', 
 ])
 
 .run(function($ionicPlatform) {
@@ -124,7 +124,18 @@ angular.module('PediaAppointment', [
             controller: 'MapCtrl'
           }
         }
+
       })
+      .state('app.adddependent', {
+        url: '/adddependent',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/adddependent.html',
+            controller: 'PlaylistCtrl'
+          }
+        }
+      })
+
 // *****We will need to fix this as logout would
 // not be an actual screen but return to login page ******
       .state('auth', {
