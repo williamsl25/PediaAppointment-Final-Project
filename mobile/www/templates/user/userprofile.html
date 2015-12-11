@@ -1,3 +1,4 @@
+
 <!-- <ion-view view-title="Profile Information"> -->
 <ion-view>
 
@@ -8,32 +9,42 @@
     </div> -->
   <!-- </ion-header-bar> -->
 
-  <ion-content>
-    <form ng-submit="addProfile()">
-      <div class="list-inset">
-        <label class="item item-input">
-          <span class="input-label">First Name</span>
-          <input type="text" ng-model="user.firstname">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Last Name</span>
-          <input type="text" ng-model="user.lastname">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Phone</span>
-          <input type="text" ng-model="user.phone">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Email</span>
-          <input type="text" ng-model="user.email">
-        </label>
-        <div class="buttons">
-          <button class="button button-outline button-block button-positive icon ion-person-add" ng-click="addDependent()">&nbsp&nbspAdd Dependent</button>
-        </div>
-          <button class="button button-block button-positive" type="submit">Save Profile</button>
+<ion-content>
+  <div class="list-inset">
+    <ion-list>
+      <ion-item>
+        <!-- {{user.firstname}}  -->
+        first name
+      </ion-item>
+      <ion-item>
+        <!-- {{user.lastname}} -->
+        last name
+      </ion-item>
+      <ion-item>
+        <!-- {{user.phone}} -->
+        Phone
+      </ion-item>
+      <ion-item>
+        <!-- {{user.email}} -->
+        email
+      </ion-item>
+    </ion-list>
 
-      </div>
-    </form>
+<!-- add dependent to list with modal -->
+  <div class="buttons">
+    <button class="button button-outline button-block button-positive icon ion-person-add" ng-click="addDependent()">&nbsp&nbspAdd Dependent</button>
+  </div>
+  <!-- list of dependents -->
+  <ion-list>
+    <ion-item>
+  <!-- <ion-item ng-repeat="dependent in dependents" href="#/app/dependents/{{dependent.id}}"> -->
+    <!-- {{dependent.firstname}} {{dependent.lastname}}-->
+    sample dependent
+    </ion-item>
+  </ion-list>
 
+  <!-- save profile  -->
+  <button class="button button-block button-positive" type="submit">Save Profile</button>
+    </div>
   </ion-content>
 </ion-view>
