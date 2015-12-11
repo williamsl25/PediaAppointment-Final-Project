@@ -16,22 +16,24 @@ angular.module('PediaAppointment.controllers', [])
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
-    $scope.modal = modal;
+    $scope.loginModal = modal;
   });
 
-// ***** Dependent Modal****
-    $ionicModal.fromTemplateUrl('templates/dependent.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+
 
   // *****  Password Reset Modal ****
       $ionicModal.fromTemplateUrl('templates/resetpassword.html', {
       scope: $scope
     }).then(function(modal) {
-      $scope.modal = modal;
+      $scope.resetModal = modal;
     });
+
+    // ***** Dependent Modal****
+        $ionicModal.fromTemplateUrl('templates/adddependent.html', {
+        scope: $scope
+      }).then(function(modal) {
+        $scope.dependentModal = modal;
+      });
 
 
 
@@ -61,7 +63,7 @@ angular.module('PediaAppointment.controllers', [])
 
   //Close the Dependent modal
   $scope.closeDependent = function() {
-    $scope.modal.hide();
+    $scope.dependentModal.hide();
   };
 
   // //Close the reset password modal
@@ -81,7 +83,8 @@ angular.module('PediaAppointment.controllers', [])
 
   //Open the Dependent modal
     $scope.addDependent = function(){
-      $scope.modal.show();
+
+      $scope.dependentModal.show();
     };
   // //Open the reset password modal
   $scope.reset = function(){
