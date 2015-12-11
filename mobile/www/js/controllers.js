@@ -19,13 +19,19 @@ angular.module('PediaAppointment.controllers', [])
     $scope.modal = modal;
   });
 
-// ***** Added to work with New Code ****
+// ***** Dependent Modal****
     $ionicModal.fromTemplateUrl('templates/dependent.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
   });
 
+  // *****  Password Reset Modal ****
+      $ionicModal.fromTemplateUrl('templates/resetpassword.html', {
+      scope: $scope
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
 
 
 
@@ -59,9 +65,9 @@ angular.module('PediaAppointment.controllers', [])
   };
 
   // //Close the reset password modal
-  // $scope.closeReset = function() {
-  //   $scope.modal.hide();
-  // };
+  $scope.closeReset = function() {
+    $scope.modal.hide();
+  };
 
   // Open the login modal
   // $scope.login = function() {
@@ -78,9 +84,9 @@ angular.module('PediaAppointment.controllers', [])
       $scope.modal.show();
     };
   // //Open the reset password modal
-  // $scope.reset = function(){
-  //   $scope.modal.show();
-  // };
+  $scope.reset = function(){
+    $scope.modal.show();
+  };
 
 
   // Perform the login action when the user submits the login form
