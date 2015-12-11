@@ -1,9 +1,9 @@
 <ion-view view-title="Profile Information">
   <ion-header-bar>
     <h1 class="title">Profile Information</h1>
-    <div class="buttons">
+    <!-- <div class="buttons">
       <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
+    </div> -->
   </ion-header-bar>
 
   <ion-content>
@@ -26,9 +26,9 @@
           <input type="text" ng-model="user.email">
         </label>
         <div class="buttons">
-          <button class="button button-outline button-block button-positive icon ion-person-add" ng-click="addDependent()">  Add Dependent</button>
+          <button class="button button-outline button-block button-positive icon ion-person-add" ng-click="addDependent()">&nbsp&nbspAdd Dependent</button>
         </div>
-          <button class="button button-block button-assertive" type="submit">Save Profile</button>
+          <button class="button button-block button-positive" type="submit">Save Profile</button>
 
       </div>
     </form>
