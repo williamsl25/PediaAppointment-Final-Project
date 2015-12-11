@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('PediaAppointment', [
-  'ionic', 'PediaAppointment.controllers', 'users', 
+  'ionic', 'PediaAppointment.controllers', 'users',
 ])
 
 .run(function($ionicPlatform) {
@@ -25,6 +25,7 @@ angular.module('PediaAppointment', [
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
+
   $stateProvider
 
     .state('app', {
@@ -126,7 +127,12 @@ angular.module('PediaAppointment', [
       })
 // *****We will need to fix this as logout would
 // not be an actual screen but return to login page ******
-      .state('app.logout', {
+      .state('auth', {
+        url: '/auth',
+        abstract: true,
+        templateUrl: 'templates/login.html'
+      })
+      .state('auth.logout', {
         url: '/logout',
         views: {
           'login': {
@@ -134,15 +140,24 @@ angular.module('PediaAppointment', [
             controller: 'PlaylistCtrl'
           }
         }
-      // })
-
-
-
-  });
+      })
+      .state('auth.login', {
+        url: '/login',
+        views: {
+          'login': {
+            templateUrl: 'templates/loginhome.html',
+            controller: 'PlaylistCtrl'
+          }
+        }
+      });
+      // .state('calvin', {
+      //   url: '/calvin',
+      //   templateUrl: 'templates/login/loginhome.html'
+      // });
 
 
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('auth/login');
 });
