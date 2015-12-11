@@ -48,7 +48,7 @@ angular
           templateUrl: 'templates/user/newuser.html'
         }
       }
-    })
+    });
 
 
 
