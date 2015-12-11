@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('PediaAppointment', [
-  'ionic', 'PediaAppointment.controllers', 'users'
+  'ionic', 'PediaAppointment.controllers', 'users', 
 ])
 
 .run(function($ionicPlatform) {
@@ -111,6 +111,16 @@ angular.module('PediaAppointment', [
           'menuContent': {
             templateUrl: 'templates/contact.html',
             controller: 'PlaylistCtrl'
+          }
+        }
+      })
+
+      .state('app.map', {
+        url: '/map',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/map.html',
+            controller: 'MapCtrl'
           }
         }
       })
