@@ -29,7 +29,7 @@ angular.module('PediaAppointment.controllers', [])
     });
 
     // ***** Dependent Modal****
-        $ionicModal.fromTemplateUrl('templates/dependent.html', {
+        $ionicModal.fromTemplateUrl('templates/adddependent.html', {
         scope: $scope
       }).then(function(modal) {
         $scope.dependentModal = modal;
