@@ -1,11 +1,11 @@
-<ion-nav-bar class="bar-light">
+<!-- <ion-nav-bar class="bar-light">
 
   <ion-nav-back-button>
   </ion-nav-back-button>
 
 
   <ion-nav-view name="login"></ion-nav-view>
-</ion-nav-bar>
+</ion-nav-bar> -->
 
 
 
@@ -18,13 +18,12 @@
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
       </ion-nav-buttons>
-    <!-- </ion-nav-bar> -->
   </ion-nav-bar>
 <!-- THIS IS THE LOGO IN THE HEADER -->
-<ion-header-bar class="bar bar-header">
-  <div class="title"><img src="img/splash.png"/></div>
-</ion-header-bar>
-<!-- THIS IS THE LOGO IN THE HEADER -->
+  <ion-header-bar class="bar bar-header">
+    <div class="title"><img src="img/splash.png"/></div>
+  </ion-header-bar>
+<!-- ***************************** -->
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
@@ -35,9 +34,9 @@
 
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
-        </ion-item>
+        <!-- <ion-item menu-close ng-click="resetPassword()">
+          Reset Password
+        </ion-item> -->
 
 <!-- New Routes that will be added to the Menu -->
         <ion-item menu-close href="#/app/home">
@@ -58,9 +57,9 @@
         <ion-item menu-close href="#/auth/logout">
           Logout
         </ion-item>
-        <ion-item menu-close href="#/app/map">
+        <!-- <ion-item menu-close href="#/app/map">
           Map
-        </ion-item>
+        </ion-item> -->
 
 
       </ion-list>

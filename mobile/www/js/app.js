@@ -124,7 +124,28 @@ angular.module('PediaAppointment', [
             controller: 'MapCtrl'
           }
         }
+
       })
+      .state('app.adddependent', {
+        url: '/adddependent',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/adddependent.html',
+            controller: 'PlaylistCtrl'
+          }
+        }
+      })
+
+      .state('app.resetpassword', {
+        url: '/resetpassword',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/resetpassword.html',
+            controller: 'AppCtrl'
+          }
+        }
+      })
+
 // *****We will need to fix this as logout would
 // not be an actual screen but return to login page ******
       .state('auth', {
@@ -149,6 +170,19 @@ angular.module('PediaAppointment', [
             controller: 'PlaylistCtrl'
           }
         }
+      })
+
+
+        .state('auth.resetpassword', {
+          url: '/resetpassword',
+          views: {
+            'login': {
+              templateUrl: 'templates/resetpassword.html',
+              controller: 'PlaylistCtrl'
+            }
+          }
+
+
       });
       // .state('calvin', {
       //   url: '/calvin',
