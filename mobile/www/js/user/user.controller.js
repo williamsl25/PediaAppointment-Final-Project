@@ -4,8 +4,8 @@
   angular
   .module('users')
   .controller('UsersController', function ($scope, $stateParams, UsersService, $location){
-    UsersService.getPosts().success(function (posts) {
-        $scope.posts = posts;
+    UsersService.getUsers().success(function (users) {
+        $scope.users = users;
       });
 
       if($routeParams.userId) {
