@@ -30,8 +30,11 @@
     <h1 class="title">Map</h1>
   </ion-header-bar> -->
   <ion-content>
+    <!-- <h5 class="text-center">Select a Primary Pharmacy</h5> -->
+  <div id="mappage">
+    <div id="map" ng-controller="MapCtrl" data-tap-disabled="true" style="margin-top: 20px; margin-botton: 40px;">
 
-    <div id="map" ng-controller="MapCtrl" data-tap-disabled="true" style="margin-top: 40px;">
+
       <ui-gmap-search-box id="searchBox" template="searchbox.template" events="searchbox.events"></ui-gmap-search-box></div>
       <!-- <div class="list list-inset">
       <label class="item item-input">
@@ -41,8 +44,24 @@
 </div> -->
 <ion-google-place placeholder="Enter an address, Apt# and ZIP" ng-model="location" />
 
+<!-- <label class="item">
+  <button class="button button-block button-positive" type="submit">Add Pharmacy</button>
+</label> -->
+
+<div class="buttons">
+  <a href="#/app/userprofile" style="text-decoration: none"><button class="button button-block button-positive" type="submit">Add Pharmacy</button></a>
+</div>
+
+
+
+</div>
+
+
   </ion-content>
-  <ion-footer-bar class="bar-dark">
+
+  <!-- <ion-footer-bar class="bar-dark">
     <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
-   </ion-footer-bar>
+   </ion-footer-bar> -->
+
+
 <!-- </body> -->
