@@ -3,13 +3,13 @@
 
   angular
   .module('users')
-  .controller('UsersController', function ($scope, $stateParams, UsersService, $location){
+  .controller('UsersController', function ($scope, $stateParams, UsersService, DependentsService, $location){
     UsersService.getUsers().success(function (users) {
         $scope.users = users;
       });
 
-      if($routeParams.userId) {
-        UsersService.getSingleUser($routeParams.userId).success(function (singlePost) {
+      if($stateParams.userId) {
+        UsersService.getSingleUser($stateParams.userId).success(function (singlePost) {
           console.log(singleUser);
           $scope.singleUser = singleUser;
         });

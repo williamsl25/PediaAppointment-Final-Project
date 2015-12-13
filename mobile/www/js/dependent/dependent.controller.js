@@ -3,13 +3,13 @@
 
   angular
   .module('dependents')
-  .controller('DependentsController', function ($scope, $stateParams, DependentsService, $location){
+  .controller('DependentsController', function ($scope, $stateParams, DependentsService, UsersService,$location){
     DependentsService.getDependents().success(function (dependents) {
         $scope.dependents = dependents;
       });
 
-      if($routeParams.dependentId) {
-        DependentsService.getSingleDependent($routeParams.dependentId).success(function (singlePost) {
+      if($stateParams.dependentId) {
+        DependentsService.getSingleDependent($stateParams.dependentId).success(function (singlePost) {
           console.log(singleDependent);
           $scope.singleDependent = singleDependent;
         });
