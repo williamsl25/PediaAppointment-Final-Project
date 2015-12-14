@@ -3,11 +3,11 @@
 
   angular
     .module('dependents')
-    .factory('DependentsController', function ($http) {
+    .factory('DependentsService', function ($http) {
       var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppDependents";
       var addDependent = function (newDependent) {
         console.log(newDependent);
-        $http.dependent(url, newDependent);
+        $http.post(url, newDependent);
       };
 
       var getDependents = function () {

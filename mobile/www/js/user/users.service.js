@@ -3,11 +3,13 @@
 
   angular
     .module('users')
-    .factory('UsersController', function ($http) {
+    .factory('UsersService', function ($http) {
       var url = "http://tiny-tiny.herokuapp.com/collections/PediaApp";
       var addUser = function (newUser) {
         console.log(newUser);
-        $http.user(url, newUser);
+        $http.post(url, newUser).then(function (res){
+          console.log(res);
+        });
       };
 
       var getUsers = function () {
