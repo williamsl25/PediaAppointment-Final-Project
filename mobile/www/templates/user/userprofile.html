@@ -10,24 +10,29 @@
   <!-- </ion-header-bar> -->
 
 <ion-content>
-  <div class="list-inset">
-    <ion-list can-swipe="listCanSwipe">
+  <div class="list">
+    <!-- <ion-list option-buttons="itemButtons" can-swipe="listCanSwipe"> -->
+    <ion-list can-swipe="true" option-buttons="itemButtons">
+
       <ion-item>
         <!-- {{singleUser.firstname}}  -->
         first name
-        <ion-option-button class="button-assertive" ng-click="edit(item)">Edit</ion-option-button>
+        <ion-option-button class="button-dark" ng-click="edit(item)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
         <!-- {{singleUser.lastname}} -->
         last name
+        <ion-option-button class="button-dark" ng-click="edit(item)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
         <!-- {{singleUser.phone}} -->
         phone
+        <ion-option-button class="button-dark" ng-click="edit(item)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
         <!-- {{singleUser.email}} -->
         email
+        <ion-option-button class="button-dark" ng-click="edit(item)">Edit</ion-option-button>
       </ion-item>
     </ion-list>
 
@@ -51,11 +56,14 @@
     <a href="#/app/map" style="text-decoration: none"><button class="button button-outline button-block button-positive icon ion-medkit" type="" ng-click="addPharmacy()">&nbsp&nbspAdd Pharmacy</button></a>
   </div>
 
-  <ion-item>
+  <ion-list can-swipe="true" option-buttons="itemButtons">
+    <ion-item>
 <!-- <ion-item ng-repeat="dependent in dependents" href="#/app/dependents/{{dependent.id}}"> -->
   <!-- {{dependent.firstname}} {{dependent.lastname}}-->
-  sample pharmacy
-  </ion-item>
+    sample pharmacy
+    <ion-option-button class="button-assertive" ng-click="edit(item)">Delete</ion-option-button>
+    </ion-item>
+  </ion-list>
 
 
 
