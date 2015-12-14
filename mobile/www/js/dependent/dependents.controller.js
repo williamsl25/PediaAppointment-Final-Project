@@ -4,7 +4,7 @@
   angular
   .module('dependents')
   .controller('DependentsController', function ($scope, $stateParams, DependentsService, UsersService, $location){
-    // var vm = this;
+    var vm = this;
     DependentsService.getDependents().success(function (dependents) {
         $scope.dependents = dependents;
       });
@@ -21,7 +21,7 @@
         DependentsService.addDependent(dependent);
         $location.path('/app/userprofile');
       };
-      // vm.title = "this is add dependent - calvin";
+      vm.title = "this is add dependent - calvin";
       $scope.editDependent = function (editedDependent) {
         DependentsService.updateDependent(editedDependent);
       };
