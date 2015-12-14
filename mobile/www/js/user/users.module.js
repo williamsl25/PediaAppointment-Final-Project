@@ -10,10 +10,11 @@ angular
   // all users
     .state('app.users', {
       url: '/users',
-      controller: 'UsersController',
+
       views: {
         'menuContent': {
-          templateUrl: 'templates/user/users.html'
+          templateUrl: 'templates/user/users.html',
+          controller: 'UsersController'
         }
       }
     })
@@ -31,10 +32,11 @@ angular
     // edit user
     .state('app.editUser', {
       url: '/users/:userId/edit',
-      controller: 'UsersController',
+      
       views: {
         'menuContent': {
-          templateUrl: 'templates/user/editUser.html'
+          templateUrl: 'templates/user/editUser.html',
+          controller: 'UsersController'
         }
       }
     })
@@ -42,10 +44,11 @@ angular
       //addUser
     .state('app.newuser', {
       url: '/newuser',
-      controller: 'UsersController',
+
       views: {
         'menuContent': {
-          templateUrl: 'templates/user/newuser.html'
+          templateUrl: 'templates/user/newuser.html',
+          controller: 'UsersController'
         }
       }
     });
