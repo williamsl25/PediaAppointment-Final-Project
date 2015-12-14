@@ -33,7 +33,7 @@
         removeDependent: removeDependent,
         updateDependent: updateDependent,
         getDependents: getDependents
-      }
-    })
+      };
+    });
 
 })();

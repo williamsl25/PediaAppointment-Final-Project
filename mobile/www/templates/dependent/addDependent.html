@@ -11,10 +11,10 @@
     <form ng-submit="addDependent()">
       <div class="list">
         <label class="item item-input">
-          <input type="text" placeholder="First Name*" ng-model="dependent.firsname">
+          <input type="text" placeholder="First Name*" ng-model="dependent.firstname">
         </label>
         <label class="item item-input">
-          <input type="password" placeholder="Last Name*" ng-model="dependent.lastname">
+          <input type="text" placeholder="Last Name*" ng-model="dependent.lastname">
         </label>
         <label class="item item-input">
           <input type="text" placeholder="Date of Birth (MM/DD/YYYY)*" ng-model="dependent.dateofbirth">
@@ -22,11 +22,12 @@
       <!-- </div> -->
       <!-- <div class="list"> -->
         <label class="item item-input">
-          <input type="text" placeholder="Medical History" ng-model="dependent.history">
+          <input type="text" placeholder="Current Medications" ng-model="dependent.medications">
         </label>
         <label class="item item-input">
-          <input type="password" placeholder="Current Medications" ng-model="dependent.medications">
+          <input type="text" placeholder="Pre-existing Condition" ng-model="dependent.history">
         </label>
+
 
 
       </div>

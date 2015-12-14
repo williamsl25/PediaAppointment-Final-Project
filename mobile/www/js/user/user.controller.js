@@ -27,6 +27,8 @@
         UsersService.removeUser(userId);
       };
 
+
+
   });
 
 }());

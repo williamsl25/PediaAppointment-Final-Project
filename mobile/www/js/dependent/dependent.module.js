@@ -6,55 +6,35 @@ angular
 .config(function($stateProvider) {
   $stateProvider
 
-  // all dependents
-    .state('app.dependents', {
-      url: '/dependents',
-      controller: 'DependentsController',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/dependent/dependents.html'
-        }
+  .state('app.adddependent', {
+    url: '/adddependent',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/dependent/adddependent.html',
+        controller: 'PlaylistCtrl'
       }
-    })
+    }
+  });
 
-    // dependent profile page
-    .state('app.dependentProfile', {
-      url: '/dependentprofile',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/dependent/dependentProfile.html',
-          controller: 'PlaylistCtrl'
-        }
-      }
-    })
-    // edit dependent
-    .state('app.editDependent', {
-      url: '/dependents/:dependentId/edit',
-      controller: 'DependentsController',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/dependent/editDependent.html'
-        }
-      }
-    })
-
-      //addDependent
-    .state('app.addDependent', {
-      url: '/addDependent',
-      controller: 'DependentsController',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/dependent/addDependent.html'
-        }
-      }
-    });
-
-
-
-
-
-
-
-
+  // // all users
+  //   .state('app.users', {
+  //     url: '/users',
+  //     controller: 'UsersController',
+  //     views: {
+  //       'menuContent': {
+  //         templateUrl: 'templates/user/users.html'
+  //       }
+  //     }
+  //   })
+  //   // user profile page
+  //   .state('app.userprofile', {
+  //     url: '/userprofile/dependent',
+  //     views: {
+  //       'menuContent': {
+  //         templateUrl: 'templates/user/userprofile.html',
+  //         controller: 'PlaylistCtrl'
+  //       }
+  //     }
+    // });
 
   });
