@@ -1,0 +1,30 @@
+<!-- edit user form -->
+
+<ion-view>
+
+  <ion-content>
+    <form ng-submit="singleUser()">
+      <div class="list-inset">
+        <label class="item item-input">
+          <span class="input-label">First Name</span>
+          <input type="text" ng-model="singleUser.firstname">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Last Name</span>
+          <input type="text" ng-model="singleUser.lastname">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Phone</span>
+          <input type="text" ng-model="singleUser.phone">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="text" ng-model="singleUser.email">
+        </label>
+          <button ng-click="editUser(singleUser)" class="button button-block button-positive" type="submit">Edit User</button>
+
+      </div>
+    </form>
+
+  </ion-content>
+</ion-view>

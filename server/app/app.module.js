@@ -8,7 +8,7 @@ angular.module('mean-starter', [
   'auth',
   'admin',
   'profile',
-  'blog'
+  'user'
 ])
 
 .config(function($routeProvider) {
