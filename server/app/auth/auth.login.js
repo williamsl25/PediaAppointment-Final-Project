@@ -1,5 +1,5 @@
 angular.module('auth')
-  .controller('LoginCtrl', function($scope, $alert, $auth) {
+  .controller('LoginCtrl', function($scope, $alert, $auth, AuthParty) {
     $scope.login = function() {
       $auth.login({
           email: $scope.email,
@@ -25,10 +25,13 @@ angular.module('auth')
         });
     };
     $scope.authenticate = function(provider) {
+        //AuthParty.loginorsignup(provider).then(function (res) {
+        //    console.log(res);
+        //});
       $auth.authenticate(provider)
         .then(function(res) {
           console.log(res.data);
-
+          localStorage.setItem('userRole', res.data.role);
           $alert({
             content: 'You have successfully logged in',
             animation: 'fadeZoomFadeDown',
