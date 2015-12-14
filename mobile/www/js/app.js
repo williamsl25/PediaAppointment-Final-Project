@@ -130,7 +130,7 @@ angular.module('PediaAppointment', [
         url: '/adddependent',
         views: {
           'menuContent': {
-            templateUrl: 'templates/adddependent.html',
+            templateUrl: 'templates/dependent/adddependent.html',
             controller: 'PlaylistCtrl'
           }
         }

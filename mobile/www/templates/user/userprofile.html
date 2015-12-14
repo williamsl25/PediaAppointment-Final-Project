@@ -11,10 +11,11 @@
 
 <ion-content>
   <div class="list-inset">
-    <ion-list>
+    <ion-list can-swipe="listCanSwipe">
       <ion-item>
         <!-- {{singleUser.firstname}}  -->
         first name
+        <ion-option-button class="button-assertive" ng-click="edit(item)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
         <!-- {{singleUser.lastname}} -->
