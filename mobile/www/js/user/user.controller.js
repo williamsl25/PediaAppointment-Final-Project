@@ -16,6 +16,7 @@
       }
 
       $scope.newUser = function (user) {
+        console.log(user);
         UsersService.addUser(user);
       };
 
