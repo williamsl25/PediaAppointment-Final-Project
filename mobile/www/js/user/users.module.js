@@ -25,14 +25,14 @@ angular
       views: {
         'menuContent': {
           templateUrl: 'templates/user/userprofile.html',
-          controller: 'PlaylistCtrl'
+          controller: 'UsersController'
         }
       }
     })
     // edit user
     .state('app.editUser', {
       url: '/users/:userId/edit',
-      
+
       views: {
         'menuContent': {
           templateUrl: 'templates/user/editUser.html',
