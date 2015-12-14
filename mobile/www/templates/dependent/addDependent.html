@@ -28,9 +28,7 @@
           <input type="text" placeholder="Pre-existing Condition" ng-model="dependent.history">
         </label>
 
-        <div class="buttons" ng-controller="DependentsController as depsCtrl">
-          <button class="button button-block button-positive" ng-click="newDependent(dependent)">{{depsCtrl.title}} - Save Dependent</button>
-        </div>
+
 
       </div>
 
@@ -51,7 +49,7 @@
       <h1 class="title">Map</h1>
     </ion-header-bar> -->
     <!-- <ion-content> -->
-
+    <div id="map" ng-controller="MapCtrl" data-tap-disabled="true"></div>
     <!-- </ion-content> -->
     <!-- <ion-footer-bar class="bar-dark">
       <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
@@ -66,7 +64,9 @@
           <button class="button button-block button-positive" type="submit">Save Dependent</button>
         </label> -->
 
-
+        <div class="buttons" ng-controller="DependentsController as depsCtrl">
+          <button class="button button-block button-positive" ng-click="newDependent(dependent)">{{depsCtrl.title}} Save Dependent</button>
+        </div>
 
 
       </div>
