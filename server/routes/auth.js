@@ -5,25 +5,11 @@ var request = require('request');
 var moment = require('moment');
 var jwt = require('jwt-simple');
 var config = require('../config');
-var mongoose = require('mongoose');
 var _ = require('lodash');
 var User = require('../models/User');
 var ensureAuthenticated = require('./helpers').ensureAuthenticated;
+var createToken = require('./helpers').createToken;
 
-/*
- |--------------------------------------------------------------------------
- | Generate JSON Web Token
- |--------------------------------------------------------------------------
- */
-function createToken(user) {
-  var payload = {
-    sub: user._id,
-    role: user.role,
-    iat: moment().unix(),
-    exp: moment().add(14, 'days').unix()
-  };
-  return jwt.encode(payload, config.TOKEN_SECRET);
-}
 
 /*
  |--------------------------------------------------------------------------
@@ -108,9 +94,11 @@ router.route('/login')
               if (!user) {
                 return res.status(400).send({ message: 'User not found' });
               }
+              console.log("profile information: ", profile);
               user.google = profile.sub;
               user.picture = user.picture || profile.picture.replace('sz=50', 'sz=200');
               user.displayName = user.displayName || profile.name;
+              user.email = profile.email;
               user.save(function() {
                 var token = createToken(user);
                 res.send({ token: token, role: user.role });
@@ -125,6 +113,7 @@ router.route('/login')
             }
             var user = new User();
             user.google = profile.sub;
+            user.email = profile.email;
             user.picture = profile.picture.replace('sz=50', 'sz=200');
             user.displayName = profile.name;
             user.role = 'member';
