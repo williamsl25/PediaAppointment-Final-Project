@@ -9,6 +9,7 @@ img{
 .forgotpassword{
   text-decoration: underline;
   padding-left: 30px;
+  color: blue;
 }
 #map {
   width: 100%;

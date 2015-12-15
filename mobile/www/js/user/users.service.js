@@ -5,6 +5,9 @@
     .module('users')
     .factory('UsersService', function ($http) {
       var url = "http://tiny-tiny.herokuapp.com/collections/PediaApp";
+      // var urlForLocal = "/api/collections/PediaApp"
+      //The functions below would then go to the server side??
+      
       var addUser = function (newUser) {
         console.log(newUser);
         $http.post(url, newUser).then(function (res){
