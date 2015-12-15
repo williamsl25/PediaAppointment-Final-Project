@@ -52,7 +52,15 @@
       <input type="text" placeholder="Other" ng-model="dependent.medications">
     </label>
 
-    <h5>Appointment Time Requested:</h5>
+    <h5>Appointment Date & Time Request:</h5>
+<div ng-controller="AppCtrl">
+    <ionic-datepicker input-obj="datepickerObjectPopup" idate="currentDate" disablepreviousdates="true">
+      <button class="button button-block button-positive"> {{ currentDate | date:'dd - MMMM - yyyy' }} </button>
+    </ionic-datepicker>
+</div>
+
+    <!-- How do we capture this date?
+    {{ data.choosenDate = currentDate; }} declare this on the view and it is available on the controller on $scope.data. -->
 
     <ul class="list">
 

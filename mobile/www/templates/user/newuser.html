@@ -3,7 +3,7 @@
 <ion-view>
 
   <ion-content>
-     <form ng-submit="addUser()"> <!--is this supposed to be newUser? -->
+     <form ng-controller="UsersController"> <!--is this supposed to be newUser? -->
       <div class="list">
         <label class="item item-input">
           <input type="text" placeholder="First Name" ng-model="user.firstname">

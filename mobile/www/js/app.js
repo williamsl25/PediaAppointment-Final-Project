@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('PediaAppointment', [
-  'ionic', 'PediaAppointment.controllers', 'users',
+  'ionic', 'ionic-datepicker', 'PediaAppointment.controllers', 'users', 
 ])
 
 .run(function($ionicPlatform) {
@@ -70,7 +70,7 @@ angular.module('PediaAppointment', [
         views: {
           'menuContent': {
             templateUrl: 'templates/appointment.html',
-            controller: 'PlaylistCtrl'
+            controller: 'AppCtrl'
           }
         }
       })
@@ -126,15 +126,15 @@ angular.module('PediaAppointment', [
         }
 
       })
-      .state('app.adddependent', {
-        url: '/adddependent',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/dependent/adddependent.html',
-            controller: 'PlaylistCtrl'
-          }
-        }
-      })
+      // .state('app.adddependent', {
+      //   url: '/adddependent',
+      //   views: {
+      //     'menuContent': {
+      //       templateUrl: 'templates/dependent/adddependent.html',
+      //       controller: 'PlaylistCtrl'
+      //     }
+      //   }
+      // })
 
       .state('app.resetpassword', {
         url: '/resetpassword',
@@ -157,7 +157,7 @@ angular.module('PediaAppointment', [
         url: '/logout',
         views: {
           'login': {
-            templateUrl: 'templates/loginhome.html',
+            templateUrl: 'templates/user/loginhome.html',
             controller: 'PlaylistCtrl'
           }
         }
@@ -166,7 +166,7 @@ angular.module('PediaAppointment', [
         url: '/login',
         views: {
           'login': {
-            templateUrl: 'templates/loginhome.html',
+            templateUrl: 'templates/user/loginhome.html',
             controller: 'PlaylistCtrl'
           }
         }
