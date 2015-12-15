@@ -3,7 +3,7 @@
 
   angular
   .module('users')
-  .controller('UsersController', function ($scope, $stateParams, UsersService, $location){
+  .controller('UsersController', function ($scope, $stateParams, UsersService, DependentsService, $location){
     // UsersService.getUsers().success(function (users) {
     //     $scope.users = users;
     //   });

@@ -3,7 +3,8 @@
 
   angular
   .module('dependents')
-  .controller('DependentsController', function ($scope, $stateParams, DependentsService, UsersService,$location){
+  .controller('DependentsController', function ($scope, $stateParams, DependentsService, UsersService, $location){
+    var vm = this;
     DependentsService.getDependents().success(function (dependents) {
         $scope.dependents = dependents;
       });
@@ -16,9 +17,11 @@
       }
 
       $scope.newDependent = function (dependent) {
+        console.log('new dependent firing!');
         DependentsService.addDependent(dependent);
+        $location.path('/app/userprofile');
       };
-
+      vm.title = "this is add dependent - calvin";
       $scope.editDependent = function (editedDependent) {
         DependentsService.updateDependent(editedDependent);
       };

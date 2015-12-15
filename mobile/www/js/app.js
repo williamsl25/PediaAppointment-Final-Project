@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('PediaAppointment', [
-  'ionic', 'PediaAppointment.controllers', 'users',
+  'ionic', 'PediaAppointment.controllers', 'users', 'dependents'
 ])
 
 .run(function($ionicPlatform) {
