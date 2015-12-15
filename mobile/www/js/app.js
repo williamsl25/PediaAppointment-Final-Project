@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('PediaAppointment', [
-  'ionic', 'ionic-datepicker', 'PediaAppointment.controllers', 'users', 'dependents'
+  'ionic', 'ionic-datepicker', 'PediaAppointment.controllers', 'users', 'dependents', 'appointments',
 ])
 
 .run(function($ionicPlatform) {
@@ -65,15 +65,15 @@ angular.module('PediaAppointment', [
   })
 
     // ********Here is where we are adding in New items
-      .state('app.home', {
-        url: '/home',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/appointment.html',
-            controller: 'AppCtrl'
-          }
-        }
-      })
+      // .state('app.home', {
+      //   url: '/home',
+      //   views: {
+      //     'menuContent': {
+      //       templateUrl: 'templates/appointment.html',
+      //       controller: 'AppCtrl'
+      //     }
+      //   }
+      // })
 // moved to user.module.js--------------------------------
       // .state('app.userprofile', {
       //   url: '/userprofile',
@@ -86,25 +86,25 @@ angular.module('PediaAppointment', [
       // })
   // -----------------------------------------------
 
-      .state('app.appointment', {
-        url: '/appointment',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/appointment.html',
-            controller: 'PlaylistCtrl'
-          }
-        }
-      })
-
-      .state('app.confirmation', {
-        url: '/confirmation',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/confirmation.html',
-            controller: 'PlaylistCtrl'
-          }
-        }
-      })
+      // .state('app.appointment', {
+      //   url: '/appointment',
+      //   views: {
+      //     'menuContent': {
+      //       templateUrl: 'templates/appointment.html',
+      //       controller: 'PlaylistCtrl'
+      //     }
+      //   }
+      // })
+      //
+      // .state('app.confirmation', {
+      //   url: '/confirmation',
+      //   views: {
+      //     'menuContent': {
+      //       templateUrl: 'templates/confirmation.html',
+      //       controller: 'PlaylistCtrl'
+      //     }
+      //   }
+      // })
 
       .state('app.contact', {
         url: '/contact',
@@ -136,15 +136,15 @@ angular.module('PediaAppointment', [
       //   }
       // })
 
-      .state('app.resetpassword', {
-        url: '/resetpassword',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/resetpassword.html',
-            controller: 'AppCtrl'
-          }
-        }
-      })
+      // .state('app.resetpassword', {
+      //   url: '/resetpassword',
+      //   views: {
+      //     'menuContent': {
+      //       templateUrl: 'templates/resetpassword.html',
+      //       controller: 'AppCtrl'
+      //     }
+      //   }
+      // })
 
 // *****We will need to fix this as logout would
 // not be an actual screen but return to login page ******
