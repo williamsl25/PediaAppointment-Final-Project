@@ -1,6 +1,6 @@
 angular.module('PediaAppointment.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -12,6 +12,42 @@ angular.module('PediaAppointment.controllers', [])
   // Form data for the login modal
   $scope.loginData = {};
   $scope.resetData = {};
+
+  // This is for the date picker
+  // var monthList =
+  
+  // $scope.datepickerObject.inputDate = new Date();
+  $scope.currentDate = new Date();
+
+  $scope.datepickerObjectPopup = {
+
+    todayLabel: 'Today', //Optional
+    closeLabel: 'Close', //Optional
+    setLabel: 'Set', //Optional
+    errorMsgLabel : 'Please select time.', //Optional
+    setButtonType : 'button-assertive', //Optional
+    modalHeaderColor:'bar-positive', //Optional
+    modalFooterColor:'bar-positive', //Optional
+    templateType:'popup', //Optional
+
+    mondayFirst: true, //Optional
+    // disabledDates:disabledDates, //Optional
+    monthList:["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"], //Optional
+    from: new Date(2014, 5, 1), //Optional
+    to: new Date(2016, 7, 1), //Optional
+    callback: function (val) { //Optional
+      $scope.datePickerCallbackPopup(val);
+    }
+  };
+
+  $scope.datePickerCallbackPopup = function (val) {
+    if (typeof(val) === 'undefined') {
+      console.log('No date selected');
+    } else {
+      $scope.datepickerObjectPopup.inputDate = val;
+      console.log('Selected date is : ', val);
+    }
+  };
 
   // Create the login modal that we will use later
   // $ionicModal.fromTemplateUrl('templates/login.html', {
