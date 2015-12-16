@@ -12,25 +12,25 @@
 <ion-content>
   <div class="list">
     <!-- <ion-list option-buttons="itemButtons" can-swipe="listCanSwipe"> -->
-    <ion-list can-swipe="true" option-buttons="itemButtons" ng-repeat="user in users" >
+    <ion-list can-swipe="true" option-buttons="itemButtons">
 
       <ion-item>
-        {{user.firstname}}
+        {{singleUser.firstname}}
         <!-- first name -->
         <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
-        {{user.lastname}}
+        {{singleUser.lastname}}
         <!-- last name -->
         <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
-        {{user.phone}}
+        {{singleUser.phone}}
         <!-- phone -->
         <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
-        {{user.email}}
+        {{singleUser.email}}
         <!-- email -->
         <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>

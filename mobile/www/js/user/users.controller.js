@@ -4,17 +4,17 @@
   angular
   .module('users')
   .controller('UsersController', function ($scope, $stateParams, UsersService, DependentsService, $location){
-    UsersService.getUsers().success(function (users) {
-      console.log(users);
-        $scope.users = users;
-      });
+    // UsersService.getUsers().success(function (users) {
+    //   console.log(users);
+    //     $scope.users = users;
+    //   });
 
-      if($stateParams.userId) {
-        UsersService.getSingleUser($stateParams.userId).success(function (singleUser) {
+      // if($stateParams.userId) {
+        UsersService.getSingleUser("567171afd92ae003001460ea").success(function (singleUser) {
           console.log(singleUser);
           $scope.singleUser = singleUser;
         });
-      }
+      // }
 
       $scope.newUser = function (user) {
         console.log(user);
@@ -32,17 +32,15 @@
 
       $scope.editUser = function (editedUser) {
         console.log(editedUser);
-        UsersService.updateUser(editedUser).then(function() {
-            $location.path('/app/userprofile');
-
-        });
-
+        UsersService.updateUser(editedUser).success(function() {
+          // console.log("EDIT",singleUser);
+          $location.path('/app/userprofile');
+          // $scope.singleUser = singleUser;
+        })
       };
 
       $scope.$on('user:edited', function () {
-        UsersService.getUsers().success(function (user) {
-          $scope.users = user;
-        });
+
       })
 
       $scope.deleteUser = function (userId) {
