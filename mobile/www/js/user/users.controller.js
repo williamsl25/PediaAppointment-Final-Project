@@ -33,9 +33,9 @@
       $scope.editUser = function (editedUser) {
         console.log(editedUser);
         UsersService.updateUser(editedUser).success(function() {
-          // console.log("EDIT",singleUser);
+          console.log("EDIT",editedUser);
           $location.path('/app/userprofile');
-          // $scope.singleUser = singleUser;
+          $scope.singleUser = singleUser;
         })
       };
 
