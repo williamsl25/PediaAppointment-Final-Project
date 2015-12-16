@@ -43,14 +43,19 @@
 
   </div>
 
-  <!-- list of dependents -->
-  <ion-list ng-controller="DependentsController" ng-repeat="dependent in dependents">
-    <ion-item >
-  <!-- <ion-item ng-repeat="dependent in dependents" href="#/app/dependents/{{dependent.id}}"> -->
-    {{dependent.firstname}}
+  
 
-    </ion-item>
-  </ion-list>
+  <!-- list of dependents -->
+
+
+      <ion-list can-swipe="true" option-buttons="itemButtons" >
+        <ion-item ng-repeat="dependent in dependents" href="#/app/dependents/{{dependent.id}}">
+          {{singleDependent.firstname}}
+          <ion-option-button class="button-dark" ng-click="gotoeditDependent(dependent._id)">Edit</ion-option-button>
+        </ion-item>
+      </ion-list>
+
+<!-- - -->
 
   <div class="buttons">
     <a href="#/app/map" style="text-decoration: none"><button class="button button-outline button-block button-positive icon ion-medkit" type="" ng-click="addPharmacy()">&nbsp&nbspAdd Pharmacy</button></a>
