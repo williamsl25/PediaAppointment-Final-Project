@@ -6,6 +6,7 @@
   .controller('DependentsController', function ($scope, $stateParams, DependentsService, UsersService, $location){
     var vm = this;
     DependentsService.getDependents().success(function (dependents) {
+      console.log(dependents);
         $scope.dependents = dependents;
       });
 

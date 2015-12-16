@@ -12,27 +12,27 @@
 <ion-content>
   <div class="list">
     <!-- <ion-list option-buttons="itemButtons" can-swipe="listCanSwipe"> -->
-    <ion-list can-swipe="true" option-buttons="itemButtons" >
+    <ion-list can-swipe="true" option-buttons="itemButtons" ng-repeat="user in users" >
 
       <ion-item>
-        <!-- {{singleUser.firstname}}  -->
-        first name
-        <ion-option-button class="button-dark" ng-click="edit(item)">Edit</ion-option-button>
+        {{user.firstname}}
+        <!-- first name -->
+        <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
-        <!-- {{singleUser.lastname}} -->
-        last name
-        <ion-option-button class="button-dark" ng-click="edit(item)">Edit</ion-option-button>
+        {{user.lastname}}
+        <!-- last name -->
+        <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
-        <!-- {{singleUser.phone}} -->
-        phone
-        <ion-option-button class="button-dark" ng-click="edit(item)">Edit</ion-option-button>
+        {{user.phone}}
+        <!-- phone -->
+        <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
-        <!-- {{singleUser.email}} -->
-        email
-        <ion-option-button class="button-dark" ng-click="edit(item)">Edit</ion-option-button>
+        {{user.email}}
+        <!-- email -->
+        <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
     </ion-list>
 
@@ -44,11 +44,11 @@
   </div>
 
   <!-- list of dependents -->
-  <ion-list>
-    <ion-item>
+  <ion-list ng-controller="DependentsController" ng-repeat="dependent in dependents">
+    <ion-item >
   <!-- <ion-item ng-repeat="dependent in dependents" href="#/app/dependents/{{dependent.id}}"> -->
-    <!-- {{dependent.firstname}} {{dependent.lastname}}-->
-    sample dependent
+    {{dependent.firstname}}
+
     </ion-item>
   </ion-list>
 
