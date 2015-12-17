@@ -12,27 +12,27 @@
 <ion-content>
   <div class="list">
     <!-- <ion-list option-buttons="itemButtons" can-swipe="listCanSwipe"> -->
-    <ion-list can-swipe="true" option-buttons="itemButtons" >
+    <ion-list can-swipe="true" option-buttons="itemButtons">
 
       <ion-item>
-        <!-- {{singleUser.firstname}}  -->
-        first name
-        <ion-option-button class="button-dark" ng-click="edit(item)">Edit</ion-option-button>
+        {{singleUser.firstname}}
+        <!-- first name -->
+        <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
-        <!-- {{singleUser.lastname}} -->
-        last name
-        <ion-option-button class="button-dark" ng-click="edit(item)">Edit</ion-option-button>
+        {{singleUser.lastname}}
+        <!-- last name -->
+        <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
-        <!-- {{singleUser.phone}} -->
-        phone
-        <ion-option-button class="button-dark" ng-click="edit(item)">Edit</ion-option-button>
+        {{singleUser.phone}}
+        <!-- phone -->
+        <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
-        <!-- {{singleUser.email}} -->
-        email
-        <ion-option-button class="button-dark" ng-click="edit(item)">Edit</ion-option-button>
+        {{singleUser.email}}
+        <!-- email -->
+        <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
     </ion-list>
 
@@ -43,14 +43,19 @@
 
   </div>
 
+  
+
   <!-- list of dependents -->
-  <ion-list>
-    <ion-item>
-  <!-- <ion-item ng-repeat="dependent in dependents" href="#/app/dependents/{{dependent.id}}"> -->
-    <!-- {{dependent.firstname}} {{dependent.lastname}}-->
-    sample dependent
-    </ion-item>
-  </ion-list>
+
+
+      <ion-list can-swipe="true" option-buttons="itemButtons" >
+        <ion-item ng-repeat="dependent in dependents" href="#/app/dependents/{{dependent.id}}">
+          {{singleDependent.firstname}}
+          <ion-option-button class="button-dark" ng-click="gotoeditDependent(dependent._id)">Edit</ion-option-button>
+        </ion-item>
+      </ion-list>
+
+<!-- - -->
 
   <div class="buttons">
     <a href="#/app/map" style="text-decoration: none"><button class="button button-outline button-block button-positive icon ion-medkit" type="" ng-click="addPharmacy()">&nbsp&nbspAdd Pharmacy</button></a>
