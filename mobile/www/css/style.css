@@ -1,4 +1,10 @@
 /* Empty. Add your own CSS if you like */
+.angular-google-map-container {
+  height: 300px;
+  margin-top: 50px;
+}
+
+
 img{
   width: 60%;
   height: 100%;
@@ -9,7 +15,6 @@ img{
 .forgotpassword{
   text-decoration: underline;
   padding-left: 30px;
-  color: blue;
 }
 #map {
   width: 100%;

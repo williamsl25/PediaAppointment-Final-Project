@@ -5,7 +5,15 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('PediaAppointment', [
-  'ionic', 'ionic-datepicker', 'PediaAppointment.controllers', 'users', 'dependents', 'appointments',
+  'ionic',
+  'ionic-datepicker',
+  'PediaAppointment.controllers',
+  'users',
+  'dependents',
+  'appointments',
+  'maps',
+  'uiGmapgoogle-maps'
+
 ])
 
 .run(function($ionicPlatform) {
@@ -24,7 +32,15 @@ angular.module('PediaAppointment', [
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+
+
+.config(function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) {
+
+  uiGmapGoogleMapApiProvider.configure({
+      key: 'AIzaSyB0FoHMlrxoAq_5wn6bd-GnawFaaggaq7E',
+      v: '3.20', //defaults to latest 3.X anyhow
+      libraries: 'places' // Required for SearchBox.
+  });
 
   $stateProvider
 
@@ -116,16 +132,16 @@ angular.module('PediaAppointment', [
         }
       })
 
-      .state('app.map', {
-        url: '/map',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/map.html',
-            controller: 'MapCtrl'
-          }
-        }
-
-      })
+      // .state('app.map', {
+      //   url: '/map',
+      //   views: {
+      //     'menuContent': {
+      //       templateUrl: 'templates/map.html',
+      //       controller: 'MapsController'
+      //     }
+      //   }
+      //
+      // })
       // .state('app.adddependent', {
       //   url: '/adddependent',
       //   views: {

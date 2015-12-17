@@ -3,28 +3,34 @@
 
   angular
   .module('users')
-  .controller('UsersController', function ($scope, $stateParams, UsersService, DependentsService, $location){
-    // UsersService.getUsers().success(function (users) {
-    //     $scope.users = users;
-    //   });
-    //
-    //   if($stateParams.userId) {
-    //     UsersService.getSingleUser($stateParams.userId).success(function (singlePost) {
-    //       console.log(singleUser);
-    //       $scope.singleUser = singleUser;
-    //     });
-    //   }
+  .controller('UsersController', function ($scope, $stateParams, UsersService, DependentsService, $location, $ionicModal){
+    UsersService.getUsers().success(function (users) {
+        $scope.users = users;
+      });
+
+      if($stateParams.userId) {
+        UsersService.getSingleUser($stateParams.userId).success(function (singlePost) {
+          console.log(singleUser);
+          $scope.singleUser = singleUser;
+        });
+      }
 
       $scope.newUser = function (user) {
         console.log(user);
         UsersService.addUser(user);
       };
-
       $scope.editUser = function (editedUser) {
         UsersService.updateUser(editedUser);
       };
       $scope.deleteUser = function (userId) {
         UsersService.removeUser(userId);
+      };
+      $scope.addPharmacy = function (pharmacy) {
+        console.log(pharmacy);
+        UsersService.addUser.pharmacy(pharmacy);
+      };
+      $scope.deletePharmacy = function (pharmacy) {
+        UsersService.removeUser.pharmacy(pharmacy);
       };
 
 

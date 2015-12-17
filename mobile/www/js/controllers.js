@@ -13,41 +13,7 @@ angular.module('PediaAppointment.controllers', [])
   $scope.loginData = {};
   $scope.resetData = {};
 
-  // This is for the date picker
-  // var monthList =
-  
-  // $scope.datepickerObject.inputDate = new Date();
-  $scope.currentDate = new Date();
 
-  $scope.datepickerObjectPopup = {
-
-    todayLabel: 'Today', //Optional
-    closeLabel: 'Close', //Optional
-    setLabel: 'Set', //Optional
-    errorMsgLabel : 'Please select time.', //Optional
-    setButtonType : 'button-assertive', //Optional
-    modalHeaderColor:'bar-positive', //Optional
-    modalFooterColor:'bar-positive', //Optional
-    templateType:'popup', //Optional
-
-    mondayFirst: true, //Optional
-    // disabledDates:disabledDates, //Optional
-    monthList:["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"], //Optional
-    from: new Date(2014, 5, 1), //Optional
-    to: new Date(2016, 7, 1), //Optional
-    callback: function (val) { //Optional
-      $scope.datePickerCallbackPopup(val);
-    }
-  };
-
-  $scope.datePickerCallbackPopup = function (val) {
-    if (typeof(val) === 'undefined') {
-      console.log('No date selected');
-    } else {
-      $scope.datepickerObjectPopup.inputDate = val;
-      console.log('Selected date is : ', val);
-    }
-  };
 
   // Create the login modal that we will use later
   // $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -160,124 +126,81 @@ $scope.closeReset = function() {
 })
 
 
-//***************** Google Map*********************
-    .controller('MapCtrl', function($scope, $ionicLoading, $compile) {
-      initialize();
-      function initialize() {
-        console.log("map being triggered");
-        var myLatlng = new google.maps.LatLng(32.7833,-79.9333);
+//***************** Google Map functionality *********************
+    .controller('MapCtrl', function($scope, $ionicLoading, $compile, MapsService) {
+      $scope.namePlace = [];
+
+      $scope.map = {
+        center: {
+          latitude: 32.7833,
+          longitude: -79.9333
+        },
+        zoom: 10,
+        marker: []
+      };
+      $scope.options = {scrollwheel: false};
+
+      $scope.marker = {
+                id: 0,
+                coords: {
+                    latitude: 32.7833,
+                    longitude: -79.9333
+                },
+                title: 0,
+                options: { draggable: false },
+                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                events: {
+                    dragend: function (marker, eventName, args) {
+
+                        $scope.marker.options = {
+                            labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
+                            labelAnchor: "100 0",
+                            labelClass: "marker-labels"
+                        };
+                    }
+                }
+              };
 
 
-        var mapOptions = {
-          center: myLatlng,
-          zoom: 15,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map"),
-            mapOptions);
+var events = {
+    places_changed: function (searchBox) {
+    var place = searchBox.getPlaces();
+        lat = place[0].geometry.location.lat();
+        long = place[0].geometry.location.lng();
+        if (!place || place === 'undefined' || place.length === 0) {
+            return;
+          }
+           console.log('place', lat, long, place);
+           console.log(place[0].name);
+           console.log(place[0].formatted_address);
+           console.log(place[0].formatted_phone_number);
+           console.log(place[0].website);
+           console.log(place[0].email);
 
-        //Marker + infowindow + angularjs compiled ng-click
-        var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-        var compiled = $compile(contentString)($scope);
-
-        var infowindow = new google.maps.InfoWindow({
-          content: compiled[0]
-        });
-
-        var marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title: 'Uluru (Ayers Rock)'
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map,marker);
-        });
-
-        $scope.map = map;
-      }// End Initialize Function();
-
-      google.maps.event.addDomListener(window, 'load', initialize);
-
-      $scope.centerOnMe = function() {
-        if(!$scope.map) {
-          return;
+           var newPlace = {
+              name: place[0].name,
+              address: place[0].formatted_address,
+              phone: place[0].formatted_phone_number,
+              website: place[0].website,
+              // coords: {
+              //   latitude: place[0].geometry.location.lat(),
+              //   longitude: place[0].geometry.location.lng()
+              // },
+              mapurl: place[0].url,
+              // icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            };
+            console.log(newPlace);
+            $scope.namePlace.push(newPlace);
+            console.log('scope nameplace', $scope.namePlace);
         }
-
-        $scope.loading = $ionicLoading.show({
-          content: 'Getting current location...',
-          showBackdrop: false
-        });
-
-        navigator.geolocation.getCurrentPosition(function(pos) {
-          $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-          $scope.loading.hide();
-        }, function(error) {
-          alert('Unable to get location: ' + error.message);
-        });
       };
 
-      $scope.clickTest = function() {
-        alert('Example of infowindow with ng-click');
+      $scope.searchbox = { template:'searchbox.tpl.html', events:events};
+
+      $scope.addPharmacy = function (pharmacy) {
+        console.log('new pharmacy firing!');
+        MapsService.addPharmacy(pharmacy);
+        $location.path('/app/userprofile');
       };
 
-//*******places
-
-// Create the search box and link it to the UI element.
-// var input = document.getElementById('pac-input');
-// var searchBox = new google.maps.places.SearchBox(input);
-// map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-//
-// // Bias the SearchBox results towards current map's viewport.
-// map.addListener('bounds_changed', function() {
-//   searchBox.setBounds(map.getBounds());
-// });
-//
-// var markers = [];
-// // Listen for the event fired when the user selects a prediction and retrieve
-// // more details for that place.
-// searchBox.addListener('places_changed', function() {
-//   var places = searchBox.getPlaces();
-//
-//   if (places.length === 0) {
-//     return;
-//   }
-//
-//   // Clear out the old markers.
-//   markers.forEach(function(marker) {
-//     marker.setMap(null);
-//   });
-//   markers = [];
-//
-//   // For each place, get the icon, name and location.
-//   var bounds = new google.maps.LatLngBounds();
-//   places.forEach(function(place) {
-//     var icon = {
-//       url: place.icon,
-//       size: new google.maps.Size(71, 71),
-//       origin: new google.maps.Point(0, 0),
-//       anchor: new google.maps.Point(17, 34),
-//       scaledSize: new google.maps.Size(25, 25)
-//     };
-//
-//     // Create a marker for each place.
-//     markers.push(new google.maps.Marker({
-//       map: map,
-//       icon: icon,
-//       title: place.name,
-//       position: place.geometry.location
-//     }));
-//
-//     if (place.geometry.viewport) {
-//       // Only geocodes have viewport.
-//       bounds.union(place.geometry.viewport);
-//     } else {
-//       bounds.extend(place.geometry.location);
-//     }
-//   });
-//   map.fitBounds(bounds);
-// });
-
-
-
-    });
+});
