@@ -21,7 +21,8 @@ img{
   height: 95%;
 }
 #mapdiv {
-  height: 250px;
+  height: 310px;
+  margin-top: -30px;
 }
 #mappage{
   height: 300px;

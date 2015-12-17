@@ -3,7 +3,7 @@
 
   angular
   .module('dependents')
-  .controller('DependentsController', function ($scope, $stateParams, DependentsService, UsersService, $location){
+  .controller('DependentsController', function ($scope, $stateParams, DependentsService, UsersService, $location, MapsService){
     // var vm = this;
     DependentsService.getDependents().success(function (dependents) {
       console.log(dependents);
