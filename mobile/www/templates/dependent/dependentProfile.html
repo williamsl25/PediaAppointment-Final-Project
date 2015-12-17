@@ -1,0 +1,48 @@
+<ion-view>
+
+<ion-content>
+
+  <div class="list">
+    <!-- <ion-list option-buttons="itemButtons" can-swipe="listCanSwipe"> -->
+    <ion-list can-swipe="true" option-buttons="itemButtons">
+
+      <ion-item>
+        {{dependent.firstname}}
+        <!-- first name -->
+
+      </ion-item>
+      <ion-item>
+        {{dependent.lastname}}
+        <!-- last name -->
+
+      </ion-item>
+      <ion-item>
+        {{dependent.dateofbirth}}
+        <!-- phone -->
+
+      </ion-item>
+      <ion-item>
+        {{dependent.medications}}
+        <!-- email -->
+
+      </ion-item>
+      <ion-item>
+        {{dependent.history}}
+        <!-- email -->
+
+      </ion-item>
+      <ion-item>
+        {{dependent.pediatrician}}
+        <!-- email -->
+
+      </ion-item>
+    </ion-list>
+
+    <div class="buttons">
+      <button class="button button-block button-positive" type="submit" ng-click="gotoeditDependent(dependent._id)">Edit Dependent</button>
+    </div>
+
+
+      </div>
+    </ion-content>
+  </ion-view>

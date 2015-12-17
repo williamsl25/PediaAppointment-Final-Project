@@ -42,7 +42,10 @@ angular.module('PediaAppointment.controllers', [])
           .then(function(res) {
             console.log(res);
             $window.localStorage.setItem('userRole', res.data.role);
+<<<<<<< HEAD
             // $state.go('tab.photos');
+=======
+>>>>>>> 60ffd9da246cd70cb8412f0c0e8913264d1c54fc
             $state.go('/app/userprofile');
           })
           .catch(function(response) {
