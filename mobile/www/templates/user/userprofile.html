@@ -53,10 +53,17 @@
 
   <!-- list of dependents -->
 
-      <ion-list can-swipe="true" option-buttons="itemButtons" >
-        <ion-item ng-repeat="dependent in dependents" href="#/app/dependents/{{dependent.id}}">
-          {{singleDependent.firstname}}
-          <ion-option-button class="button-dark" ng-click="gotoeditDependent(dependent._id)">Edit</ion-option-button>
+      <ion-list ng-controller="DependentsController" can-swipe="true" option-buttons="itemButtons" >
+        <!-- <ion-item ng-repeat="dependent in dependents" href="#/app/dependents/{{dependent.id}}"> -->
+        <!-- <ion-item>
+
+          {{dependent.firstname}}
+          <! <ion-option-button class="button-dark" ng-click="gotoeditDependent(dependent._id)">Edit</ion-option-button> -->
+        <!-- </ion-item> -->
+
+        <!-- <ion-item ng-repeat="dependent in dependents" href="#/app/dependent/{{dependent._id}}"> -->
+        <ion-item ng-repeat="dependent in dependents" ng-click="gotodependentProfile(dependent._id)">
+          {{dependent.firstname}}
         </ion-item>
       </ion-list>
 

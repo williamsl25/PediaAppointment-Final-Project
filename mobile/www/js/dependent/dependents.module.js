@@ -19,18 +19,18 @@ angular
     })
 
     // dependent profile page
-    .state('app.singleDependent', {
-      url: '/singleDependent',
+    .state('app.dependentProfile', {
+      url: '/userprofile/dependent/:dependentId',
       views: {
         'menuContent': {
-          templateUrl: 'templates/dependent/singleDependent.html',
+          templateUrl: 'templates/dependent/dependentProfile.html',
           controller: 'DependentsController'
         }
       }
     })
     // edit dependent
     .state('app.editDependent', {
-      url: '/dependents/:dependentId/edit',
+      url: '/userprofile/dependent/:dependentId/edit',
 
       views: {
         'menuContent': {
