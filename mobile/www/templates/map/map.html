@@ -31,11 +31,18 @@
   </ion-header-bar> -->
   <ion-content>
     <!-- <h5 class="text-center">Select a Primary Pharmacy</h5> -->
-  <div id="mappage">
-    <div id="map" ng-controller="MapCtrl" data-tap-disabled="true" style="margin-top: 40px; margin-botton: 40px;">
 
 
-      <ui-gmap-search-box id="searchBox" template="searchbox.template" events="searchbox.events"></ui-gmap-search-box></div>
+  <!-- <div id="mappage"> -->
+    <!-- <input id="pac-input" style="margin-top: 60px;" class="controls" type="text" placeholder="Search Box"> -->
+
+    <!-- <div id="map" ng-controller="MapCtrl" data-tap-disabled="true" style="margin-top: 40px; margin-botton: 40px;"> -->
+      <!-- <script type="text/ng-template" id="searchbox.tpl.html">
+          <input type="text" placeholder="Search Box" style="width: 300px; height: 33px; margin-top: 10px" ng-model="newMap.name" value="">
+      </script> -->
+
+
+      <!-- <ui-gmap-search-box ng-controller="MapCtrl" id="searchBox" template="searchbox.template" events="searchbox.events"></ui-gmap-search-box></div> -->
 
       <!-- <div class="list list-inset">
       <label class="item item-input">
@@ -50,13 +57,22 @@
   <button class="button button-block button-positive" type="submit">Add Pharmacy</button>
 </label> -->
 
+
+<script type="text/ng-template" id="searchbox.tpl.html">
+    <input type="text" placeholder="Search Box" style="width: 280px; margin-top: 12px;">
+</script>
+
+<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+  <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
+<ui-gmap-marker ng-repeat="p in namePlace" coords="p.coords" options="marker.options" events="marker.events" idkey="p.id"></ui-gmap-marker>
+</ui-gmap-google-map>
+
+
 <div class="buttons">
-  <a href="#/app/userprofile" style="text-decoration: none"><button class="button button-block button-positive" type="submit" ng-model="user.pharmacy" ng-click="addPharmacy(pharmacy)">Add Pharmacy</button></a>
+  <a href="#/app/userprofile" style="text-decoration: none"><button class="button button-block button-positive icon ion-medkit" type="" ng-click="addPharmacy(newPlace)">&nbsp&nbspAdd Pharmacy</button></a>
 </div>
 
 
-
-</div>
 
 
   </ion-content>

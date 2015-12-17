@@ -10,6 +10,8 @@
     //   });
 
       // if($stateParams.userId) {
+      // UsersService.getSingleUser($stateParams.userId).success(function (singlePost) {
+
         UsersService.getSingleUser("567171afd92ae003001460ea").success(function (singleUser) {
           console.log(singleUser);
           $scope.singleUser = singleUser;
@@ -26,25 +28,33 @@
         UsersService.getSingleUser(id).success(function (singleUser){
           console.log(singleUser);
           $scope.singleUser = singleUser;
-          $location.path('/app/users/'+ id+'/edit')
+          $location.path('/app/users/'+ id+'/edit');
         });
       };
 
+//Is this supposed to be here???
       $scope.editUser = function (editedUser) {
         console.log(editedUser);
         UsersService.updateUser(editedUser).success(function() {
           console.log("EDIT",editedUser);
           $location.path('/app/userprofile');
           $scope.singleUser = singleUser;
-        })
+        });
       };
 
       $scope.$on('user:edited', function () {
 
-      })
+      });
 
       $scope.deleteUser = function (userId) {
         UsersService.removeUser(userId);
+      };
+      $scope.addPharmacy = function (pharmacy) {
+        console.log(pharmacy);
+        UsersService.addUser.pharmacy(pharmacy);
+      };
+      $scope.deletePharmacy = function (pharmacy) {
+        UsersService.removeUser.pharmacy(pharmacy);
       };
 
 

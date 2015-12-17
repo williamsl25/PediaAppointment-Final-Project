@@ -5,7 +5,15 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('PediaAppointment', [
-  'ionic', 'ionic-datepicker', 'PediaAppointment.controllers', 'users', 'dependents', 'appointments',
+  'ionic',
+  'ionic-datepicker',
+  'PediaAppointment.controllers',
+  'users',
+  'dependents',
+  'appointments',
+  'maps',
+  'uiGmapgoogle-maps'
+
 ])
 
 .run(function($ionicPlatform) {
@@ -23,8 +31,13 @@ angular.module('PediaAppointment', [
     }
   });
 })
+.config(function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) {
 
-.config(function($stateProvider, $urlRouterProvider) {
+  uiGmapGoogleMapApiProvider.configure({
+      key: 'AIzaSyB0FoHMlrxoAq_5wn6bd-GnawFaaggaq7E',
+      v: '3.20', //defaults to latest 3.X anyhow
+      libraries: 'places' // Required for SearchBox.
+  });
 
   $stateProvider
 
@@ -34,78 +47,25 @@ angular.module('PediaAppointment', [
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-// ---moved to user.module.js------------------------------
-  // .state('app.newuser', {
-  //   url: '/newuser',
+  //   .state('app.playlists', {
+  //     url: '/playlists',
+  //     views: {
+  //       'menuContent': {
+  //         templateUrl: 'templates/playlists.html',
+  //         controller: 'PlaylistsCtrl'
+  //       }
+  //     }
+  //   })
+  //
+  // .state('app.single', {
+  //   url: '/playlists/:playlistId',
   //   views: {
-  //     'login': {
-  //       templateUrl: 'templates/newuser.html'
+  //     'menuContent': {
+  //       templateUrl: 'templates/playlist.html',
+  //       controller: 'PlaylistCtrl'
   //     }
   //   }
   // })
-// ------------------------------------------------------------
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  })
-
-    // ********Here is where we are adding in New items
-      // .state('app.home', {
-      //   url: '/home',
-      //   views: {
-      //     'menuContent': {
-      //       templateUrl: 'templates/appointment.html',
-      //       controller: 'AppCtrl'
-      //     }
-      //   }
-      // })
-// moved to user.module.js--------------------------------
-      // .state('app.userprofile', {
-      //   url: '/userprofile',
-      //   views: {
-      //     'menuContent': {
-      //       templateUrl: 'templates/user/userprofile.html',
-      //       // controller: 'PlaylistCtrl'
-      //     }
-      //   }
-      // })
-  // -----------------------------------------------
-
-      // .state('app.appointment', {
-      //   url: '/appointment',
-      //   views: {
-      //     'menuContent': {
-      //       templateUrl: 'templates/appointment.html',
-      //       controller: 'PlaylistCtrl'
-      //     }
-      //   }
-      // })
-      //
-      // .state('app.confirmation', {
-      //   url: '/confirmation',
-      //   views: {
-      //     'menuContent': {
-      //       templateUrl: 'templates/confirmation.html',
-      //       controller: 'PlaylistCtrl'
-      //     }
-      //   }
-      // })
-
       .state('app.contact', {
         url: '/contact',
         views: {
@@ -115,39 +75,6 @@ angular.module('PediaAppointment', [
           }
         }
       })
-
-      .state('app.map', {
-        url: '/map',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/map.html',
-            controller: 'MapCtrl'
-          }
-        }
-
-      })
-      // .state('app.adddependent', {
-      //   url: '/adddependent',
-      //   views: {
-      //     'menuContent': {
-      //       templateUrl: 'templates/dependent/adddependent.html',
-      //       controller: 'PlaylistCtrl'
-      //     }
-      //   }
-      // })
-
-      // .state('app.resetpassword', {
-      //   url: '/resetpassword',
-      //   views: {
-      //     'menuContent': {
-      //       templateUrl: 'templates/resetpassword.html',
-      //       controller: 'AppCtrl'
-      //     }
-      //   }
-      // })
-
-// *****We will need to fix this as logout would
-// not be an actual screen but return to login page ******
       .state('auth', {
         url: '/auth',
         abstract: true,
@@ -171,8 +98,6 @@ angular.module('PediaAppointment', [
           }
         }
       })
-
-
         .state('auth.resetpassword', {
           url: '/resetpassword',
           views: {
@@ -181,17 +106,20 @@ angular.module('PediaAppointment', [
               controller: 'PlaylistCtrl'
             }
           }
-
-
       });
-      // .state('calvin', {
-      //   url: '/calvin',
-      //   templateUrl: 'templates/login/loginhome.html'
-      // });
-
-
-
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('auth/login');
 });
+
+// .config(function ($authProvider) {
+//   if (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) {
+//      $authProvider.cordova = true;
+//    }
+//   $authProvider.google({
+//      clientId: '469379853070-g23rimletc4dddro1vcqvak3nk3gsrgm.apps.googleusercontent.com',
+//      url: 'https://mean-starter.herokuapp.com/auth/google',
+//      redirectUri: 'http://localhost'
+//    });
+
+// });

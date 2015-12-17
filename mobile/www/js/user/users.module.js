@@ -30,12 +30,12 @@ angular
       }
     })
     // edit user
-    .state('app.editUser', {
+    .state('app.edituser', {
       url: '/users/:userId/edit',
 
       views: {
         'menuContent': {
-          templateUrl: 'templates/user/editUser.html',
+          templateUrl: 'templates/user/edituser.html',
           controller: 'UsersController'
         }
       }
