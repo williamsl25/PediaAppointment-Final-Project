@@ -67,6 +67,21 @@
 <ui-gmap-marker ng-repeat="p in namePlace" coords="p.coords" options="marker.options" events="marker.events" idkey="p.id"></ui-gmap-marker>
 </ui-gmap-google-map>
 
+<div class="list">
+    <ion-item class="item item-input icon ion-ios-people">
+      &nbsp&nbsp{{name}}
+    </ion-item>
+    <ion-item class="item item-input icon ion-ios-location" >
+      &nbsp&nbsp{{address}}
+    </ion-item>
+    <ion-item class="item item-input icon ion-ios-telephone">
+      &nbsp&nbsp{{phone}}
+    </ion-item>
+    <ion-item class="item item-input icon ion-ios-world">
+      &nbsp&nbsp<a href="{{website}}">{{website}}</a>
+    </ion-item>
+  </ion-list>
+
 
 <div class="buttons">
   <a href="#/app/userprofile" style="text-decoration: none"><button class="button button-block button-positive icon ion-medkit" type="" ng-click="addPharmacy(newPlace)">&nbsp&nbspAdd Pharmacy</button></a>
