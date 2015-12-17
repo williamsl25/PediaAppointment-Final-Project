@@ -40,7 +40,7 @@ angular.module('auth', [
       });
 
       $authProvider.google({
-        clientId: '469379853070-g23rimletc4dddro1vcqvak3nk3gsrgm.apps.googleusercontent.com'
+        clientId: '779018185446-393jg2j9akjhitl3nci0f1p9tgb0tu13.apps.googleusercontent.com'
       });
 
       $authProvider.github({
