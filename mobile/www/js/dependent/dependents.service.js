@@ -5,6 +5,7 @@
     .module('dependents')
     .factory('DependentsService', function ($http) {
       var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppDependents";
+      // var url= "https://pediaserver.herokuapp.com/api/collections/PediaAppDependents";
       var addDependent = function (newDependent) {
         console.log(newDependent);
         $http.post(url, newDependent);

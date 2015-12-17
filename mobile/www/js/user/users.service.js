@@ -4,7 +4,8 @@
   angular
     .module('users')
     .factory('UsersService', function ($http) {
-      var url = "http://tiny-tiny.herokuapp.com/collections/PediaApp";
+      // var url = "http://tiny-tiny.herokuapp.com/collections/PediaApp";
+      var url = "https://pediaserver.herokuapp.com/api/collections/PediaApp";
       // var urlForLocal = "/api/collections/PediaApp"
       //The functions below would then go to the server side??
 
@@ -25,7 +26,6 @@
 
       var updateUser = function (updatedUser) {
         return $http.put(url + '/' + updatedUser._id, updatedUser);
-        $rootScope.$broadcast('user:edited');
       };
       var removeUser = function (userId) {
         return $http.delete(url + '/' + userId);
@@ -39,7 +39,7 @@
         removeUser: removeUser,
         updateUser: updateUser,
         getUsers: getUsers
-      }
-    })
+      };
+    });
 
 })();

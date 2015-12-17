@@ -14,7 +14,23 @@ angular.module('PediaAppointment.controllers', [])
   $scope.resetData = {};
 })
 
-.controller('LoginController', function ($scope,$state, $stateParams, $auth, $ionicPopup, $window) {
+.controller('PlaylistCtrl', function($scope, $ionicModal, $stateParams) {
+  $ionicModal.fromTemplateUrl('templates/resetpassword.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  //Open the reset password modal
+  $scope.resetPassword = function(){
+    $scope.modal.show();
+  };
+  // //Close the reset password modal
+  $scope.closeReset = function() {
+    $scope.modal.hide();
+  };
+})
+
+.controller('LoginController', function ($scope,$state, $stateParams, $auth, $ionicPopup, $window, $ionicModal) {
     $scope.isAuthenticated = function () {
       return $auth.isAuthenticated();
     };
@@ -26,7 +42,8 @@ angular.module('PediaAppointment.controllers', [])
           .then(function(res) {
             console.log(res);
             $window.localStorage.setItem('userRole', res.data.role);
-            $state.go('tab.photos');
+            // $state.go('tab.photos');
+            $state.go('/app/userprofile');
           })
           .catch(function(response) {
 
@@ -40,7 +57,9 @@ angular.module('PediaAppointment.controllers', [])
               title: 'Success',
               content: 'You have successfully logged in!'
             });
-            $state.go('tab.photos');
+            // $state.go('tab.photos');
+            $state.go('/app/userprofile');
+
           })
           .catch(function(response) {
             $ionicPopup.alert({
@@ -62,25 +81,11 @@ angular.module('PediaAppointment.controllers', [])
       $scope.isAuthenticated = function() {
         return $auth.isAuthenticated();
       };
+
   })
   .controller('AccountCtrl', function($scope, $auth) {
     $scope.settings = {
       enableFriends: true
     };
-})
 
-.controller('PlaylistCtrl', function($scope, $ionicModal, $stateParams) {
-  $ionicModal.fromTemplateUrl('templates/resetpassword.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-//Open the reset password modal
-$scope.resetPassword = function(){
-  $scope.modal.show();
-};
-// //Close the reset password modal
-$scope.closeReset = function() {
-  $scope.modal.hide();
-};
 });

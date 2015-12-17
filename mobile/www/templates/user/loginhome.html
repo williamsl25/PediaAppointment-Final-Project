@@ -3,23 +3,9 @@
 <ion-nav-bar class="bar-light"></ion-nav-bar>
 <ion-view>
 
-  <!-- <ion-content> -->
-
-    <!-- <ion-header-bar>
-      <h1 class="title">Login</h1> -->
-      <!-- <div class="buttons">
-        <button class="button button-clear" ng-click="closeLogin()">Close</button>
-      </div> -->
-    <!-- </ion-header-bar> -->
-    <!-- <h1 class="title">Login</h1> -->
-
     <ion-content>
-      <!-- <ion-subheader-bar>
-        <h1 class="title">Login</h1>
-      </ion-subheader-bar> -->
-
       <form ng-submit="doLogin()">
-        <div class="list">
+        <div class="list loginhome">
           <label class="item item-input icon ion-at">
               <input type="text" placeholder="&nbsp&nbsp&nbsp&nbsp Email" ng-model="loginData.email">
             </label>
@@ -32,15 +18,13 @@
             <input type="password" ng-model="loginData.password"> -->
           </label>
           <label class="item">
-            <button class="button button-block button-positive" type="submit">Log in</button>
+            <button class="button button-block button-positive" ng-click="login()" type="submit">Log in</button>
           <!-- </label> -->
           <!-- <label class="item"> -->
             <button ng-click="authenticate('google')" class="button button-block icon-left ion-social-googleplus">Sign in with Google</button>
           </label>
-
-            <p class="text-center">
-
-                <button class="button button-clear forgotpassword" style="color: blue" ng-click="resetPassword()">Forgot Password</button>
+            <p class="text-center" >
+                <button class="button button-clear forgotpassword" style="color: blue" ng-controller="PlaylistCtrl" ng-click="resetPassword()">Forgot Password</button>
               <!-- <a href="#/auth/resetpassword" <button class="button button-clear forgotpassword">Forgot Password</button></a> -->
             </p>
 

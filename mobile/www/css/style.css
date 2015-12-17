@@ -3,15 +3,13 @@
   height: 300px;
   margin-top: 50px;
 }
-
-
 img{
   width: 60%;
   height: 100%;
 }
-/*.newuser a{
-  text-decoration: none;
-}*/
+.loginhome{
+  margin-top: 60px;
+}
 .forgotpassword{
   text-decoration: underline;
   padding-left: 30px;

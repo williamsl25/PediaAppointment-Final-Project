@@ -4,12 +4,26 @@ angular
 
   $scope.namePlace = [];
 
-  $scope.addPharmacy = function (namePlace) {
+  $scope.addPharmacy = function () {
     console.log('new pharmacy firing!');
-    console.log(namePlace);
-    MapsService.addPharmacy(namePlace);
+    var placeToSave = $scope.namePlace[$scope.namePlace.length - 1];
+    console.log(placeToSave);
+    if (placeToSave === null || placeToSave === undefined) {
+      $location.path('/app/userprofile');
+    } else {
+    MapsService.addPharmacy(placeToSave);
     $location.path('/app/userprofile');
+    }
   };
+
+  $scope.$on('pharmacy:added', function() {
+    var place = $scope.namePlace[$scope.namePlace.length - 1];
+    $scope.address = place.address;
+    $scope.name = place.name;
+    $scope.phone = place.phone;
+    $scope.website = place.website;
+
+  });
 
   $scope.map = {
     center: {
@@ -51,7 +65,7 @@ var place = searchBox.getPlaces();
     if (!place || place === 'undefined' || place.length === 0) {
         return;
       }
-      //  console.log('place', lat, long, place);
+       console.log('place', lat, long, place);
       //  console.log(place[0].name);
       //  console.log(place[0].formatted_address);
       //  console.log(place[0].formatted_phone_number);
@@ -74,6 +88,8 @@ var place = searchBox.getPlaces();
         console.log(newPlace);
         $scope.namePlace.push(newPlace);
         console.log('scope nameplace', $scope.namePlace);
+
+        $scope.$broadcast("pharmacy:added");
 
     }
 
