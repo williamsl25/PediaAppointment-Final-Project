@@ -12,7 +12,8 @@ angular.module('PediaAppointment', [
   'dependents',
   'appointments',
   'maps',
-  'uiGmapgoogle-maps'
+  'uiGmapgoogle-maps',
+  'satellizer'
 
 ])
 
@@ -85,7 +86,7 @@ angular.module('PediaAppointment', [
         views: {
           'login': {
             templateUrl: 'templates/user/loginhome.html',
-            controller: 'PlaylistCtrl'
+            controller: 'LoginController'
           }
         }
       })
@@ -95,7 +96,7 @@ angular.module('PediaAppointment', [
           'login': {
             templateUrl: 'templates/user/loginhome.html',
             // controller: 'PlaylistCtrl'
-            controller: 'PlaylistCtrl'
+            controller: 'LoginController'
 
           }
         }
@@ -112,19 +113,20 @@ angular.module('PediaAppointment', [
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('auth/login');
+})
+
+
+.config(function ($authProvider) {
+  if (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) {
+     $authProvider.cordova = true;
+   }
+
+   $authProvider.loginUrl = "https://pediaserver.herokuapp.com/auth/login";
+
+  $authProvider.google({
+     clientId: '779018185446-393jg2j9akjhitl3nci0f1p9tgb0tu13.apps.googleusercontent.com',
+     url: 'https://pediaserver.herokuapp.com/auth/google',
+     redirectUri: 'http://localhost'
+   });
+
 });
-
-// .config(function ($authProvider) {
-//   if (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) {
-//      $authProvider.cordova = true;
-//    }
-
-// $authProvider.loginurl
-
-//   $authProvider.google({
-//      clientId: '469379853070-g23rimletc4dddro1vcqvak3nk3gsrgm.apps.googleusercontent.com',
-//      url: 'https://mean-starter.herokuapp.com/auth/google',
-//      redirectUri: 'http://localhost'
-//    });
-
-// });

@@ -8,6 +8,7 @@
     "ionic-datepicker": "~0.9.0",
     "angular": "~1.4.8",
     "lodash": "~3.10.1",
-    "angular-google-maps": "~2.2.1"
+    "angular-google-maps": "~2.2.1",
+    "satellizer": "~0.13.2"
   }
 }

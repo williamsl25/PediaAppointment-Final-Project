@@ -10,6 +10,9 @@ router.param('collectionName', function (req, res, next, collectionName) {
     next();
 });
 
+
+// var url = https://pediaserver.herokuapp.com/api/collections/myDependents
+
 // api/collections/:collectionName
 router.route('/:collectionName')
     .get(function (req, res, next) {
@@ -37,13 +40,13 @@ router.route('/:collectionName/:id')
         req.collection.findById(req.params.id, function (e, result) {
             if(e) return next(e);
             res.json(result);
-        })
+        });
     })
     .put(ensureAuthenticated, function (req, res) {
         delete req.body._id;
         req.collection.update(req.params.id, {$set: req.body}, function (e, result) {
             res.status(200).send(result);
-        })
+        });
 
     })
     .delete(ensureAuthenticated, function (req, res, next) {
@@ -51,9 +54,9 @@ router.route('/:collectionName/:id')
             if(e) return next(e);
             result.remove(function () {
                 res.status(200).send({msg: 'good job'});
-            })
+            });
 
-        })
+        });
     });
 
 module.exports = router;
