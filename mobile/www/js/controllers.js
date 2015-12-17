@@ -31,21 +31,18 @@ angular.module('PediaAppointment.controllers', [])
 })
 
 .controller('LoginController', function ($scope,$state, $stateParams, $auth, $ionicPopup, $window, $ionicModal) {
-    $scope.isAuthenticated = function () {
-      return $auth.isAuthenticated();
-    };
+
+
+    $scope.sillyData = "this quick brown fox!";
     $scope.login = function() {
         $auth.login({
             email: $scope.email,
             password: $scope.password
           })
           .then(function(res) {
+
             console.log(res);
             $window.localStorage.setItem('userRole', res.data.role);
-<<<<<<< HEAD
-            // $state.go('tab.photos');
-=======
->>>>>>> 60ffd9da246cd70cb8412f0c0e8913264d1c54fc
             $state.go('/app/userprofile');
           })
           .catch(function(response) {
@@ -60,6 +57,7 @@ angular.module('PediaAppointment.controllers', [])
               title: 'Success',
               content: 'You have successfully logged in!'
             });
+            alert('this is working');
             // $state.go('tab.photos');
             $state.go('/app/userprofile');
 
@@ -67,7 +65,7 @@ angular.module('PediaAppointment.controllers', [])
           .catch(function(response) {
             $ionicPopup.alert({
               title: 'Error',
-              content: response.data ? response.data || response.data.message : response
+              content: response.data ? response.data || response.data.message : JSON.stringify(response)
             });
 
           });

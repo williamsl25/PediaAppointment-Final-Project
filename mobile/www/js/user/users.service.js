@@ -4,8 +4,8 @@
   angular
     .module('users')
     .factory('UsersService', function ($http) {
-      // var url = "http://tiny-tiny.herokuapp.com/collections/PediaApp";
-      var url = "https://pediaserver.herokuapp.com/api/collections/PediaApp";
+      var url = "http://tiny-tiny.herokuapp.com/collections/PediaApp";
+      // var url = "https://pediaserver.herokuapp.com/api/collections/PediaApp";
       // var urlForLocal = "/api/collections/PediaApp"
       //The functions below would then go to the server side??
 

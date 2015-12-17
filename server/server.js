@@ -4,13 +4,13 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
 var config = require('./config');
 var User = require('./models/User');
 var authRoutes = require('./routes/auth');
 var profileRoutes = require('./routes/profile');
 var uploadRoutes = require('./routes/upload');
-var crudRoutes = require('./routes/crudRoutes')
+var crudRoutes = require('./routes/crudRoutes');
 var role = require('./routes/roles');
 
 mongoose.connect(config.MONGO_URI);
@@ -21,7 +21,7 @@ mongoose.connection.on('error', function() {
 var app = express();
 
 app.use(role.middleware());
-app.use(methodOverride())
+app.use(methodOverride());
 app.set('port', process.env.PORT || 3000);
 app.use(logger('dev'));
 
