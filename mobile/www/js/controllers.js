@@ -26,7 +26,7 @@ angular.module('PediaAppointment.controllers', [])
           .then(function(res) {
             console.log(res);
             $window.localStorage.setItem('userRole', res.data.role);
-            $state.go('tab.photos');
+            $state.go('/app/userprofile');
           })
           .catch(function(response) {
 

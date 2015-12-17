@@ -10,12 +10,16 @@
         $scope.dependents = dependents;
       });
 
-      if($stateParams.dependentId) {
-        DependentsService.getSingleDependent($stateParams.dependentId).success(function (singlePost) {
-          console.log(singleDependent);
-          $scope.singleDependent = singleDependent;
-        });
-      }
+      // if($stateParams.dependentId) {
+      //   DependentsService.getSingleDependent("5672d5bab47b580300becbb0").success(function (singlePost) {
+      //     console.log(singleDependent);
+      //     $scope.dependent = dependent;
+      //   });
+      // }
+      DependentsService.getSingleDependent("5672d5bab47b580300becbb0").success(function (dependent) {
+        console.log(dependent);
+        $scope.dependent = dependent;
+      });
 
       $scope.newDependent = function (dependent) {
         console.log('new dependent firing!');
@@ -24,10 +28,34 @@
       };
       // vm.title = "this is add dependent - calvin";
       $scope.editDependent = function (editedDependent) {
-        DependentsService.updateDependent(editedDependent);
+        console.log(editedDependent);
+        DependentsService.updateDependent(editedDependent).success(function() {
+          console.log("EDIT",editedDependent);
+          $location.path('/app/userprofile');
+          $scope.dependent = dependent;
+        });
+      };
+
+      $scope.$on('user:edited', function () {
+
+      });
+
+      $scope.gotoeditDependent = function (id) {
+        DependentsService.getSingleDependent(id).success(function (dependent){
+          console.log(dependent);
+          $scope.dependent = dependent;
+          $location.path('/app/userprofile/dependent/'+ id + '/edit');
+        });
       };
       $scope.deleteDependent = function (dependentId) {
         DependentsService.removeDependent(dependentId);
+      };
+      $scope.gotodependentProfile = function (id) {
+        DependentsService.getSingleDependent(id).success(function (dependent){
+          console.log(dependent);
+          $scope.dependent = dependent;
+          $location.path('/app/userprofile/dependent/'+ id);
+        });
       };
 
   });
