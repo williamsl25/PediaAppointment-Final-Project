@@ -1,0 +1,103 @@
+<!-- <ion-modal-view> -->
+  <!-- <ion-header-bar> -->
+
+  <ion-view>
+    <!-- <h1 class="title">Dependent Information</h1> -->
+    <!-- <div class="buttons">
+      <button class="button button-clear" ng-click="closeDependent()">Close</button>
+    </div> -->
+  <!-- </ion-header-bar> -->
+  <ion-content>
+
+      <div class="list-inset" >
+        <label class="item item-input">
+          <input type="text" placeholder="First, Last Name*" ng-model="dependent.name">
+        </label>
+        <!-- <label class="item item-input">
+          <input type="text" placeholder="Last Name*" ng-model="dependent.lastname">
+        </label> -->
+        <label class="item item-input">
+          <input type="text" placeholder="Date of Birth (MM/DD/YYYY)*" ng-model="dependent.dateofbirth">
+        </label>
+      <!-- </div> -->
+      <!-- <div class="list"> -->
+        <label class="item item-input">
+          <input type="text" placeholder="Current Medications" ng-model="dependent.medications">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Pre-existing Condition" ng-model="dependent.history">
+        </label>
+
+
+
+      </div>
+
+        <!-- <div class="buttons">
+          <button class="button button-clear" ng-click="map()">Find Pediatrician</button>
+        </div> -->
+<!-- <div>
+        <p class="text-center">Add Primary Pediatrician*</p>
+<div> -->
+<div>
+        <h5 class="text-center">Select A Primary Pediatrician*</h5>
+<div>
+
+
+<div id="mapdiv" ng-controller="MapsController">
+  <!-- <body> -->
+    <!-- <ion-header-bar class="bar-dark" >
+      <h1 class="title">Map</h1>
+    </ion-header-bar> -->
+    <!-- <ion-content> -->
+    <!-- <div id="map" ng-controller="MapCtrl" data-tap-disabled="true"></div> -->
+    <!-- </ion-content> -->
+    <!-- <ion-footer-bar class="bar-dark">
+      <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
+    </ion-footer-bar> -->
+  <!-- </body> -->
+
+  <script type="text/ng-template" id="searchbox.tpl.html">
+      <input type="text" placeholder="Search Box" style="width: 300px; margin-top: 12px;">
+  </script>
+
+  <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+    <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
+  <ui-gmap-marker ng-repeat="p in namePlace" coords="p.coords" options="marker.options" events="marker.events" idkey="p.id"></ui-gmap-marker>
+  </ui-gmap-google-map>
+<!-- </div> -->
+
+<div class="list" ng-controller="MapsController" ng-model="dependent.pediatricianname">
+    <ion-item class="item item-input icon ion-ios-people">
+
+      &nbsp&nbsp{{name}}
+    </ion-item>
+      <ion-item class="item item-input icon ion-ios-location">
+
+      &nbsp&nbsp{{address}}
+    </ion-item>
+    <ion-item class="item item-input icon ion-ios-telephone">
+
+      &nbsp&nbsp{{phone}}
+    </ion-item>
+    <ion-item class="item item-input icon ion-ios-world">
+      &nbsp&nbsp<a href="{{website}}">{{website}}</a>
+    </ion-item>
+  </ion-list>
+</div>
+</div>
+
+        <!-- <label class="item">
+          <button class="button button-block button-positive" type="submit">Save Dependent</button>
+        </label> -->
+
+        <div class="buttons" ng-controller="DependentsController">
+          <button class="button button-block button-positive" ng-click="newDependent(dependent)">Save Dependent</button>
+          <!-- {{depsCtrl.title}} -->
+        </div>
+
+
+      </div>
+
+  </ion-content>
+<!-- </ion-modal-view> -->
+</ion-view>
