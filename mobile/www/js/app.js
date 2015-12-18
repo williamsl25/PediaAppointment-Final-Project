@@ -121,8 +121,9 @@ angular.module('PediaAppointment', [
      $authProvider.cordova = true;
    }
 
-  //  $authProvider.loginUrl = "https://pediaserver.herokuapp.com/auth/login";
-   $authProvider.loginUrl = "auth/login";
+   $authProvider.loginUrl = "https://pediaserver.herokuapp.com/auth/login";
+   $authProvider.signupUrl = "https://pediaserver.herokuapp.com/auth/signup";
+  //  $authProvider.loginUrl = "auth/login";
 
   $authProvider.google({
      clientId: '779018185446-393jg2j9akjhitl3nci0f1p9tgb0tu13.apps.googleusercontent.com',
