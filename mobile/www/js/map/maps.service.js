@@ -4,7 +4,8 @@
   angular
     .module('maps')
     .factory('MapsService', function ($http) {
-      // var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppMapInfo";
+      // var url = "https://pediaserver.herokuapp.com/api/collections/PediaAppPharmacy";
+      // var url = "api/collections/PediaAppPharmacy";      
       var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppPharmacy";
       var addPharmacy = function (pharmacy) {
         console.log(pharmacy);
