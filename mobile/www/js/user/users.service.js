@@ -4,11 +4,8 @@
   angular
     .module('users')
     .factory('UsersService', function ($http) {
-      // var url = "http://tiny-tiny.herokuapp.com/collections/PediaApp";
-      // var url = "https://pediaserver.herokuapp.com/api/collections/PediaApp";
-      var url = "/auth/signup";
-      var getUser = "/api/me"
-      //The functions below would then go to the server side??
+      var url = "https://pediaserver.herokuapp.com/auth/signup";
+      var getUser = "https://pediaserver.herokuapp.com/api/me";
 
       var addUser = function (newUser) {
         console.log(newUser);
