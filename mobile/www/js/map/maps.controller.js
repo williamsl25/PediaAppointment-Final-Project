@@ -1,8 +1,9 @@
 angular
 .module('maps')
-.controller('MapsController', function($scope, $ionicLoading, $compile, MapsService, $location) {
+.controller('MapsController', function($scope, $ionicLoading, $compile, MapsService, $location, DependentsService) {
 
   $scope.namePlace = [];
+  var mapPlace =[];
 
   $scope.addPharmacy = function () {
     console.log('new pharmacy firing!');
@@ -16,24 +17,30 @@ angular
     }
   };
 
-  $scope.$on('pharmacy:added', function() {
+  $scope.$on('location:added', function() {
+    console.log("adding to namePlace array");
     var place = $scope.namePlace[$scope.namePlace.length - 1];
     $scope.address = place.address;
     $scope.name = place.name;
     $scope.phone = place.phone;
     $scope.website = place.website;
+    mapPlace = place;
 
   });
 
   $scope.map = {
     center: {
-      latitude: 32.7833,
-      longitude: -79.9333
+      latitude: 32.8853,
+      longitude: -80.0169
     },
+    mapTypeControl: false,
     zoom: 10,
     marker: []
   };
-  $scope.options = {scrollwheel: false};
+  $scope.options = {
+    scrollwheel: false,
+    mapTypeControl: false,
+  };
 
   $scope.marker = {
             id: 0,
@@ -89,7 +96,7 @@ var place = searchBox.getPlaces();
         $scope.namePlace.push(newPlace);
         console.log('scope nameplace', $scope.namePlace);
 
-        $scope.$broadcast("pharmacy:added");
+        $scope.$broadcast("location:added");
 
     }
 

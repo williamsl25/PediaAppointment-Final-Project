@@ -1,57 +1,58 @@
 
 <!-- <ion-view view-title="Confirmation History"> -->
-<ion-view>
+<!-- <ion-view>
 
-  <ion-content>
+  <ion-content> -->
     <ion-view>
     <ion-content>
       <div class="list-inset">
 
-        <ion-list>
-            <h5>Appointment Request:</h5>
-              <ion-item>
-              <!-- {{dependent.symptoms[0]}} ", " {{dependent.symptoms[1]}} etc.   -->
-              </ion-item>
-          </ion-list>
 
-          <h5>Patient:</h5>
+
+        <ion-list>
+            <h5>Appointment Confirmation For:</h5>
+          </ion-list>
+          <ion-item>
+            <!-- {{dependent.firstname}} ", " {{dependent.lastname}} -->
+            dependent first, last name
+          </ion-item>
+          <h5>Date & Time:</h5>
             <ion-item>
-              <!-- {{dependent.firstname}} ", " {{dependent.lastname}} -->
-              dependent first, last name
+            <!-- {{dependent.symptoms[0]}} ", " {{dependent.symptoms[1]}} etc.   -->
             </ion-item>
-            <!-- <ion-item> -->
-              <!-- {{dependent.dateofbirth}} -->
-              <!-- date of birth
-            </ion-item> -->
         </ion-list>
 
         <ion-list>
-            <h5>Symptoms:</h5>
+            <h5>Reason:</h5>
               <ion-item>
               <!-- {{dependent.symptoms[0]}} ", " {{dependent.symptoms[1]}} etc.   -->
               example: fever
               </ion-item>
           </ion-list>
 
-        <ion-list>
+        <ion-list >
             <h5>Pediatrician:</h5>
-              <ion-item>
+              <ion-item class="item item-icon-right">
+                <i class="icon ion-medkit"></i>
+
                 <!-- {{pediatrician.name}} -->
-                pediatrician name
+                pediatrician office
               </ion-item>
-              <ion-item>
-                <!-- {{pediatrician.phone}} ", {{pediatrician.email}}" -->
-                phone, email
-              </ion-item>
-              <div class="list">
+              <!-- <div class="list"> -->
                 <a class="item item-icon-right" href="#/app/map">
                   <i class="icon ion-ios-location"></i>
                   address
                   <!-- {{pediatrician.address}} -->
                 </a>
-              </div>
+              <!-- </div> -->
+              <ion-item class="item item-icon-right">
+                <i class="icon ion-ios-telephone"></i>
+
+                <!-- {{pediatrician.phone}} " -->
+                phone
+              </ion-item>
         </ion-list>
-      <ion-list>
+      <!-- <ion-list> -->
 
 
     <!-- add dependent to list with modal -->
@@ -64,5 +65,5 @@
         </div>
       </ion-content>
     </ion-view>
-  </ion-content>
-</ion-view>
+  <!-- </ion-content>
+</ion-view> -->
