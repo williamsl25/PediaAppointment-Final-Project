@@ -30,13 +30,6 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
-});
-
-
 // Force HTTPS on Heroku
 if (app.get('env') === 'production') {
   app.use(function(req, res, next) {
@@ -44,7 +37,7 @@ if (app.get('env') === 'production') {
     protocol === 'https' ? next() : res.redirect('https://' + req.hostname + req.url);
   });
 }
-app.use(express.static('/Users/Dustin/tiy_Docs/homework_assignments/PediaAppointment-Final-Project/mobile/www'));
+app.use(express.static(path.join(__dirname, 'mobile/www')));
 
 // Routes
 app.use('/auth', authRoutes);

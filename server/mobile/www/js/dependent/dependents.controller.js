@@ -9,17 +9,17 @@
       console.log(dependents);
         $scope.dependents = dependents;
       });
-
-      // if($stateParams.dependentId) {
-      //   DependentsService.getSingleDependent("5672d5bab47b580300becbb0").success(function (singlePost) {
-      //     console.log(singleDependent);
-      //     $scope.dependent = dependent;
-      //   });
-      // }
-      DependentsService.getSingleDependent("5672d5bab47b580300becbb0").success(function (dependent) {
-        console.log(dependent);
-        $scope.dependent = dependent;
-      });
+    //
+    //   // if($stateParams.dependentId) {
+    //   //   DependentsService.getSingleDependent("5672d5bab47b580300becbb0").success(function (singlePost) {
+    //   //     console.log(singleDependent);
+    //   //     $scope.dependent = dependent;
+    //   //   });
+    //   // }
+    //   DependentsService.getSingleDependent("5672d5bab47b580300becbb0").success(function (dependent) {
+    //     console.log(dependent);
+    //     $scope.dependent = dependent;
+    //   });
 
       $scope.newDependent = function (dependent) {
         console.log('new dependent firing!');
