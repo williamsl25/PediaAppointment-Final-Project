@@ -59,10 +59,10 @@
 
 
 <script type="text/ng-template" id="searchbox.tpl.html">
-    <input type="text" placeholder="Search Box" style="width: 280px; margin-top: 12px;">
+    <input type="text" placeholder="Search Box" style="width: 300px; margin-top: 12px; ">
 </script>
 
-<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+<ui-gmap-google-map center='map.center' zoom='map.zoom' options='map.option'>
   <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
 <ui-gmap-marker ng-repeat="p in namePlace" coords="p.coords" options="marker.options" events="marker.events" idkey="p.id"></ui-gmap-marker>
 </ui-gmap-google-map>
