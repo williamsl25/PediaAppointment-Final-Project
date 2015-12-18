@@ -40,7 +40,7 @@ router.route('/login')
  */
  router.route('/signup')
   .post(function(req, res) {
-
+    console.log("TRYING TO CREATE USER", req.body.email);
     User.findOne({ email: req.body.email }, function(err, existingUser) {
       if (existingUser) {
         return res.status(409).send({ message: 'Email is already taken' });
@@ -51,6 +51,7 @@ router.route('/login')
         password: req.body.password,
         role: /@theironyard.com\s*$/.test(req.body.email) ? 'admin' : 'member'
       });
+      console.log("CREATING USER", user);
       user.save(function() {
         res.send({ token: createToken(user), role: user.role });
       });

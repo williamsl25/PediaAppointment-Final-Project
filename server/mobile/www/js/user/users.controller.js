@@ -3,7 +3,7 @@
 
   angular
   .module('users')
-  .controller('UsersController', function ($scope, $stateParams, UsersService, DependentsService, $location){
+  .controller('UsersController', function ($scope, $auth, $stateParams, UsersService, DependentsService, $location){
     // UsersService.getUsers().success(function (users) {
     //   console.log(users);
     //     $scope.users = users;
@@ -12,16 +12,32 @@
       // if($stateParams.userId) {
       // UsersService.getSingleUser($stateParams.userId).success(function (singlePost) {
 
-        UsersService.getSingleUser("567171afd92ae003001460ea").success(function (singleUser) {
+        UsersService.getSingleUser().success(function (singleUser) {
           console.log(singleUser);
           $scope.singleUser = singleUser;
         });
-      // }
+      
 
-      $scope.newUser = function (user) {
-        console.log(user);
-        UsersService.addUser(user);
-      };
+      // $scope.newUser = function (user) {
+      //   console.log(user);
+      //   UsersService.addUser(user);
+      DependentsService.getDependents().success(function (dependents) {
+        console.log(dependents);
+          $scope.dependents = dependents;
+        });
+
+        $scope.newUser = function(user) {
+          console.log("something", user);
+          $auth.signup({
+            // displayName: $scope.displayName,
+            email: user.email,
+            password: user.password
+          }).catch(function(response) {
+           console.log("ERROR", response);
+          });
+        };
+
+
 
 // navigates to the editUser.html with the gotoEditUser function
       $scope.gotoeditUser = function (id) {

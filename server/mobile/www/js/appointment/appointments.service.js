@@ -4,8 +4,12 @@
   angular
     .module('appointments')
     .factory('AppointmentsService', function ($http) {
-      var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppAppointments";
+      // var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppAppointments";
+      // var url = "https://pediaserver.herokuapp.com/api/collections/PediaAppAppointments";
+      var url = "api/collections/PediaAppAppointments";
+
       var addAppointment = function (newAppointment) {
+
         console.log(newAppointment);
         $http.post(url, newAppointment);
       };
