@@ -21,15 +21,14 @@
     <ion-list can-swipe="true" option-buttons="itemButtons">
 
       <ion-item>
-        {{singleUser.firstname}}
-        <!-- first name -->
+        <!-- {{singleUser.firstname}} -->
+        {{singleUser.name}}
         <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
-      <ion-item>
+      <!-- <ion-item>
         {{singleUser.lastname}}
-        <!-- last name -->
         <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
-      </ion-item>
+      </ion-item> -->
       <ion-item>
         {{singleUser.phone}}
         <!-- phone -->

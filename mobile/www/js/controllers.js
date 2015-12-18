@@ -28,12 +28,16 @@ angular.module('PediaAppointment.controllers', [])
   $scope.closeReset = function() {
     $scope.modal.hide();
   };
+  $scope.sendReset = function(){
+    $scope.modal.hide();
+    $scope.go('auth/login');
+  };
 })
 
 .controller('LoginController', function ($scope,$state, $stateParams, $auth, $ionicPopup, $window, $ionicModal) {
 
 
-    $scope.sillyData = "this quick brown fox!";
+    // $scope.sillyData = "this quick brown fox!";
     $scope.login = function() {
         $auth.login({
             email: $scope.email,
