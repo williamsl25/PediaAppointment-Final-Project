@@ -12,16 +12,19 @@
       // if($stateParams.userId) {
       // UsersService.getSingleUser($stateParams.userId).success(function (singlePost) {
 
-        // UsersService.getSingleUser("567171afd92ae003001460ea").success(function (singleUser) {
-        //   console.log(singleUser);
-        //   $scope.singleUser = singleUser;
-        // });
-      // }
+        UsersService.getSingleUser().success(function (singleUser) {
+          console.log(singleUser);
+          $scope.singleUser = singleUser;
+        });
+      
 
       // $scope.newUser = function (user) {
       //   console.log(user);
       //   UsersService.addUser(user);
-
+      DependentsService.getDependents().success(function (dependents) {
+        console.log(dependents);
+          $scope.dependents = dependents;
+        });
 
         $scope.newUser = function(user) {
           console.log("something", user);

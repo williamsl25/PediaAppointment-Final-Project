@@ -22,7 +22,7 @@
 
       <ion-item>
         <!-- {{singleUser.firstname}} -->
-        {{singleUser.name}}
+        {{user.name}}
         <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
       <!-- <ion-item>
@@ -30,12 +30,12 @@
         <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item> -->
       <ion-item>
-        {{singleUser.phone}}
+        {{user.phone}}
         <!-- phone -->
         <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
       <ion-item>
-        {{singleUser.email}}
+        {{user.email}}
         <!-- email -->
         <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       </ion-item>
@@ -54,7 +54,7 @@
 
       <ion-list can-swipe="true" option-buttons="itemButtons" >
         <ion-item ng-repeat="dependent in dependents" href="#/app/dependents/{{dependent.id}}">
-          {{dependent.firstname}}
+          dependent: {{dependent.name}}
           <ion-option-button class="button-dark" ng-click="gotoeditDependent(dependent._id)">Edit</ion-option-button>
         </ion-item>
       </ion-list>

@@ -6,10 +6,13 @@
     .factory('DependentsService', function ($http) {
       // var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppDependents";
       // var url = "https://pediaserver.herokuapp.com/api/collections/PediaAppDependents";
-      var url= "collections/PediaAppDependents";
+      var url = "/api/dependents";
+
       var addDependent = function (newDependent) {
-        console.log(newDependent);
-        $http.post(url, newDependent);
+        console.log("ADD DEP SERV", newDependent);
+        $http.post(url, newDependent).then(function(data) {
+          console.log("ADD DEPENDENT SERVICE", data);
+        });
       };
 
       var getDependents = function () {

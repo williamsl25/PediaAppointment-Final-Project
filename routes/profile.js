@@ -4,6 +4,8 @@ var User = require('../models/User');
 var config = require('../config');
 var ensureAuthenticated = require('./helpers').ensureAuthenticated;
 var role = require('./roles');
+var Dependent = require('../models/Dependent');
+var ObjectId = require('mongoose').Types.ObjectId;
 
 // GET /api/me
 router.route('/me')
@@ -66,5 +68,37 @@ router.route('/admin/users/:userId')
       res.status(200).send({message: 'Successfuly Deleted User'});
     });
   });
+
+router.route('/dependents')
+  .get(function(req,res) {
+    Dependent.find({'user._id': req.user}, function(err, dependents) {
+      console.log("FOUND DEPS", dependents);
+      if(!dependents)  { return res.status(400).send({ message: 'User not found / No Dependents' }); }
+      res.status(200).send(dependents);
+    });
+  })
+  .post(ensureAuthenticated, function (req, res, next) {
+    console.log("POST IN DEPENDENT", req.user);
+    var dependent = new Dependent({
+      user: req.user,
+      name: req.body.name,
+      dob: req.body.dob,
+      history: req.body.history,
+      medication: req.body.medication,
+      pediatrician: req.body.pediatricianName,
+      pedAddress: req.body.pedAddress,
+      pedPhone: req.body.pedPhone,
+      pedWeb: req.body.website
+    });
+
+    console.log('new Dependent', dependent);
+    dependent.save(function (err,dependent) {
+      console.log("err", err);
+      if(err) return next(err);
+        res.status(200).send({msg: "it works"});
+    });
+  });
+
+  //Dependent Routes
 
 module.exports = router;

@@ -17,7 +17,7 @@
           <input type="text" placeholder="Last Name*" ng-model="dependent.lastname">
         </label> -->
         <label class="item item-input">
-          <input type="text" placeholder="Date of Birth (MM/DD/YYYY)*" ng-model="dependent.dateofbirth">
+          <input type="text" placeholder="Date of Birth (MM/DD/YYYY)*" ng-model="dependent.dob">
         </label>
       <!-- </div> -->
       <!-- <div class="list"> -->
@@ -71,15 +71,15 @@
 
       &nbsp&nbsp{{name}}
     </ion-item>
-      <ion-item class="item item-input icon ion-ios-location">
+      <ion-item class="item item-input icon ion-ios-location" ng-model="dependent.pediatrician.address">
 
       &nbsp&nbsp{{address}}
     </ion-item>
-    <ion-item class="item item-input icon ion-ios-telephone">
+    <ion-item class="item item-input icon ion-ios-telephone" ng-model="dependent.pediatricianphone">
 
       &nbsp&nbsp{{phone}}
     </ion-item>
-    <ion-item class="item item-input icon ion-ios-world">
+    <ion-item class="item item-input icon ion-ios-world" ng-model="dependent.pediatricianwebsite">
       &nbsp&nbsp<a href="{{website}}">{{website}}</a>
     </ion-item>
   </ion-list>
