@@ -33,6 +33,7 @@ router.route('/login')
     });
   });
 
+  /*
 /*
  |--------------------------------------------------------------------------
  | Create Email and Password Account
@@ -40,15 +41,16 @@ router.route('/login')
  */
  router.route('/signup')
   .post(function(req, res) {
-    console.log("TRYING TO CREATE USER", req.body.email);
+    console.log("TRYING TO CREATE USER", req.body.email, req.body.password, req.body.phone, req.body.name, req);
     User.findOne({ email: req.body.email }, function(err, existingUser) {
       if (existingUser) {
         return res.status(409).send({ message: 'Email is already taken' });
       }
       var user = new User({
-        displayName: req.body.displayName,
+        name: req.body.name,
         email: req.body.email,
         password: req.body.password,
+        phone: req.body.phone,
         role: /@theironyard.com\s*$/.test(req.body.email) ? 'admin' : 'member'
       });
       console.log("CREATING USER", user);

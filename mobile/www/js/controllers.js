@@ -47,7 +47,7 @@ angular.module('PediaAppointment.controllers', [])
 
             console.log(res);
             $window.localStorage.setItem('userRole', res.data.role);
-            $state.go('app.addDependent');
+            $state.go('app.appointment');
           })
           .catch(function(response) {
 
@@ -75,12 +75,13 @@ angular.module('PediaAppointment.controllers', [])
           });
       };
       $scope.logout = function() {
+        console.log("logout being fired");
         $auth.logout().then(function () {
 
           $ionicPopup.alert({
             title: "You've been logged out!"
           });
-          $state.go('login');
+          $state.go('auth/login');
         });
       };
       $scope.isAuthenticated = function() {
