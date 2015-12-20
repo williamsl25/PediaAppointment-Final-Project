@@ -12,6 +12,7 @@ router.route('/me')
   .all(ensureAuthenticated)
   .get(function(req, res) {
     User.findById(req.user, function(err, user) {
+      console.log(user);
       res.send(user);
     });
   })
@@ -21,8 +22,10 @@ router.route('/me')
       if (!user) {
         return res.status(400).send({ message: 'User not found' });
       }
-      user.displayName = req.body.displayName || user.displayName;
+      user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
+      user.name = req.body.phone || user.phone;
+
       user.save(function(err) {
         res.status(200).end();
       });
@@ -54,8 +57,9 @@ router.route('/admin/users/:userId')
   .put(function (req, res) {
     User.findById(req.params.userId, function (err, user) {
       if (!user) { return res.status(400).send({ message: 'User not found' }); }
-      user.displayName = req.body.displayName || user.displayName;
+      user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
+      user.phone = req.body.phone || user.phone;
       user.role = req.body.role || user.role;
       user.save(function(err) {
         res.status(200).end();
@@ -86,9 +90,9 @@ router.route('/dependents')
       history: req.body.history,
       medication: req.body.medication,
       pediatrician: req.body.pediatricianName,
-      pedAddress: req.body.pedAddress,
-      pedPhone: req.body.pedPhone,
-      pedWeb: req.body.website
+      pedAddress: req.body.peditricianAddress,
+      pedPhone: req.body.peditricianPhone,
+      pedWeb: req.body.pediatricianWebsite
     });
 
     console.log('new Dependent', dependent);

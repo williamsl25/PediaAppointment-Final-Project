@@ -9,12 +9,16 @@ var dependentSchema = new mongoose.Schema({
   dob: Date,
   medication: String,
   history: String,
-  pediatrician: [{
-    name: String,
-    address: String,
-    phone: String,
-    email: String
-  }]
+  pediatrician: String,
+  pedAddress: String,
+  pedPhone: String,
+  pedWeb: String
+  // pediatrician: [{
+  //   name: String,
+  //   address: String,
+  //   phone: String,
+  //   website: String
+  // }]
 });
 
 var Dependent = mongoose.model('Dependent', dependentSchema);

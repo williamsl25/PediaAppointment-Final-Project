@@ -16,7 +16,7 @@
           console.log(singleUser);
           $scope.singleUser = singleUser;
         });
-      
+
 
       // $scope.newUser = function (user) {
       //   console.log(user);
@@ -27,14 +27,17 @@
         });
 
         $scope.newUser = function(user) {
-          console.log("something", user);
+          console.log("User Being Created", user);
           $auth.signup({
             // displayName: $scope.displayName,
-            email: user.email,
-            password: user.password
+            name: user.name,
+            password: user.password,
+            phone: user.phone,
+            email: user.email
           }).catch(function(response) {
            console.log("ERROR", response);
           });
+          $location.path('app/userprofile');
         };
 
 
