@@ -22,7 +22,7 @@
       <!-- </div> -->
       <!-- <div class="list"> -->
         <label class="item item-input">
-          <input type="text" placeholder="Current Medications" ng-model="dependent.medications">
+          <input type="text" placeholder="Current Medications" ng-model="dependent.medication">
         </label>
         <label class="item item-input">
           <input type="text" placeholder="Pre-existing Condition" ng-model="dependent.history">
@@ -66,20 +66,28 @@
   </ui-gmap-google-map>
 <!-- </div> -->
 
-<div class="list" ng-controller="MapsController" ng-model="dependent.pediatricianname">
-    <ion-item class="item item-input icon ion-ios-people">
+<div class="list" ng-controller="DependentsController" ng-model="dependent.pediatricianName">
+    <!-- <ion-item class="item item-input icon ion-ios-people">
 
       &nbsp&nbsp{{name}}
-    </ion-item>
-      <ion-item class="item item-input icon ion-ios-location" ng-model="dependent.pediatrician.address">
+    </ion-item> -->
+
+    <label class="item item-input">
+      <input type="text" placeholder="&nbsp&nbsp{{name}}"
+ ng-model="dependent.pediatricianName">
+ &nbsp&nbsp{{name}}
+    </label>
+
+
+      <ion-item class="item item-input icon ion-ios-location" ng-model="dependent.pediatricianAddress">
 
       &nbsp&nbsp{{address}}
     </ion-item>
-    <ion-item class="item item-input icon ion-ios-telephone" ng-model="dependent.pediatricianphone">
+    <ion-item class="item item-input icon ion-ios-telephone" ng-model="dependent.pediatricianPhone">
 
       &nbsp&nbsp{{phone}}
     </ion-item>
-    <ion-item class="item item-input icon ion-ios-world" ng-model="dependent.pediatricianwebsite">
+    <ion-item class="item item-input icon ion-ios-world" ng-model="dependent.pediatricianWebsite">
       &nbsp&nbsp<a href="{{website}}">{{website}}</a>
     </ion-item>
   </ion-list>

@@ -22,7 +22,7 @@
     //   });
 
       $scope.newDependent = function (dependent) {
-        console.log('new dependent firing!');
+        console.log('new dependent firing!', dependent);
         DependentsService.addDependent(dependent);
         $location.path('/app/userprofile');
       };
