@@ -46,9 +46,10 @@ router.route('/login')
         return res.status(409).send({ message: 'Email is already taken' });
       }
       var user = new User({
-        displayName: req.body.displayName,
+        name: req.body.name,
         email: req.body.email,
         password: req.body.password,
+        phone: req.body.phone,
         role: /@theironyard.com\s*$/.test(req.body.email) ? 'admin' : 'member'
       });
       console.log("CREATING USER", user);
