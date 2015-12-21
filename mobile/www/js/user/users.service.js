@@ -6,6 +6,7 @@
     .factory('UsersService', function ($http) {
       var url = "https://pediaserver.herokuapp.com/auth/signup";
       var getUser = "https://pediaserver.herokuapp.com/api/me";
+      var updateMe = "https://pediaserver.herokuapp.com/api/me";
 
       var addUser = function (newUser) {
         console.log(newUser);
@@ -23,7 +24,7 @@
       };
 
       var updateUser = function (updatedUser) {
-        return $http.put(url + '/' + updatedUser._id, updatedUser);
+        return $http.put(updateMe, updatedUser);
       };
       var removeUser = function (userId) {
         return $http.delete(url + '/' + userId);

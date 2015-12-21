@@ -24,8 +24,9 @@ router.route('/me')
         return res.status(400).send({ message: 'User not found' });
       }
       user.name = req.body.name || user.name;
+      user.phone= req.body.phone || user.phone;
       user.email = req.body.email || user.email;
-      user.name = req.body.phone || user.phone;
+
 
       user.save(function(err) {
         res.status(200).end();
@@ -59,8 +60,8 @@ router.route('/admin/users/:userId')
     User.findById(req.params.userId, function (err, user) {
       if (!user) { return res.status(400).send({ message: 'User not found' }); }
       user.name = req.body.name || user.name;
-      user.email = req.body.email || user.email;
       user.phone = req.body.phone || user.phone;
+      user.email = req.body.email || user.email;
       user.role = req.body.role || user.role;
       user.save(function(err) {
         res.status(200).end();

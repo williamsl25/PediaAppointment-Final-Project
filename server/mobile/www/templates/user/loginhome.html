@@ -1,0 +1,51 @@
+<!-- <ion-view view-title="PediaAppointment"> -->
+
+<ion-nav-bar class="bar-light"></ion-nav-bar>
+<ion-view>
+
+    <ion-content>
+
+        <div class="list loginhome" ng-controller="LoginController">
+          <label class="item item-input icon ion-at">
+              <input type="text" placeholder="&nbsp&nbsp&nbsp&nbsp Email" style="text-align: center" ng-model="email">
+            </label>
+            <!-- <span class="input-label">Username</span>
+            <input type="text" ng-model="loginData.username"> -->
+          </label>
+          <label class="item item-input icon ion-locked">
+            <input type="password" placeholder="&nbsp&nbsp&nbsp&nbsp Password" style="text-align: center" ng-model="password">
+            <!-- <span class="input-label">Password</span>
+            <input type="password" ng-model="loginData.password"> -->
+          </label>
+        <div>
+          <label class="item">
+            <button class="button button-block button-positive" ng-click="login(user)" type="submit">Log in</button>
+          </label>
+        </div>
+          <label class="item">
+            <button ng-click="authenticate('google')" class="button button-block icon-left ion-social-googleplus">Sign in with Google</button>
+          </label>
+            <p class="text-center" >
+                <button class="button button-clear forgotpassword" style="color: blue" ng-controller="PlaylistCtrl" ng-click="resetPassword()">Forgot Password</button>
+              <!-- <a href="#/auth/resetpassword" <button class="button button-clear forgotpassword">Forgot Password</button></a> -->
+            </p>
+
+
+
+          <label class="item">
+
+            <a href="#/app/newuser" style="text-decoration: none"><button class="button button-block button-positive" style="margin-Top: 80px" type="">New User</button></a>
+
+          </label>
+
+
+        </div>
+
+
+    </ion-content>
+
+
+
+
+  <!-- </ion-content> -->
+</ion-view>
