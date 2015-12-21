@@ -14,3 +14,5 @@ var pharmacySchema = new mongoose.Schema({
 var Pharmacy = mongoose.model('Pharmacy', pharmacySchema);
 
 module.exports = Pharmacy;
+
+//
