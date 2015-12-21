@@ -5,7 +5,7 @@ var config = require('../config');
 var ensureAuthenticated = require('./helpers').ensureAuthenticated;
 var role = require('./roles');
 var Dependent = require('../models/Dependent');
-var Pharmacy = require('../models/Pharmacy');
+// var Pharmacy = require('../models/Pharmacy');
 var ObjectId = require('mongoose').Types.ObjectId;
 
 // GET /api/me
