@@ -5,6 +5,7 @@ var config = require('../config');
 var ensureAuthenticated = require('./helpers').ensureAuthenticated;
 var role = require('./roles');
 var Dependent = require('../models/Dependent');
+// var Pharmacy = require('../models/Pharmacy');
 var ObjectId = require('mongoose').Types.ObjectId;
 
 // GET /api/me
@@ -107,7 +108,7 @@ router.route('/dependents')
 //Pharmacy route
   router.route('/pharmacy')
     .get(function(req,res) {
-      Dependent.find({'user._id': req.user}, function(err, pharmacy) {
+      Pharmacy.find({'user._id': req.user}, function(err, pharmacy) {
         console.log("FOUND PHARMACY", pharmacy);
         if(!pharmacy)  { return res.status(400).send({ message: 'Pharmacy Not Found / No Pharmacy on File' }); }
         res.status(200).send(pharmacy);
