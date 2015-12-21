@@ -7,6 +7,7 @@
       var url = "https://pediaserver.herokuapp.com/auth/signup";
       var getUser = "https://pediaserver.herokuapp.com/api/me";
       var updateMe = "https://pediaserver.herokuapp.com/api/me"
+      
       var addUser = function (newUser) {
         console.log(newUser);
         $http.post(url, newUser).then(function(res){
