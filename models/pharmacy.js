@@ -15,4 +15,4 @@ var Pharmacy = mongoose.model('Pharmacy', pharmacySchema);
 
 module.exports = Pharmacy;
 
-//
+//This is to add the pharmacy
