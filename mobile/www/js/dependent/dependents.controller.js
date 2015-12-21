@@ -117,7 +117,6 @@
     // DependentsService.getDependents().success(function (dependents) {
     //   console.log(dependents);
     //     $scope.dependents = dependents;
-    //   });
     
       // if($stateParams.dependentId) {
       //   DependentsService.getSingleDependent().success(function (singlePost) {

@@ -19,15 +19,25 @@ router.route('/me')
   })
 // PUT /api/me
   .put(function(req, res) {
+
     User.findById(req.user, function(err, user) {
+      console.log(user);
+      console.log(req);
       if (!user) {
         return res.status(400).send({ message: 'User not found' });
       }
       user.name = req.body.name || user.name;
+<<<<<<< HEAD
       user.phone= req.body.phone || user.phone;
       user.email = req.body.email || user.email;
 
 
+=======
+      console.log(req.body.name);
+      user.phone = req.body.phone || user.phone;
+      user.email = req.body.email || user.email;
+// change this to .phone
+>>>>>>> ecf6bcc33960a9a194e614c830c34b1b17dac2b0
       user.save(function(err) {
         res.status(200).end();
       });
@@ -57,8 +67,10 @@ router.route('/admin/users/:userId')
     });
   })
   .put(function (req, res) {
+
     User.findById(req.params.userId, function (err, user) {
       if (!user) { return res.status(400).send({ message: 'User not found' }); }
+      console.log ("get name of user", req.body.name);
       user.name = req.body.name || user.name;
       user.phone = req.body.phone || user.phone;
       user.email = req.body.email || user.email;

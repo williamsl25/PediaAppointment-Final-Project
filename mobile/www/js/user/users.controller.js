@@ -87,7 +87,7 @@ $scope.singleUser;
         UsersService.updateUser(singleUser).success(function() {
           console.log("EDIT",singleUser);
           $location.path('/app/userprofile');
-          $scope.singleUser = singleUser;
+          $scope.singleUser = singleUser; // refreshes the profile page after the edit
         });
       };
 
