@@ -27,9 +27,6 @@
         <label class="item item-input">
           <input type="text" placeholder="Pre-existing Condition" ng-model="dependent.history">
         </label>
-
-
-
       </div>
 
         <!-- <div class="buttons">
@@ -40,10 +37,10 @@
 <div> -->
 <div>
         <h5 class="text-center">Select A Primary Pediatrician*</h5>
-<div>
+</div>
 
 
-<div id="mapdiv" ng-controller="MapsController">
+<div id="mapdiv">
   <!-- <body> -->
     <!-- <ion-header-bar class="bar-dark" >
       <h1 class="title">Map</h1>
@@ -66,25 +63,15 @@
   </ui-gmap-google-map>
 <!-- </div> -->
 
-<div class="list" ng-controller="DependentsController" ng-model="dependent.pediatricianName">
-    <!-- <ion-item class="item item-input icon ion-ios-people">
-
+<div class="list">
+    <ion-item class="item item-input icon ion-ios-people" ng-model="dependent.pediatricianName">
       &nbsp&nbsp{{name}}
-    </ion-item> -->
-
-    <label class="item item-input">
-      <input type="text" placeholder="&nbsp&nbsp{{name}}"
- ng-model="dependent.pediatricianName">
- &nbsp&nbsp{{name}}
+    </ion-item>
     </label>
-
-
       <ion-item class="item item-input icon ion-ios-location" ng-model="dependent.pediatricianAddress">
-
       &nbsp&nbsp{{address}}
     </ion-item>
     <ion-item class="item item-input icon ion-ios-telephone" ng-model="dependent.pediatricianPhone">
-
       &nbsp&nbsp{{phone}}
     </ion-item>
     <ion-item class="item item-input icon ion-ios-world" ng-model="dependent.pediatricianWebsite">
@@ -92,13 +79,15 @@
     </ion-item>
   </ion-list>
 </div>
+
+</div>
 </div>
 
         <!-- <label class="item">
           <button class="button button-block button-positive" type="submit">Save Dependent</button>
         </label> -->
 
-        <div class="buttons" ng-controller="DependentsController">
+        <div class="buttons">
           <button class="button button-block button-positive" ng-click="newDependent(dependent)">Save Dependent</button>
           <!-- {{depsCtrl.title}} -->
         </div>
