@@ -17,7 +17,6 @@
 <ion-content>
 
   <div class="list">
-    <!-- <ion-list option-buttons="itemButtons" can-swipe="listCanSwipe"> -->
     <ion-list can-swipe="true" option-buttons="itemButtons">
 
       <ion-item>
@@ -26,21 +25,14 @@
         {{singleUser.name}}
 
       </ion-item>
-      <!-- <ion-item>
-        {{singleUser.lastname}}
-        <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
-      </ion-item> -->
       <ion-item>
         <!-- <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button> -->
         {{singleUser.phone}}
-        <!-- phone -->
-
       </ion-item>
       <ion-item>
         <!-- <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button> -->
         {{singleUser.email}}
-        <!-- email -->
-
+        <!-- <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button> -->
       </ion-item>
     </ion-list>
 
@@ -56,7 +48,7 @@
   <!-- list of dependents -->
 
       <ion-list can-swipe="true" option-buttons="itemButtons" >
-        <ion-item ng-repeat="dependent in dependents" href="#/app/dependents/{{dependent.id}}">
+        <ion-item    href="#/app/dependents/{{dependent.id}}">
           dependent: {{dependent.name}}
           <ion-option-button class="button-dark" ng-click="gotoeditDependent(dependent._id)">Edit</ion-option-button>
         </ion-item>

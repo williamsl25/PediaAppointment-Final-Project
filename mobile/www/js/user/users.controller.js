@@ -8,7 +8,7 @@
     //   console.log(users);
     //     $scope.users = users;
     //   });
-
+$scope.singleUser;
       // if($stateParams.userId) {
       // UsersService.getSingleUser($stateParams.userId).success(function (singlePost) {
 
@@ -21,9 +21,35 @@
       // $scope.newUser = function (user) {
       //   console.log(user);
       //   UsersService.addUser(user);
+
+
       DependentsService.getDependents().success(function (dependents) {
-        console.log(dependents);
-          $scope.dependents = dependents;
+        // console.log('what are these', dependents[3].user);
+        // console.log('get dependets',$scope.singleUser._id);
+        var userData = $scope.singleUser._id;
+        console.log('test', userData);
+
+            console.log('logging success',dependents[3].user);
+            // $scope.dependents = dependents[i];
+
+
+            var dependentsArr = [];
+            console.log(dependents);
+            for(var i = 0; i <= dependents.length; i++) {
+              console.log("this is i.user", dependents[i].user);
+              console.log("this is i", i);
+              if (userData === dependents[i].user){
+                console.log(dependents[i].name);
+
+                // dependentsArr.push(dependents[i].name);
+                dependentsArr.push(dependents[i]);
+
+                console.log(dependentsArr);
+            }else {
+                console.log("User does not have dependents");
+            }
+          }
+
         });
 
 
@@ -50,15 +76,16 @@
         UsersService.getSingleUser(id).success(function (singleUser){
           console.log(singleUser);
           $scope.singleUser = singleUser;
-          $location.path('/app/users/'+ singleUser._id+'/edit');
+          console.log(singleUser._id);
+          $location.path('/app/users/' + singleUser._id +'/edit');
         });
       };
 
 //Is this supposed to be here???
-      $scope.editUser = function (editedUser) {
-        console.log(editedUser);
-        UsersService.updateUser(editedUser).success(function() {
-          console.log("EDIT",editedUser);
+      $scope.editUser = function (singleUser) {
+        console.log(singleUser);
+        UsersService.updateUser(singleUser).success(function() {
+          console.log("EDIT",singleUser);
           $location.path('/app/userprofile');
           $scope.singleUser = singleUser; // refreshes the profile page after the edit
         });

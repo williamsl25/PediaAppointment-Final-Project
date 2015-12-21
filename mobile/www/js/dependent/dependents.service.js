@@ -16,6 +16,7 @@
         });
       };
 
+
       var getDependents = function () {
         return $http.get(url);
       };
