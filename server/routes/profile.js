@@ -65,8 +65,8 @@ router.route('/admin/users/:userId')
       if (!user) { return res.status(400).send({ message: 'User not found' }); }
       console.log ("get name of user", req.body.name);
       user.name = req.body.name || user.name;
-      user.email = req.body.email || user.email;
       user.phone = req.body.phone || user.phone;
+      user.email = req.body.email || user.email;
       user.role = req.body.role || user.role;
       user.save(function(err) {
         res.status(200).end();
