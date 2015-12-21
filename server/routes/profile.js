@@ -19,11 +19,15 @@ router.route('/me')
   })
 // PUT /api/me
   .put(function(req, res) {
+
     User.findById(req.user, function(err, user) {
+      console.log(user);
+      console.log(req);
       if (!user) {
         return res.status(400).send({ message: 'User not found' });
       }
       user.name = req.body.name || user.name;
+      console.log(req.body.name);
       user.email = req.body.email || user.email;
       user.phone = req.body.phone || user.phone;
 // change this to .phone
