@@ -26,6 +26,9 @@
           $scope.dependents = dependents;
         });
 
+
+
+
         $scope.newUser = function(user) {
           console.log("User Being Created", user);
           $auth.signup({
@@ -47,7 +50,7 @@
         UsersService.getSingleUser(id).success(function (singleUser){
           console.log(singleUser);
           $scope.singleUser = singleUser;
-          $location.path('/app/users/'+ id+'/edit');
+          $location.path('/app/users/'+ singleUser._id+'/edit');
         });
       };
 
@@ -57,7 +60,7 @@
         UsersService.updateUser(editedUser).success(function() {
           console.log("EDIT",editedUser);
           $location.path('/app/userprofile');
-          $scope.singleUser = singleUser;
+          $scope.singleUser = singleUser; // refreshes the profile page after the edit
         });
       };
 
