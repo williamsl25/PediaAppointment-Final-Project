@@ -25,7 +25,7 @@ router.route('/me')
       }
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
-      user.name = req.body.phone || user.phone;
+      user.phone = req.body.phone || user.phone;
 
       user.save(function(err) {
         res.status(200).end();

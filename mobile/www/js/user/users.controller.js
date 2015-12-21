@@ -26,6 +26,9 @@
           $scope.dependents = dependents;
         });
 
+    
+
+
         $scope.newUser = function(user) {
           console.log("User Being Created", user);
           $auth.signup({

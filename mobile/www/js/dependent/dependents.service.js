@@ -1,3 +1,4 @@
+// https://pediaserver.herokuapp.com/api/collections/dependents
 (function () {
   "use strict";
 
