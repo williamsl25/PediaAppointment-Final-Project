@@ -9,7 +9,6 @@
       // var url = "api/collections/PediaAppAppointments";
 
       var addAppointment = function (newAppointment) {
-
         console.log(newAppointment);
         $http.post(url, newAppointment);
       };

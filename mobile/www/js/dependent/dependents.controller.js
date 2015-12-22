@@ -117,7 +117,7 @@
     // DependentsService.getDependents().success(function (dependents) {
     //   console.log(dependents);
     //     $scope.dependents = dependents;
-    
+
       // if($stateParams.dependentId) {
       //   DependentsService.getSingleDependent().success(function (singlePost) {
       //     console.log(singleDependent);
@@ -159,10 +159,14 @@
         DependentsService.removeDependent(dependentId);
       };
       $scope.gotodependentProfile = function (id) {
+        console.log("go to dependent profile being fired!");
         DependentsService.getSingleDependent(id).success(function (dependent){
           console.log(dependent);
           $scope.dependent = dependent;
           $location.path('/app/userprofile/dependent/'+ id);
+
+
+
         });
       };
   });

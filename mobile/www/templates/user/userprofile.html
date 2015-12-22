@@ -48,10 +48,12 @@
   <!-- list of dependents -->
 
       <ion-list can-swipe="true" option-buttons="itemButtons" >
-        <ion-item    href="#/app/dependents/{{dependent.id}}">
-          dependent: {{dependent.name}}
-          <ion-option-button class="button-dark" ng-click="gotoeditDependent(dependent._id)">Edit</ion-option-button>
-        </ion-item>
+        <h5>Dependents:</h5>
+
+        <!-- <ion-item ng-repeat="dependent in dependentsArr" ng-click="gotodependentProfile(dependent._id)">
+          {{dependent.name}} -->
+          <!-- <ion-option-button class="button-dark" ng-click="gotoeditDependent(dependent._id)">Edit</ion-option-button> -->
+        <!-- </ion-item> -->
       </ion-list>
 
 <!-- - -->
