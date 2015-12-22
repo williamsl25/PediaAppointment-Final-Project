@@ -48,11 +48,11 @@ $scope.singleUser;
 
         });
 
-        $scope.getSingleDependent = function (dependent) {
-          console.log('get single dependent controller', dependent);
-          $scope.dependent = dependent;
-          $location.path('/app/userprofile/dependent/'+ dependent._id )
-        };
+        // $scope.getSingleDependent = function (dependent) {
+        //   console.log('get single dependent controller', dependent);
+        //   $scope.dependent = dependent;
+        //   $location.path('/app/userprofile/dependent/'+ dependent._id);
+        // };
 
 
 
