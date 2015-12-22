@@ -26,11 +26,11 @@
 
       </ion-item>
       <ion-item>
-        <!-- <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button> -->
+        <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
         {{singleUser.phone}}
       </ion-item>
       <ion-item>
-        <!-- <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button> -->
+        <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
         {{singleUser.email}}
         <!-- <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button> -->
       </ion-item>
@@ -50,7 +50,7 @@
 
       <ion-list can-swipe="true" option-buttons="itemButtons" >
         <h5>Dependents: </h5>
-        <ion-item ng-repeat="dependent in dependentsArr" ng-click="gotodependentProfile(dependent._id)">
+        <ion-item ng-repeat="dependent in dependentsArr" href="#/app/userprofile/dependent/{{dependent._id}} ">
           {{dependent.name}}
 
 

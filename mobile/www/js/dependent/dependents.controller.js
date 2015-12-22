@@ -143,9 +143,13 @@
         DependentsService.getSingleDependent(id).success(function (dependent){
           console.log(dependent);
           $scope.dependent = dependent;
-          $location.path('/app/userprofile/dependent/'+ id);
+          $location.path('/app/userprofile/dependent/{{dependent._id}}');
         });
       };
+
+      
+
+
 
 
 });
