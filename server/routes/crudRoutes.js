@@ -16,11 +16,12 @@ router.param('collectionName', function (req, res, next, collectionName) {
 // api/collections/:collectionName
 router.route('/:collectionName')
     .get(function (req, res, next) {
+      console.log("This is the /:collectionName route Firing");
        req.collection.find({},function(e, results) {
 
            if (e) return next(e);
 
-           res.status(200).send(results);
+           res.status(200).send({msg: "Sending collection"},results);
        });
 
     })
@@ -37,6 +38,8 @@ router.route('/:collectionName')
 // /api/collections/:collectionName/:id
 router.route('/:collectionName/:id')
     .get(function (req, res, next) {
+      console.log("This is the /:collectionName/:ID route firing in the GET request:");
+      console.log("This is the /:collectionName/:id request param ID", req.params.id);
         req.collection.findById(req.params.id, function (e, result) {
             if(e) return next(e);
             res.json(result);
@@ -45,7 +48,7 @@ router.route('/:collectionName/:id')
     .put(ensureAuthenticated, function (req, res) {
         delete req.body._id;
         req.collection.update(req.params.id, {$set: req.body}, function (e, result) {
-            res.status(200).send(result);
+            res.status(200).send({msg: "Sending collection/:id"},result);
         });
 
     })
@@ -53,7 +56,7 @@ router.route('/:collectionName/:id')
         req.collection.findById(req.params.id, function (e, result) {
             if(e) return next(e);
             result.remove(function () {
-                res.status(200).send({msg: 'good job'});
+                res.status(200).send({msg: 'Item Deleted'});
             });
 
         });
