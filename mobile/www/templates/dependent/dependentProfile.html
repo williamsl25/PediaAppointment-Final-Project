@@ -2,7 +2,7 @@
   <ion-content  >
     <ion-list can-swipe="true" option-buttons="itemButtons" >
 
-      <ion-item >
+      <ion-item ng-repeat="dependent in dependentsArr">
         {{dependent.name}}
         <!-- Name -->
       </ion-item>

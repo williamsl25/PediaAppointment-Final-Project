@@ -109,6 +109,38 @@ router.route('/dependents')
     });
   });
 
+  router.route('/dependents/:dependentId')
+    .all(ensureAuthenticated, role.can('access all the things'))
+    .get(function (req, res) {
+      Dependent.findById(req.params.dependentId, function (err, dependent) {
+        if (!dependent) { return res.status(400).send({ message: 'Dependent not found' }); }
+        res.status(200).send(dependent);
+      });
+    })
+
+  .put(function (req, res) {
+
+    Dependent.findById(req.params.dependentId, function (err, dependent) {
+      if (!dependent) { return res.status(400).send({ message: 'Dependent not found' }); }
+      console.log ("get name of dependent", req.body.name);
+      dependent.name = req.body.name || dependent.name;
+      dependent.dob = req.body.dob || dependent.dob;
+      dependent.history = req.body.history || dependent.history;
+      dependent.medication = req.body.medication || dependent.medication;
+      dependent.pediatrician = req.body.pediatrician || dependent.pediatrician;
+      dependent.save(function(err) {
+        res.status(200).end();
+      });
+    });
+  })
+  .delete(function (req, res) {
+    Dependent.findByIdAndRemove(req.params.dependentId, function (err, dependent) {
+      if(err) { return next(err); }
+      res.status(200).send({message: 'Successfuly Deleted Dependent'});
+    });
+  });
+
+
 //Pharmacy route
   router.route('/pharmacy')
     .get(function(req,res) {

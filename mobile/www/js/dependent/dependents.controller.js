@@ -3,7 +3,7 @@
 
   angular
   .module('dependents')
-  .controller('DependentsController', function ($scope, $stateParams, DependentsService, UsersService, $location, MapsService,$ionicLoading, $compile){
+  .controller('DependentsController', function ($scope, $auth, $stateParams, DependentsService, UsersService, $location, MapsService,$ionicLoading, $compile){
 
 
 
@@ -109,20 +109,18 @@
 
     $scope.searchbox = { template:'searchbox.tpl.html', events:events};
     // var vm = this;
-    // DependentsService.getDependents().success(function (dependents) {
-    //   console.log(dependents);
-    //     $scope.dependents = dependents;
+    DependentsService.getDependents().success(function (dependents) {
+      console.log(dependents);
+        $scope.dependents = dependents;
 
-      // if($stateParams.dependentId) {
-      //   DependentsService.getSingleDependent().success(function (singlePost) {
-      //     console.log(singleDependent);
-      //     $scope.dependent = dependent;
-      //   });
-      // }
-      // DependentsService.getSingleDependent().success(function (dependent) {
-      //   console.log(dependent);
-      //   $scope.dependent = dependent;
-      // });
+      if($stateParams.dependentId) {
+        DependentsService.getSingleDependent().success(function (singlePost) {
+          console.log(singleDependent);
+          $scope.dependent = dependent;
+        });
+      }
+    });
+    
 
       $scope.newDependent = function (dependent) {
         console.log('new dependent firing!', dependent);
