@@ -5,7 +5,7 @@ var config = require('../config');
 var ensureAuthenticated = require('./helpers').ensureAuthenticated;
 var role = require('./roles');
 var Dependent = require('../models/Dependent');
-// var Pharmacy = require('../models/Pharmacy');
+var Pharmacies = require('../models/Pharmacies');
 var ObjectId = require('mongoose').Types.ObjectId;
 
 // GET /api/me
@@ -144,15 +144,15 @@ router.route('/dependents')
 //Pharmacy route
   router.route('/pharmacy')
     .get(function(req,res) {
-      Pharmacy.find({'user._id': req.user}, function(err, pharmacy) {
-        console.log("FOUND PHARMACY", pharmacy);
-        if(!pharmacy)  { return res.status(400).send({ message: 'Pharmacy Not Found / No Pharmacy on File' }); }
-        res.status(200).send(pharmacy);
+      Pharmacies.find({'user._id': req.user}, function(err, pharmacies) {
+        console.log("FOUND PHARMACY", pharmacies);
+        if(!pharmacies)  { return res.status(400).send({ message: 'Pharmacy Not Found / No Pharmacy on File' }); }
+        res.status(200).send(pharmacies);
       });
     })
     .post(ensureAuthenticated, function (req, res, next) {
       console.log("POST IN PHARMACY", req.user);
-      var pharmacy = new Pharmacy({
+      var pharmacies = new Pharmacies({
         name: req.body.name,
         address: req.body.address,
         phone: req.body.phone,
@@ -163,8 +163,8 @@ router.route('/dependents')
         // pedWeb: req.body.pediatricianWebsite
       });
 
-      console.log('new Pharmacy', pharmacy);
-      pharmacy.save(function (err,pharmacy) {
+      console.log('new Pharmacy', pharmacies);
+      pharmacies.save(function (err,pharmacies) {
         console.log("err", err);
         if(err) return next(err);
           res.status(200).send({msg: "it works"});
