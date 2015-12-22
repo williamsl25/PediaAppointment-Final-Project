@@ -57,11 +57,17 @@
         <!-- </ion-item> -->
 
         <h5>Dependents: </h5>
-        <ion-item ng-repeat="dependent in dependentsArr" href="#/app/userprofile/dependent/{{dependent._id}} ">
-          {{dependent.name}}
-          <ion-option-button class="button-dark" ng-click="gotoeditDependent(dependent._id)">Edit</ion-option-button>
+        <ion-item ng-repeat="dependent in dependentsArr" >
+          <!-- {{dependent.name}} -->
+          <div class="">
+            <button type="submit" ng-click="getSingleDependent(dependent._id)" class="button button-block button-positive">{{dependent.name}}</button>
+          </div>
+
+          <ion-option-button class="button-dark" >Edit</ion-option-button>
         </ion-item>
       </ion-list>
+
+       <!-- href="#/app/userprofile/dependent/{{dependent._id}} " -->
 
 <!-- - -->
 

@@ -7,16 +7,16 @@ angular
   $stateProvider
 
   // all dependents
-    .state('app.dependents', {
-      url: '/dependents',
-
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/dependent/dependents.html',
-          controller: 'DependentsController'
-        }
-      }
-    })
+    // .state('app.dependents', {
+    //   url: '/dependents',
+    //
+    //   views: {
+    //     'menuContent': {
+    //       templateUrl: 'templates/dependent/dependents.html',
+    //       controller: 'DependentsController'
+    //     }
+    //   }
+    // })
 
     // dependent profile page
     .state('app.dependentProfile', {

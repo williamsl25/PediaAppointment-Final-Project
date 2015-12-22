@@ -7,6 +7,9 @@
     .factory('DependentsService', function ($http) {
       // var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppDependents";
       var url = "https://pediaserver.herokuapp.com/api/dependents";
+      var getDependent = "https://pediaserver.herokuapp.com/api/dependents/:dependentId";
+      var updateDependent = "https://pediaserver.herokuapp.com/api/dependents/:dependentId";
+
       // var url = "/api/dependents";
 
       var addDependent = function (newDependent) {
@@ -22,11 +25,12 @@
       };
 
       var getSingleDependent = function (dependentId) {
-        return $http.get(url + '/' + dependentId);
+        console.log("this is dependent service", dependentId);
+        return $http.get(getDependent);
       };
 
       var updateDependent = function (updatedDependent) {
-        return $http.put(url + '/' + updatedDependent._id, updatedDependent);
+        return $http.put(updateDependent, updatedDependent);
       };
       var removeDependent = function (dependentId) {
         return $http.delete(url + '/' + dependentId);
