@@ -27,17 +27,8 @@ router.route('/me')
         return res.status(400).send({ message: 'User not found' });
       }
       user.name = req.body.name || user.name;
-<<<<<<< HEAD
       user.phone= req.body.phone || user.phone;
       user.email = req.body.email || user.email;
-
-
-=======
-      console.log(req.body.name);
-      user.phone = req.body.phone || user.phone;
-      user.email = req.body.email || user.email;
-// change this to .phone
->>>>>>> ecf6bcc33960a9a194e614c830c34b1b17dac2b0
       user.save(function(err) {
         res.status(200).end();
       });

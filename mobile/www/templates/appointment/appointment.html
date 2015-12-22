@@ -4,11 +4,26 @@
 
   <ion-content>
 
+
+    <!-- <ion-list can-swipe="true" option-buttons="itemButtons" >
+      <h5>Dependents:</h5>
+
+      <ion-item ng-repeat="dependent in dependentsArr" ng-click="gotodependentProfile(dependent._id)">
+        {{dependent.name}} -->
+        <!-- <ion-option-button class="button-dark" ng-click="gotoeditDependent(dependent._id)">Edit</ion-option-button> -->
+      <!-- </ion-item>
+    </ion-list> -->
+
+
+
     <h5>This Appointment is for:</h5>
     <ion-list>
-      <ion-checkbox ng-model="appointment.patient1" value="test">      {{dependent.name}}</ion-checkbox>
+      <ion-item ng-repeat="dependent in dependentsArr">
+        <ion-checkbox ng-model="appointment.name">{{dependent.name}}</ion-checkbox>
+      </ion-item>
 
-      <ion-checkbox ng-model="appointment.patient2">Beth Parker</ion-checkbox>
+
+      <!-- <ion-checkbox ng-model="appointment.patient2">Beth Parker</ion-checkbox> -->
     </ion-list>
 
     <h5>The primary reason for this visit is:</h5>
@@ -53,9 +68,9 @@
     </label>
 
     <h5>Appointment Date & Time Request:</h5>
-<div ng-controller="AppCtrl">
-    <ionic-datepicker input-obj="datepickerObjectPopup" idate="currentDate" disablepreviousdates="false">
-      <button class="button button-block button-positive" ng-model="appointment.date">Selected Date: {{datepickerObjectPopup.inputDate | date:'MMMM dd, yyyy'}} </button>
+<div >
+    <ionic-datepicker input-obj="datepickerObjectPopup" idate="currentDate" disablepreviousdates="true">
+      <button class="button button-block button-positive" ng-model="appointment.datepickerObjectPopup">Selected Date: {{datepickerObjectPopup.inputDate | date:'MMMM dd, yyyy'}} </button>
     </ionic-datepicker>
 </div>
     <!-- How do we capture this date?
