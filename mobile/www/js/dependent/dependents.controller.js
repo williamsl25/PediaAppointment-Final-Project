@@ -139,15 +139,15 @@
       $scope.deleteDependent = function (dependentId) {
         DependentsService.removeDependent(dependentId);
       };
-      $scope.gotodependentProfile = function (id) {
-        DependentsService.getSingleDependent(id).success(function (dependent){
-          console.log(dependent);
-          $scope.dependent = dependent;
-          $location.path('/app/userprofile/dependent/{{dependent._id}}');
-        });
-      };
+      // $scope.gotodependentProfile = function (id) {
+      //   DependentsService.getSingleDependent(id).success(function (dependent){
+      //     console.log(dependent);
+      //     $scope.dependent = dependent;
+      //     $location.path('/app/userprofile/dependent/{{dependent._id}}');
+      //   });
+      // };
 
-      
+
 
 
 
