@@ -103,7 +103,14 @@ $scope.singleUser;
         UsersService.removeUser.pharmacy(pharmacy);
       };
 
-
+      $scope.gotoeditDependent = function (id) {
+        console.log("go to edit dependent being fired!");
+        DependentsService.getSingleDependent(id).success(function (dependent){
+          console.log(dependent);
+          $scope.dependent = dependent;
+          $location.path('/app/userprofile/dependent/'+ id + '/edit');
+        });
+      };
 
   });
 
