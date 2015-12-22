@@ -30,28 +30,24 @@ $scope.singleUser;
         var userData = $scope.singleUser._id;
         console.log('test', userData);
         $scope.dependentsArr = [];
-
             console.log('logging success',dependents[3].user);
             // $scope.dependents = dependents[i];
             console.log(dependents);
             for(var i = 0; i <= dependents.length; i++) {
-              console.log("this is i.user", dependents[i].user);
               console.log("this is i", i);
               if (userData === dependents[i].user){
                 console.log(dependents[i].name);
-
-                // $scope.dependentsArr.push(dependents[i].name);
+                // return dependents[i];
+                // dependentsArr.push(dependents[i].name);
                 $scope.dependentsArr.push(dependents[i]);
                 console.log($scope.dependentsArr);
-
-                // return dependents[i];
-
             }else {
                 console.log("User does not have dependents");
             }
           }
 
         });
+
 
 
 

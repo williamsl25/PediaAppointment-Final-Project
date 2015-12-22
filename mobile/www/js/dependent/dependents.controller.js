@@ -108,11 +108,6 @@
     };
 
     $scope.searchbox = { template:'searchbox.tpl.html', events:events};
-
-
-
-
-
     // var vm = this;
     // DependentsService.getDependents().success(function (dependents) {
     //   console.log(dependents);
@@ -158,17 +153,16 @@
       $scope.deleteDependent = function (dependentId) {
         DependentsService.removeDependent(dependentId);
       };
-      $scope.gotodependentProfile = function (id) {
-        console.log("go to dependent profile being fired!");
-        DependentsService.getSingleDependent(id).success(function (dependent){
-          console.log(dependent);
-          $scope.dependent = dependent;
-          $location.path('/app/userprofile/dependent/'+ id);
-
-
-
-        });
-      };
   });
+      // $scope.gotodependentProfile = function (id) {
+      // console.log("go to dependent profile being fired!");
+      //   DependentsService.getSingleDependent(id).success(function (dependent){
+      //     console.log(dependent);
+      //     $scope.dependent = dependent;
+      //     $location.path('/app/userprofile/dependent/{{dependent._id}}');
+      // $location.path('/app/userprofile/dependent/'+ id);
+
+      //   });
+      // };
 
 }());
