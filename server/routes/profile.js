@@ -109,6 +109,7 @@ router.route('/dependents')
     });
   });
 
+//test
   router.route('/dependents/:dependentId')
     .all(ensureAuthenticated, role.can('access all the things'))
     .get(function (req, res) {
