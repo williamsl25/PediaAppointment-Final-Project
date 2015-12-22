@@ -8,7 +8,7 @@
       // var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppDependents";
       var url = "https://pediaserver.herokuapp.com/api/dependents";
       var getDependent = "https://pediaserver.herokuapp.com/api/dependents/:dependentId";
-      var updateDependent = "https://pediaserver.herokuapp.com/api/dependents/:dependentId";
+      var editDependent = "https://pediaserver.herokuapp.com/api/dependents/:dependentId";
 
       // var url = "/api/dependents";
 
@@ -30,7 +30,7 @@
       };
 
       var updateDependent = function (updatedDependent) {
-        return $http.put(updateDependent, updatedDependent);
+        return $http.put(editDependent, updatedDependent);
       };
       var removeDependent = function (dependentId) {
         return $http.delete(url + '/' + dependentId);
