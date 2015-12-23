@@ -82,13 +82,14 @@ router.route('/admin/users/:userId')
 router.route('/dependents')
   .get(function(req,res) {
     Dependent.find({'user._id': req.user}, function(err, dependents) {
+      console.log("This is the route GET /dependents firing!");
       console.log("FOUND DEPS", dependents);
       if(!dependents)  { return res.status(400).send({ message: 'User not found / No Dependents' }); }
       res.status(200).send(dependents);
     });
   })
   .post(ensureAuthenticated, function (req, res, next) {
-    console.log("POST IN DEPENDENT", req.user);
+    console.log("POST IN DEPENDENT FIRING", req.user);
     var dependent = new Dependent({
       user: req.user,
       name: req.body.name,
@@ -109,20 +110,27 @@ router.route('/dependents')
     });
   });
 
-  router.route('/dependents/:dependentId')
-    .all(ensureAuthenticated, role.can('access all the things'))
+
+
+//test
+  router.route('/dependents/:id')
+    // .all(ensureAuthenticated, role.can('access all the things'))
+
     .get(function (req, res) {
       Dependent.findById(req.params.dependentId, function (err, dependent) {
+        console.log("This is the route GET /dependents/dependentID firing!");
+        console.log("This is the request:", req.params.dependentId);
+
         if (!dependent) { return res.status(400).send({ message: 'Dependent not found' }); }
         res.status(200).send(dependent);
+
+
       });
     })
-
-  .put(function (req, res) {
-
+    .put(function (req, res) {
     Dependent.findById(req.params.dependentId, function (err, dependent) {
       if (!dependent) { return res.status(400).send({ message: 'Dependent not found' }); }
-      console.log ("get name of dependent", req.body.name);
+      console.log ("Post in Single Dependent FIRING!", req.body.name);
       dependent.name = req.body.name || dependent.name;
       dependent.dob = req.body.dob || dependent.dob;
       dependent.history = req.body.history || dependent.history;
