@@ -5,6 +5,7 @@ var ensureAuthenticated = require('./helpers').ensureAuthenticated;
 var mongoose = require('mongoose');
 var Any = mongoose.Schema({}, {"strict": false});
 
+
 router.param('collectionName', function (req, res, next, collectionName) {
      req.collection = mongoose.model(collectionName, Any);
     next();

@@ -114,9 +114,22 @@ router.route('/dependents')
   router.route('/dependents/:id')
     // .all(ensureAuthenticated, role.can('access all the things'))
     .get(function (req, res) {
+
+      console.log("This is the entire request body:", req.body);
+      console.log("This is the entire request params:", req.params);
+
       Dependent.findById(req.params.dependentId, function (err, dependent) {
         console.log("This is the route GET /dependents/dependentID firing!");
-        console.log("This is the request:", req.params.dependentId);
+        console.log("This is the request id:", req.id);
+        console.log("This is the dependent:", req.params.dependent);
+        console.log("This is the name:", req.params.name, req.body.name);
+        console.log("This is the user:", req.user);
+        console.log("This is the entire request body:", req.body);
+        console.log("This is the entire request params:", req.params);
+
+
+
+
 
         if (!dependent) { return res.status(400).send({ message: 'Dependent not found' }); }
         res.status(200).send(dependent);

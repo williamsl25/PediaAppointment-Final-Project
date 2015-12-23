@@ -1,13 +1,22 @@
-<ion-view >
-  <ion-content  >
+<ion-view ng-controller="DependentsController">
+  <ion-content>
     <ion-list can-swipe="true" option-buttons="itemButtons" >
 
-      <ion-item>
-        {{name}}
+      <ion-item ng-controller="DependentsController" value="{{singleDependent.name}}">
+        {{singleUser.name}}
+        {{singleDependent.name}}
+        {{singleDependent._id}}
+        {{dependent.name}}
+        {{user.name}}
+        Name here:
+
         <!-- Name -->
       </ion-item>
       <ion-item>
-        {{dependent.dateofbirth}}
+        {{dependent.name}}
+        {{singleDependent.name}}
+        {{singleDependent._id}}
+DOB here:
         <!-- DOB -->
 
       </ion-item>

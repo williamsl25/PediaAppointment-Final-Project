@@ -37,6 +37,7 @@ $scope.singleUser;
               console.log("this is i", i);
               if (userData === dependents[i].user){
                 console.log(dependents[i].name);
+                console.log(dependents[i]._id);
                 // return dependents[i];
                 // dependentsArr.push(dependents[i].name);
                 $scope.dependentsArr.push(dependents[i]);
