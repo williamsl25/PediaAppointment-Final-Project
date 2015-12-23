@@ -5,16 +5,17 @@
   angular
     .module('dependents')
     .factory('DependentsService', function ($http) {
-      // var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppDependents";
       var url = "https://pediaserver.herokuapp.com/api/dependents";
-      // var getDependent = "https://pediaserver.herokuapp.com/api/collections/dependents";
-      // var getDependent = "https://pediaserver.herokuapp.com/api/dependents/dependent_id";
-      var getDependent = "https://pediaserver.herokuapp.com/api/collections/dependents/:dependentId";
+      //****The above route is working to get dependents****//
 
+      // var getDependent = "https://pediaserver.herokuapp.com/api/dependents/";
+      //****The above route gives us a 400 error when attempting to get single dependent****//
+
+      var getDependent = "https://pediaserver.herokuapp.com/api/collections/dependents/";
+      //****The above route will give us a 500 when attempting to get single dependent because id is undefined ****//
 
       var editDependent = "https://pediaserver.herokuapp.com/api/dependents/:dependentId";
 
-      // var url = "/api/dependents";
 
       var addDependent = function (newDependent) {
         console.log("ADD DEP SERV", newDependent);
@@ -28,15 +29,11 @@
         return $http.get(url);
       };
 
-      var getSingleDependent = function (dependentId) {
-        console.log("this is dependent service", dependentId);
-        return $http.get(getDependent);
+      var getSingleDependent = function (id) {
+        console.log("this is getsingledependent in dependent service:", id);
+        console.log("getsingledependent service is firing!");
+        return $http.get(getDependent + id);
       };
-
-      // var getSingleDependent = function () {
-      //   console.log("this is dependent service");
-      //   return $http.get(getDependent);
-      // };
 
 
       var updateDependent = function (updatedDependent) {
