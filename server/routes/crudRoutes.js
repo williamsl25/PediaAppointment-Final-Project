@@ -43,6 +43,7 @@ router.route('/:collectionName/:id')
       console.log("This is the /:collectionName/:id request param ID", req.params.id);
         req.collection.findById(req.params.id, function (e, result) {
             if(e) return next(e);
+            console.log(result);
             res.json(result);
         });
     })

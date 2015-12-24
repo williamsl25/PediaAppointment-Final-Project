@@ -19,7 +19,7 @@
     <h5>This Appointment is for:</h5>
     <ion-list>
       <ion-item ng-repeat="dependent in dependentsArr">
-        <ion-checkbox ng-model="appointment.name">{{dependent.name}}</ion-checkbox>
+        <ion-checkbox ng-model="appointment.name" ng>{{dependent.name}}</ion-checkbox>
       </ion-item>
 
 
@@ -30,36 +30,36 @@
     <div class="row">
       <div class="col">
         <ion-list>
-          <ion-checkbox ng-model="appointment.fever">Fever</ion-checkbox>
+          <ion-checkbox ng-model="appointment.fever" ng-true-value="'YES'" ng-false-value="'NO'">Fever</ion-checkbox>
         </ion-list>
       </div>
       <div class="col">
         <ion-list>
-          <ion-checkbox ng-model="appointment.cough">Cough</ion-checkbox>
+          <ion-checkbox ng-model="appointment.cough" ng-true-value="'YES'" ng-false-value="'NO'">Cough</ion-checkbox>
         </ion-list>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <ion-list>
-          <ion-checkbox ng-model="appointment.nausea">Nausea</ion-checkbox>
+          <ion-checkbox ng-model="appointment.nausea" ng-true-value="'YES'" ng-false-value="'NO'">Nausea</ion-checkbox>
         </ion-list>
       </div>
       <div class="col">
           <ion-list>
-            <ion-checkbox ng-model="appointment.sorethroat">Sore Throat</ion-checkbox>
+            <ion-checkbox ng-model="appointment.sorethroat" ng-true-value="'YES'" ng-false-value="'NO'">Sore Throat</ion-checkbox>
           </ion-list>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <ion-list>
-          <ion-checkbox ng-model="appointment.rash">Rash</ion-checkbox>
+          <ion-checkbox ng-model="appointment.rash" ng-true-value="'YES'" ng-false-value="'NO'">Rash</ion-checkbox>
         </ion-list>
       </div>
       <div class="col">
         <ion-list>
-          <ion-checkbox ng-model="appointment.diahrreah">Diarrhea</ion-checkbox>
+          <ion-checkbox ng-model="appointment.diahrreah" ng-true-value="'YES'" ng-false-value="'NO'">Diarrhea</ion-checkbox>
         </ion-list>
       </div>
     </div>
