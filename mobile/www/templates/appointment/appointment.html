@@ -17,14 +17,23 @@
 
 
     <h5>This Appointment is for:</h5>
-    <ion-list>
-      <ion-item ng-repeat="dependent in dependentsArr">
-        <ion-checkbox ng-model="appointment.name" >{{dependent.name}}</ion-checkbox>
-      </ion-item>
+    <!-- <ion-list ng-repeat="dependent in dependentsArr">
+
+        <ion-checkbox ng-model="appointment.test" ng-true-value="yes" ng-false-value="'NO'" >test</ion-checkbox>
 
 
-      <!-- <ion-checkbox ng-model="appointment.patient2">Beth Parker</ion-checkbox> -->
-    </ion-list>
+
+
+    </ion-list> -->
+    <div class="row">
+      <div class="col">
+        <ion-list ng-repeat="dependent in dependentsArr">
+          <ion-checkbox ng-model="appointment.name" value="{{dependent.name}}">
+            {{dependent.name}}
+          </ion-checkbox>
+        </ion-list>
+      </div>
+    </div>
 
     <h5>The primary reason for this visit is:</h5>
     <div class="row">
@@ -59,7 +68,7 @@
       </div>
       <div class="col">
         <ion-list>
-          <ion-checkbox ng-model="appointment.diahrreah" ng-true-value="'YES'" ng-false-value="'NO'">Diarrhea</ion-checkbox>
+          <ion-checkbox ng-model="appointment.diarrhea" ng-true-value="'YES'" ng-false-value="'NO'">Diarrhea</ion-checkbox>
         </ion-list>
       </div>
     </div>
@@ -80,7 +89,7 @@
       <li class="item item-toggle">
          First Available
          <label class="toggle toggle-balanced">
-           <input type="checkbox" ng-model="appointment.firstAvailable">
+           <input type="checkbox" ng-model="appointment.firstAvailable" ng-true-value="'YES'" ng-false-value="'NO'">
            <div class="track">
              <div class="handle"></div>
            </div>
@@ -89,7 +98,7 @@
       <li class="item item-toggle">
          Morning
          <label class="toggle toggle-balanced">
-           <input type="checkbox" ng-model="appointment.morning">
+           <input type="checkbox" ng-model="appointment.morning" ng-true-value="'YES'" ng-false-value="'NO'">
            <div class="track">
              <div class="handle"></div>
            </div>
@@ -98,7 +107,7 @@
       <li class="item item-toggle">
          Afternoon
          <label class="toggle toggle-balanced">
-           <input type="checkbox" ng-model="appointment.afternoon">
+           <input type="checkbox" ng-model="appointment.afternoon" ng-true-value="'YES'" ng-false-value="'NO'">
            <div class="track">
              <div class="handle"></div>
            </div>
