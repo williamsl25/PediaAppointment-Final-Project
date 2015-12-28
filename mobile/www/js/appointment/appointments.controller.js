@@ -28,7 +28,7 @@
             // $scope.dependents = dependents[i];
             console.log(dependents);
             for(var i = 0; i <= dependents.length; i++) {
-              console.log("this is i.user", dependents[i].user);
+              // console.log("this is i.user", dependents[i].user);
               console.log("this is i", i);
               if (userData === dependents[i].user){
                 console.log(dependents[i].name);
@@ -51,7 +51,8 @@
 
       $scope.newAppointment = function (appointment) {
         console.log('new appointment firing!');
-        console.log(appointment);
+        // console.log(appointment);
+        // console.log(appointment.fever)
         AppointmentsService.addAppointment(appointment);
         $location.path('/app/confirmation');
       };

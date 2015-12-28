@@ -7,13 +7,11 @@
     <ion-content>
       <div class="list-inset">
 
-
-
         <ion-list>
             <h5>Appointment Confirmation For:</h5>
           </ion-list>
           <ion-item>
-            <!-- {{dependent.name}} -->
+            {{dependent.name}}
             dependent first, last name
           </ion-item>
           <h5>Date & Time:</h5>
@@ -23,12 +21,45 @@
         </ion-list>
 
         <ion-list>
-            <h5>Reason:</h5>
+          <h5>Reason:</h5>
+          <div class="row">
+            <div class="col">
               <ion-item>
-              <!-- {{dependent.symptoms[0]}} ", " {{dependent.symptoms[1]}} etc.   -->
-              example: fever
+                Fever: {{appointment.fever}}
               </ion-item>
-          </ion-list>
+            </div>
+            <div class="col">
+              <ion-item>
+                Cough: {{appointment.cough}}
+              </ion-item>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <ion-item>
+                Nausea: {{appointment.nausea}}
+              </ion-item>
+            </div>
+            <div class="col">
+              <ion-item>
+                Sore Throat: {{appointment.sorethroat}}
+              </ion-item>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <ion-item>
+                Rash: {{appointment.rash}}
+              </ion-item>
+            </div>
+            <div class="col">
+              <ion-item>
+                Diarrhea: {{appointment.diarrhea}}
+              </ion-item>
+            </div>
+          </div>
+        </ion-list>
+
 
         <ion-list >
             <h5>Pediatrician:</h5>
