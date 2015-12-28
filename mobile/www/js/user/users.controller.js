@@ -3,7 +3,7 @@
 
   angular
   .module('users')
-  .controller('UsersController', function ($scope, $auth, $stateParams, UsersService, DependentsService, $location){
+  .controller('UsersController', function ($scope, $auth, $stateParams, UsersService, DependentsService, $location, MapsService){
     // UsersService.getUsers().success(function (users) {
     //   console.log(users);
     //     $scope.users = users;
@@ -19,6 +19,13 @@ $scope.singleUser;
         });
 
 
+        MapsService.getPharmacy().success(function (pharmacy) {
+        console.log("Pharmacy from users controller:",pharmacy);
+        $scope.pharmacy = pharmacy;
+        console.log(pharmacy.name);
+        });
+
+
       // $scope.newUser = function (user) {
       //   console.log(user);
       //   UsersService.addUser(user);
@@ -30,18 +37,18 @@ $scope.singleUser;
         var userData = $scope.singleUser._id;
         console.log('test', userData);
         $scope.dependentsArr = [];
-            console.log('logging success',dependents[3].user);
+            // console.log('logging success',dependents[3].user);
             // $scope.dependents = dependents[i];
-            console.log(dependents);
+            // console.log(dependents);
             for(var i = 0; i <= dependents.length; i++) {
-              console.log("this is i", i);
+              // console.log("this is i", i);
               if (userData === dependents[i].user){
-                console.log(dependents[i].name);
-                console.log(dependents[i]._id);
+                // console.log(dependents[i].name);
+                // console.log(dependents[i]._id);
                 // return dependents[i];
                 // dependentsArr.push(dependents[i].name);
                 $scope.dependentsArr.push(dependents[i]);
-                console.log($scope.dependentsArr);
+                // console.log($scope.dependentsArr);
             }else {
                 console.log("User does not have dependents");
             }
@@ -105,10 +112,10 @@ $scope.singleUser;
       $scope.deleteUser = function (userId) {
         UsersService.removeUser(userId);
       };
-      $scope.addPharmacy = function (pharmacy) {
-        console.log(pharmacy);
-        UsersService.addUser.pharmacy(pharmacy);
-      };
+      // $scope.addPharmacy = function (pharmacy) {
+      //   console.log(pharmacy);
+      //   UsersService.addUser.pharmacy(pharmacy);
+      // };
       $scope.deletePharmacy = function (pharmacy) {
         UsersService.removeUser.pharmacy(pharmacy);
       };

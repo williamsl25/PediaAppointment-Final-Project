@@ -142,10 +142,6 @@
           singleDep.push(singleDependent);
           console.log(singleDep);
           console.log(singleDep.name);
-
-
-
-
           console.log($scope.singleDependent);
           console.log(singleDependent._id);
           console.log(singleDependent.name);

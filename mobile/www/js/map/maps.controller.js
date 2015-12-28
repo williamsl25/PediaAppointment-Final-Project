@@ -1,6 +1,6 @@
 angular
 .module('maps')
-.controller('MapsController', function($scope, $ionicLoading, $compile, MapsService, $location, DependentsService) {
+.controller('MapsController', function($scope, $ionicLoading, $compile, MapsService, $location, DependentsService, UsersService) {
 
   $scope.namePlace = [];
   var mapPlace =[];

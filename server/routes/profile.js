@@ -6,7 +6,7 @@ var ensureAuthenticated = require('./helpers').ensureAuthenticated;
 var role = require('./roles');
 var Dependent = require('../models/Dependent');
 var Pharmacies = require('../models/Pharmacies');
-var Appoinment = require('../models/Appointment');
+var Appointment = require('../models/Appointment');
 var ObjectId = require('mongoose').Types.ObjectId;
 
 
@@ -200,7 +200,7 @@ router.route('/dependents')
 //Appointment route
       router.route('/appointment')
         .get(function(req,res) {
-          Appointment.find({'dependent._id': req.dependent}, function(err, appointment) {
+          Appointment.find({'user._id': req.dependent}, function(err, appointment) {
             console.log("FOUND APPOINTMENT", appointment);
             if(!appointment)  { return res.status(400).send({ message: 'Appointment Not Found / Appointment was not created!' }); }
             res.status(200).send(appointment);
@@ -209,6 +209,7 @@ router.route('/dependents')
         .post(ensureAuthenticated, function (req, res, next) {
           console.log("POST IN APPOINTMENT", req.dependent);
           var appointment = new Appointment({
+            user: req.user,
             name: req.body.name,
             fever: req.body.fever,
             nausea: req.body.nausea,
