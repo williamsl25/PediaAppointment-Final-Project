@@ -6,7 +6,9 @@ var ensureAuthenticated = require('./helpers').ensureAuthenticated;
 var role = require('./roles');
 var Dependent = require('../models/Dependent');
 var Pharmacies = require('../models/Pharmacies');
+var Appoinment = require('../models/Appointment');
 var ObjectId = require('mongoose').Types.ObjectId;
+
 
 // GET /api/me
 router.route('/me')
@@ -174,6 +176,7 @@ router.route('/dependents')
     .post(ensureAuthenticated, function (req, res, next) {
       console.log("POST IN PHARMACY", req.user);
       var pharmacies = new Pharmacies({
+        user: req.user,
         name: req.body.name,
         address: req.body.address,
         phone: req.body.phone,
@@ -191,6 +194,43 @@ router.route('/dependents')
           res.status(200).send({msg: "it works"});
       });
     });
+
+
+
+//Appointment route
+      router.route('/appointment')
+        .get(function(req,res) {
+          Appointment.find({'dependent._id': req.dependent}, function(err, appointment) {
+            console.log("FOUND APPOINTMENT", appointment);
+            if(!appointment)  { return res.status(400).send({ message: 'Appointment Not Found / Appointment was not created!' }); }
+            res.status(200).send(appointment);
+          });
+        })
+        .post(ensureAuthenticated, function (req, res, next) {
+          console.log("POST IN APPOINTMENT", req.dependent);
+          var appointment = new Appointment({
+            name: req.body.name,
+            fever: req.body.fever,
+            nausea: req.body.nausea,
+            rash: req.body.rash,
+            cough: req.body.cough,
+            sorethroat: req.body.sorethroat,
+            diarrhea: req.body.diarrhea,
+            other: req.body.other,
+            date: req.body.date,
+            firstAvailable: req.body.firstAvailable,
+            morning: req.body.morning,
+            afternoon: req.body.afternoon,
+            comments: req.body.comments
+          });
+
+          console.log('new Appointment', appointment);
+          appointment.save(function (err,appointment) {
+            console.log("err", err);
+            if(err) return next(err);
+              res.status(200).send({msg: "Appointment has been sent!"});
+          });
+        });
 
 
 
