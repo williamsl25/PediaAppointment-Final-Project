@@ -217,7 +217,7 @@ router.route('/dependents')
             cough: req.body.cough,
             sorethroat: req.body.sorethroat,
             diarrhea: req.body.diarrhea,
-            other: req.body.other,
+            otherSymptoms: req.body.otherSymptoms,
             date: req.body.date,
             firstAvailable: req.body.firstAvailable,
             morning: req.body.morning,
