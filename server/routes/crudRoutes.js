@@ -44,6 +44,7 @@ router.route('/:collectionName/:id')
         req.collection.findById(req.params.id, function (e, result) {
             if(e) return next(e);
             res.json(result);
+            // res.status(200).send({msg: "sending single dependent"},result);
         });
     })
     .put(ensureAuthenticated, function (req, res) {

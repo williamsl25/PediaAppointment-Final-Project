@@ -171,6 +171,7 @@ router.route('/dependents')
     .post(ensureAuthenticated, function (req, res, next) {
       console.log("POST IN PHARMACY", req.user);
       var pharmacies = new Pharmacies({
+        user: req.user,
         name: req.body.name,
         address: req.body.address,
         phone: req.body.phone,

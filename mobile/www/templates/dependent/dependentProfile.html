@@ -1,14 +1,18 @@
-<ion-view ng-controller="DependentsController">
-  <ion-content>
-    <ion-list can-swipe="true" option-buttons="itemButtons" >
+<ion-view>
+  <ion-content ng-controller="DependentsController">
+    <!-- <ion-list can-swipe="true" option-buttons="itemButtons" > -->
 
       <ion-item ng-controller="DependentsController" value="{{singleDependent.name}}">
+        Name here:
+        {{singleDep.name}}
         {{singleUser.name}}
         {{singleDependent.name}}
         {{singleDependent._id}}
         {{dependent.name}}
         {{user.name}}
-        Name here:
+        {{singleDependents.name}}
+        {{name}}
+
 
         <!-- Name -->
       </ion-item>
@@ -22,11 +26,13 @@ DOB here:
       </ion-item>
       <ion-item>
         {{dependent.medications}}
+        {{medications}}
         <!-- Meds -->
 
       </ion-item>
       <ion-item>
         {{dependent.history}}
+        {{hisrory}}
         <!-- hx -->
 
       </ion-item>
@@ -40,6 +46,29 @@ DOB here:
     <div class="buttons">
       <button class="button button-block button-positive" type="submit" ng-click="gotoeditDependent(dependent._id)">Edit Dependent</button>
     </div>
+
+
+
+    <form>
+      <div class="list-inset">
+        <label class="item item-input">
+          <span class="input-label"></span>
+          <input type="text"  value="{{singleDep.name}}">
+          Form Value here: {{name}}
+          {{singleDep.name}}
+          {{singleUser.name}}
+          {{singleDependent.name}}
+          {{singleDependent._id}}
+          {{dependent.name}}
+          {{user.name}}
+          {{singleDependents.name}}
+          {{name}}
+        </label>
+      </div>
+    </form>
+
+
+
 
 
   </ion-content>
