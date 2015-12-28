@@ -14,7 +14,7 @@ var appointmentSchema = new mongoose.Schema({
   cough: String,
   sorethroat: String,
   diarrhea: String,
-  other: String,
+  otherSymptoms: String,
   date: Date,
   firstAvailable: String,
   morning: String,

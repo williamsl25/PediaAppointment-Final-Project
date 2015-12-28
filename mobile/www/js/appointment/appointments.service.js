@@ -15,6 +15,7 @@
         });
       };
 
+
       var getAppointments = function () {
         return $http.get(url);
       };
