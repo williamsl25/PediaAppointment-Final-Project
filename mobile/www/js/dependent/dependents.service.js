@@ -12,7 +12,9 @@
       //****The above route gives us a 400 error when attempting to get single dependent****//
 
       var getDependent = "https://pediaserver.herokuapp.com/api/collections/dependents/";
-      //****The above route will give us a 500 when attempting to get single dependent because id is undefined ****//
+      //****The above route will allow us in and appears to find the dependent.  For some reason the res.json(result) in crudRoutes
+      //is not working but at some point was.  We see in the console logs the data we need but now it does not appear in the
+      //the dependentProfile.html - its like we dont have access to that data ****//
 
       var editDependent = "https://pediaserver.herokuapp.com/api/dependents/:dependentId";
 

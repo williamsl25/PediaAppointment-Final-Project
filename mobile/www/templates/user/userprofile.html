@@ -81,10 +81,14 @@
   </div>
 
   <ion-list can-swipe="true" option-buttons="itemButtons">
+    <h5>Current Pharmacy: </h5>
+
     <ion-item>
 <!-- <ion-item ng-repeat="dependent in dependents" href="#/app/dependents/{{dependent.id}}"> -->
   <!-- {{dependent.firstname}} {{dependent.lastname}}-->
-    sample pharmacy
+    {{pharmacyArr[0].name}}<br>
+    {{pharmacyArr[0].address}}<br>
+    {{pharmacyArr[0].phone}}<br>
     <ion-option-button class="button-assertive" ng-click="deletePharmacy(pharmacy)">Delete</ion-option-button>
     </ion-item>
   </ion-list>
