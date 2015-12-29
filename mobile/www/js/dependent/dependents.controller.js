@@ -2,77 +2,8 @@
 // indiv dependent:  https://pediaserver.herokuapp.com/api/collections/dependent/5676fd84b337501100c4d830
 
 (function() {
-<<<<<<< HEAD
+
   'use strict';
-
-  angular
-  .module('dependents')
-  .controller('DependentsController', function ($scope, $stateParams, DependentsService, UsersService, $location, MapsService,$ionicLoading, $compile){
-
-
-
-    $scope.namePlace = [];
-    var mapPlace =[];
-    var singleDep = [];
-
-    // $scope.addPharmacy = function () {
-    //   console.log('new pharmacy firing!');
-    //   var placeToSave = $scope.namePlace[$scope.namePlace.length - 1];
-    //   console.log(placeToSave);
-    //   if (placeToSave === null || placeToSave === undefined) {
-    //     $location.path('/app/userprofile');
-    //   } else {
-    //   MapsService.addPharmacy(placeToSave);
-    //   $location.path('/app/userprofile');
-    //   }
-    // };
-
-    $scope.$on('location:added', function() {
-      console.log("adding to namePlace array");
-      var dependent = $scope.namePlace[$scope.namePlace.length - 1];
-      $scope.address = dependent.address;
-      $scope.name = dependent.name;
-      $scope.phone = dependent.phone;
-      $scope.website = dependent.website;
-      mapPlace = dependent;
-
-    });
-
-    $scope.map = {
-      center: {
-        latitude: 32.8853,
-        longitude: -80.0169
-      },
-      mapTypeControl: false,
-      zoom: 10,
-      marker: []
-    };
-    $scope.options = {
-      scrollwheel: false,
-      mapTypeControl: false,
-    };
-
-    $scope.marker = {
-              id: 0,
-              coords: {
-                  latitude: 32.7833,
-                  longitude: -79.9333
-              },
-              title: 0,
-              options: { draggable: false },
-              icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-              events: {
-                  dragend: function (marker, eventName, args) {
-
-                      $scope.marker.options = {
-                          labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
-                          labelAnchor: "100 0",
-                          labelClass: "marker-labels"
-                      };
-                  }
-              }
-=======
-    'use strict';
     angular.module('dependents').controller('DependentsController',
         function($scope, $stateParams, DependentsService, UsersService,
             $location, MapsService, $ionicLoading, $compile, $state) {
@@ -198,28 +129,25 @@
             //   $scope.dependent = dependent;
             // });
 
-            $scope.goToDepProfile = function(id) {
-                console.log("STATe", id);
+            $scope.getSingleDependent = function(id) {
                 $state.go('app.dependentProfile',{dependentId: id});
->>>>>>> ec490cce809617090d17ac1ec4a111fcb0a51343
-            };
-
-            $scope.getSingleDependent = function() {
-
-                DependentsService.getSingleDependent($stateParams.dependentId).success(
+                console.log('get single dependent controller',
+                    typeof id);
+                // DependentsService.getSingleDependent(id);
+                console.log("id from the controller", id);
+                DependentsService.getSingleDependent(id).success(
                     function(singleDependent) {
                         $scope.singleDependent =
                             singleDependent;
-                        console.log("OBJ", $scope.singleDependent);
-                        console.log("id",singleDependent._id);
-                        console.log("name", singleDependent.name);
-                        console.log("dob",singleDependent.dob);
+                        console.log($scope.singleDependent);
+                        console.log(singleDependent._id);
+                        console.log(singleDependent.name);
+                        console.log(singleDependent.dob);
                         console.log(singleDependent.history);
-                        // $location.path('/app/userprofile/dependent/'+ singleDependent._id);
-
-
+                        // $location.path('/app/userprofile/dependent/' singleDependent._id);
                 });
             }
+            
                 // $scope.dependent = dependent;
                 //   $location.path('/app/userprofile/dependent/'+ id);
                 // };
@@ -254,7 +182,7 @@
                 });
             };
 
-<<<<<<< HEAD
+
   var events = {
   places_changed: function (searchBox) {
   var place = searchBox.getPlaces();
