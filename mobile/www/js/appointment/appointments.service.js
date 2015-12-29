@@ -6,7 +6,7 @@
     .factory('AppointmentsService', function ($http) {
       // var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppAppointments";
       var url = "https://pediaserver.herokuapp.com/api/appointment";
-      // var url = "api/collections/PediaAppAppointments";
+      // var url = "api/collections/appointment";
 
       var addAppointment = function (newAppointment) {
         console.log(newAppointment);
@@ -18,6 +18,12 @@
 
       var getAppointments = function () {
         return $http.get(url);
+      };
+
+      var getSingleDependent = function (id) {
+        console.log("this is getsingledependent in dependent service:", id);
+        console.log("getsingledependent service is firing!");
+        return $http.get(getDependent + id);
       };
 
       var updateAppointment = function (updatedAppointment) {
@@ -33,7 +39,8 @@
         addAppointment: addAppointment,
         removeAppointment: removeAppointment,
         updateAppointment: updateAppointment,
-        getAppointments: getAppointments
+        getAppointments: getAppointments,
+        getSingleDependent: getSingleDependent
       };
     });
 

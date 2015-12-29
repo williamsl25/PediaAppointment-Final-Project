@@ -17,7 +17,10 @@
         $scope.singleUser = singleUser;
       });
 
-
+      DependentsService.getSingleDependent().success(function (singleDependent) {
+          console.log(singleDependent);
+          $scope.singleDependent = singleDependent;
+        });
 
       DependentsService.getDependents().success(function (dependents) {
         var userData = $scope.singleUser._id;
