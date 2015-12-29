@@ -8,7 +8,7 @@
     //   console.log(users);
     //     $scope.users = users;
     //   });
-$scope.singleUser;
+    $scope.singleUser;
 // var dependentsArr = [];
       // if($stateParams.userId) {
       // UsersService.getSingleUser($stateParams.userId).success(function (singlePost) {
