@@ -1,3 +1,6 @@
+// all dependents:   https://pediaserver.herokuapp.com/api/dependents
+// indiv dependent:  https://pediaserver.herokuapp.com/api/collections/dependent/5676fd84b337501100c4d830
+
 (function() {
   'use strict';
 
@@ -140,8 +143,8 @@
           $scope.singleDependent = singleDependent;
           // singleDependent = singleDependents;
           singleDep.push(singleDependent);
-          console.log(singleDep);
-          console.log(singleDep.name);
+          // console.log(singleDep);
+          // console.log(singleDep.name);
           console.log($scope.singleDependent);
           console.log(singleDependent._id);
           console.log(singleDependent.name);

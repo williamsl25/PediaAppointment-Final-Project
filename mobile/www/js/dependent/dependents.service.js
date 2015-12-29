@@ -15,7 +15,7 @@
       //****The above route will allow us in and appears to find the dependent.  For some reason the res.json(result) in crudRoutes
       //is not working but at some point was.  We see in the console logs the data we need but now it does not appear in the
       //the dependentProfile.html - its like we dont have access to that data ****//
-
+      
       var editDependent = "https://pediaserver.herokuapp.com/api/dependents/:dependentId";
 
 
