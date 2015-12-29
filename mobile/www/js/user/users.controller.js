@@ -21,9 +21,25 @@ $scope.singleUser;
 
         MapsService.getPharmacy().success(function (pharmacy) {
         console.log("Pharmacy from users controller:",pharmacy);
-        $scope.pharmacy = pharmacy;
-        console.log(pharmacy.name);
-        });
+        var pharmacyId = $scope.singleUser._id;
+        console.log("This is scope.singleUser._id:", $scope.singleUser._id);
+        console.log(pharmacyId);
+
+        $scope.pharmacyArr = [];
+        // $scope.pharmacy = pharmacy;
+        for(var i = 0; i <= pharmacy.length; i++) {
+          console.log("this is pharmacy i", i);
+          if (pharmacyId === pharmacy[i].user){
+            console.log(pharmacy[i].name);
+            console.log(pharmacy[i]._id);
+            // pharmacyArr.push(pharmacy[i].name);
+            $scope.pharmacyArr.push(pharmacy[i]);
+            console.log($scope.pharmacyArr);
+        }else {
+            console.log("User does not have a current pharmacy on file");
+          }
+        }
+      });
 
 
       // $scope.newUser = function (user) {
@@ -35,6 +51,8 @@ $scope.singleUser;
         // console.log('what are these', dependents[3].user);
         // console.log('get dependets',$scope.singleUser._id);
         var userData = $scope.singleUser._id;
+        console.log("This is scope.singleUser._id:", $scope.singleUser._id);
+
         console.log('test', userData);
         $scope.dependentsArr = [];
             // console.log('logging success',dependents[3].user);
@@ -80,7 +98,9 @@ $scope.singleUser;
           }).catch(function(response) {
            console.log("ERROR", response);
           });
-          $location.path('app/userprofile');
+          // $location.path('app/userprofile');
+          $location.path('auth/login');
+
         };
 
 

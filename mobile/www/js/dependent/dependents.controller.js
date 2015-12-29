@@ -150,6 +150,7 @@
           // console.log("singleDependents:", singleDependents.name);
           $location.path('/app/userprofile/dependent/'+ singleDependent._id);
         });
+    };
 
         // $scope.dependent = dependent;
       //   $location.path('/app/userprofile/dependent/'+ id);
@@ -162,6 +163,7 @@
         DependentsService.addDependent(dependent);
         $location.path('/app/userprofile');
       };
+
       // vm.title = "this is add dependent - calvin";
       $scope.editDependent = function (editedDependent) {
         console.log(editedDependent);
@@ -196,7 +198,7 @@
       // $location.path('/app/userprofile/dependent/'+ id);
 
 
-    };
+    // };
   });
 
 }());

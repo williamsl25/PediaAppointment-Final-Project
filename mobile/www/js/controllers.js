@@ -47,7 +47,7 @@ angular.module('PediaAppointment.controllers', [])
 
             console.log(res);
             $window.localStorage.setItem('userRole', res.data.role);
-            $state.go('app.appointment');
+            $state.go('app.userprofile');
           })
           .catch(function(response) {
 
