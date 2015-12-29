@@ -30,8 +30,6 @@
       };
 
       var getSingleDependent = function (id) {
-        console.log("this is getsingledependent in dependent service:", id);
-        console.log("getsingledependent service is firing!");
         return $http.get(getDependent + id);
       };
 

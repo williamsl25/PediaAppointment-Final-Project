@@ -5,7 +5,7 @@
             $location, MapsService, $ionicLoading, $compile, $state) {
             $scope.namePlace = [];
             var mapPlace = [];
-            $scope.singleDependent;
+            // $scope.singleDependent;
             // $scope.addPharmacy = function () {
             //   console.log('new pharmacy firing!');
             //   var placeToSave = $scope.namePlace[$scope.namePlace.length - 1];
@@ -124,22 +124,26 @@
             //   console.log(dependent);
             //   $scope.dependent = dependent;
             // });
-            $scope.getSingleDependent = function(id) {
+
+            $scope.goToDepProfile = function(id) {
+                console.log("STATe", id);
                 $state.go('app.dependentProfile',{dependentId: id});
-                console.log('get single dependent controller',
-                    typeof id);
-                // DependentsService.getSingleDependent(id);
-                console.log("id from the controller", id);
-                DependentsService.getSingleDependent(id).success(
+            };
+
+            $scope.getSingleDependent = function() {
+
+                DependentsService.getSingleDependent($stateParams.dependentId).success(
                     function(singleDependent) {
                         $scope.singleDependent =
                             singleDependent;
-                        console.log($scope.singleDependent);
-                        console.log(singleDependent._id);
-                        console.log(singleDependent.name);
-                        console.log(singleDependent.dob);
+                        console.log("OBJ", $scope.singleDependent);
+                        console.log("id",singleDependent._id);
+                        console.log("name", singleDependent.name);
+                        console.log("dob",singleDependent.dob);
                         console.log(singleDependent.history);
                         // $location.path('/app/userprofile/dependent/'+ singleDependent._id);
+
+
                 });
             }
                 // $scope.dependent = dependent;
