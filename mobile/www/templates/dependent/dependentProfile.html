@@ -1,43 +1,34 @@
 
 <ion-view>
   <ion-content>
-    <ion-list can-swipe="true" option-buttons="itemButtons" ng-init="getSingleDependent()" >
+    <form >
+      <div class="list-inset"ng-init="getSingleDependent()">
+        <label class="item item-input"> Name:  &nbsp&nbsp
 
-      <ion-item value="{{singleDependent.name}}">
-        <!-- {{singleUser.name}}
-        {{singleDependent.name}}
-        {{user.name}} -->
-        Name:   {{singleDependent.name}}
+          <input type="text" ng-model="singleDependent.name" value="{{singleDependent.name}}">
+        </label>
+        <label class="item item-input"> DOB:  &nbsp&nbsp
 
-        <!-- Name -->
-      </ion-item>
-      <ion-item>
+          <input type="text" ng-model="singleDependent.dob | date : short " value="{{singleDependent.dob | date : short}}">
+        </label>
+        <label class="item item-input"> Medications:  &nbsp&nbsp
 
-        DOB: {{singleDependent.dob | date : short}}
-        <!-- DOB -->
+          <input type="text" ng-model="singleDependent.medication" value="{{singleDependent.medication}}">
+        </label>
+        <label class="item item-input"> Medical History:  &nbsp&nbsp
 
-      </ion-item>
-      <ion-item>
-        Medications: {{singleDependent.medications}}
-        <!-- Meds -->
+          <input type="text" ng-model="singleDependent.history" value="{{singleDependent.history}}">
+        </label>
+        <label class="item item-input"> Pediatrician:  &nbsp&nbsp
 
-      </ion-item>
-      <ion-item>
-        Medical History: {{singleDependent.history}}
-        <!-- hx -->
-
-      </ion-item>
-      <ion-item>
-        {{singleDependent.pediatrician}}
-        <!-- pediatrician -->
-
-      </ion-item>
+          <input type="text" ng-model="singleDependent.pediatrician" value="{{singleDependent.pediatrician}}">
+        </label>
 
     </ion-list>
     <div class="buttons">
-      <button class="button button-block button-positive" type="submit" ng-click="gotoeditDependent(dependent._id)">Edit Dependent</button>
+      <button ng-click="editDependent(singleDependent)" class="button button-block button-positive" type="">Edit Dependent</button>
     </div>
 
-
+    <form >
   </ion-content>
 </ion-view>

@@ -164,21 +164,11 @@
                         editedDependent);
                     $location.path(
                         '/app/userprofile');
-                    $scope.dependent = dependent;
+                    $scope.singleDependent = singleDependent;
                 });
             };
             $scope.$on('user:edited', function() {});
 
-            $scope.gotoeditDependent = function(id) {
-                DependentsService.getSingleDependent(id).success(
-                    function(dependent) {
-                        console.log(dependent);
-                        $scope.dependent = dependent;
-                        $location.path(
-                            '/app/userprofile/dependent/' +
-                            id + '/edit');
-                });
-            };
 
             $scope.deleteDependent = function(dependentId) {
                 DependentsService.removeDependent(
