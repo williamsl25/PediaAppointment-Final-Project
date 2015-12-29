@@ -22,13 +22,11 @@
         <ion-checkbox ng-model="appointment.test" ng-true-value="yes" ng-false-value="'NO'" >test</ion-checkbox>
 
 
-
-
     </ion-list> -->
     <div class="row">
       <div class="col">
-        <ion-list ng-repeat="dependent in dependentsArr">
-          <ion-checkbox ng-model="appointment.name" value="{{dependent.name}}">
+        <ion-list ng-repeat="dependent in dependentsArr" >
+          <ion-checkbox ng-model="dependent.name" value="{{dependent.name}}">
             {{dependent.name}}
           </ion-checkbox>
         </ion-list>
