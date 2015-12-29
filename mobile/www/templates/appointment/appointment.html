@@ -15,8 +15,17 @@
     </ion-list> -->
 
 
-
+<!-- Original -->
     <h5>This Appointment is for:</h5>
+    <ion-list>
+      <ion-item ng-repeat="dependent in dependentsArr">
+        <ion-checkbox ng-model="appointment.name" >{{dependent.name}}</ion-checkbox>
+      </ion-item>
+      <!-- <ion-checkbox ng-model="appointment.patient2">Beth Parker</ion-checkbox> -->
+    </ion-list>
+    <!-- Original -->
+
+
     <!-- <ion-list ng-repeat="dependent in dependentsArr">
 
         <ion-checkbox ng-model="appointment.test" ng-true-value="yes" ng-false-value="'NO'" >test</ion-checkbox>

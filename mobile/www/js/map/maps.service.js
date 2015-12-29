@@ -14,6 +14,11 @@
         });
       };
 
+      var getPharmacy = function() {
+        console.log("Get Pharmacy is firing from maps service");
+        return $http.get(url);
+      };
+
       // var getDependents = function () {
       //   return $http.get(url);
       // };
@@ -22,9 +27,6 @@
       //   return $http.get(url + '/' + dependentId);
       // };
       //
-      // var updateDependent = function (updatedDependent) {
-      //   return $http.put(url + '/' + updatedDependent._id, updatedDependent);
-      // };
       var deletePharmacy = function (dependentId) {
         return $http.delete(url + '/' + dependentId);
       };
@@ -33,6 +35,7 @@
 
       return {
         addPharmacy: addPharmacy,
+        getPharmacy: getPharmacy,
         // getSingleDependent: getSingleDependent,
         deletePharmacy: deletePharmacy,
         // updateDependent: updateDependent,

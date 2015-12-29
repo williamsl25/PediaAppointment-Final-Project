@@ -200,7 +200,7 @@ router.route('/dependents')
 //Appointment route
       router.route('/appointment')
         .get(function(req,res) {
-          Appointment.find({'user._id': req.user}, function(err, appointment) {
+          Appointment.find({'user._id': req.dependent}, function(err, appointment) {
             console.log("FOUND APPOINTMENT", appointment);
             if(!appointment)  { return res.status(400).send({ message: 'Appointment Not Found / Appointment was not created!' }); }
             res.status(200).send(appointment);

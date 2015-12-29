@@ -9,7 +9,7 @@
 
     $scope.namePlace = [];
     var mapPlace =[];
-    $scope.singleDependent;
+    var singleDep = [];
 
     // $scope.addPharmacy = function () {
     //   console.log('new pharmacy firing!');
@@ -125,9 +125,9 @@
     //     });
     //   }
     // });
-      // DependentsService.getSingleDependent().success(function (dependent) {
-      //   console.log(dependent);
-      //   $scope.dependent = dependent;
+      // DependentsService.getSingleDependent().success(function (singleDependent) {
+      //   console.log(singleDependent);
+      //   $scope.singleDependent = singleDependent;
       // });
 
 
@@ -136,15 +136,21 @@
         // DependentsService.getSingleDependent(id);
         console.log("id from the controller", id);
         DependentsService.getSingleDependent(id).success(function (singleDependent){
+          // var singleDependents = [];
           $scope.singleDependent = singleDependent;
-
+          // singleDependent = singleDependents;
+          singleDep.push(singleDependent);
+          console.log(singleDep);
+          console.log(singleDep.name);
           console.log($scope.singleDependent);
           console.log(singleDependent._id);
           console.log(singleDependent.name);
           console.log(singleDependent.dob);
           console.log(singleDependent.history);
+          // console.log("singleDependents:", singleDependents.name);
           $location.path('/app/userprofile/dependent/'+ singleDependent._id);
         });
+    };
 
         // $scope.dependent = dependent;
       //   $location.path('/app/userprofile/dependent/'+ id);
@@ -157,6 +163,7 @@
         DependentsService.addDependent(dependent);
         $location.path('/app/userprofile');
       };
+
       // vm.title = "this is add dependent - calvin";
       $scope.editDependent = function (editedDependent) {
         console.log(editedDependent);
@@ -191,7 +198,7 @@
       // $location.path('/app/userprofile/dependent/'+ id);
 
 
-    };
+    // };
   });
 
 }());
