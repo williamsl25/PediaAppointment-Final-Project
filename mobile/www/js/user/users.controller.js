@@ -70,7 +70,7 @@
       //   UsersService.addUser(user);
 
 
-<<<<<<< HEAD
+
       DependentsService.getDependents().success(function (dependents) {
         // console.log('what are these', dependents[3].user);
         // console.log('get dependets',$scope.singleUser._id);
@@ -97,8 +97,7 @@
           }
 
         });
-=======
->>>>>>> ec490cce809617090d17ac1ec4a111fcb0a51343
+
 
         // $scope.getSingleDependent = function (dependent) {
         //   console.log('get single dependent controller', dependent);

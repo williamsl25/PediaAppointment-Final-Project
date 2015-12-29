@@ -1,9 +1,5 @@
-// all dependents:   https://pediaserver.herokuapp.com/api/dependents
-// indiv dependent:  https://pediaserver.herokuapp.com/api/collections/dependent/5676fd84b337501100c4d830
-
 (function() {
-
-  'use strict';
+    'use strict';
     angular.module('dependents').controller('DependentsController',
         function($scope, $stateParams, DependentsService, UsersService,
             $location, MapsService, $ionicLoading, $compile, $state) {
@@ -129,25 +125,27 @@
             //   $scope.dependent = dependent;
             // });
 
-            $scope.getSingleDependent = function(id) {
+            $scope.goToDepProfile = function(id) {
+                console.log("STATe", id);
                 $state.go('app.dependentProfile',{dependentId: id});
-                console.log('get single dependent controller',
-                    typeof id);
-                // DependentsService.getSingleDependent(id);
-                console.log("id from the controller", id);
-                DependentsService.getSingleDependent(id).success(
+            };
+
+            $scope.getSingleDependent = function() {
+
+                DependentsService.getSingleDependent($stateParams.dependentId).success(
                     function(singleDependent) {
                         $scope.singleDependent =
                             singleDependent;
-                        console.log($scope.singleDependent);
-                        console.log(singleDependent._id);
-                        console.log(singleDependent.name);
-                        console.log(singleDependent.dob);
+                        console.log("OBJ", $scope.singleDependent);
+                        console.log("id",singleDependent._id);
+                        console.log("name", singleDependent.name);
+                        console.log("dob",singleDependent.dob);
                         console.log(singleDependent.history);
-                        // $location.path('/app/userprofile/dependent/' singleDependent._id);
+                        // $location.path('/app/userprofile/dependent/'+ singleDependent._id);
+
+
                 });
             }
-            
                 // $scope.dependent = dependent;
                 //   $location.path('/app/userprofile/dependent/'+ id);
                 // };
@@ -182,139 +180,6 @@
                 });
             };
 
-
-  var events = {
-  places_changed: function (searchBox) {
-  var place = searchBox.getPlaces();
-      var lat = place[0].geometry.location.lat();
-      var long = place[0].geometry.location.lng();
-      if (!place || place === 'undefined' || place.length === 0) {
-          return;
-        }
-         console.log('place', lat, long, place);
-        //  console.log(place[0].name);
-        //  console.log(place[0].formatted_address);
-        //  console.log(place[0].formatted_phone_number);
-        //  console.log(place[0].website);
-        //  console.log(place[0].email);
-
-         var newPlace = {
-            name: place[0].name,
-            address: place[0].formatted_address,
-            phone: place[0].formatted_phone_number,
-            website: place[0].website,
-            coords: {
-              latitude: place[0].geometry.location.lat(),
-              longitude: place[0].geometry.location.lng()
-            },
-            id: place[0].place_id,
-            mapurl: place[0].url,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
-          };
-          console.log(newPlace);
-          $scope.namePlace.push(newPlace);
-          console.log('scope nameplace', $scope.namePlace);
-
-          $scope.$broadcast("location:added");
-
-      }
-
-    };
-
-    $scope.searchbox = { template:'searchbox.tpl.html', events:events};
-
-
-
-
-    // var vm = this;
-    // DependentsService.getDependents().success(function (dependents) {
-    //   console.log(dependents);
-    //     $scope.dependents = dependents;
-
-    //   if($stateParams.dependentId) {
-    //     DependentsService.getSingleDependent().success(function (singleDependent) {
-    //       console.log(singleDependent);
-    //       $scope.dependent = singleDependent;
-    //     });
-    //   }
-    // });
-      // DependentsService.getSingleDependent().success(function (singleDependent) {
-      //   console.log(singleDependent);
-      //   $scope.singleDependent = singleDependent;
-      // });
-
-
-      $scope.getSingleDependent = function (id) {
-        console.log('get single dependent controller', typeof id);
-        // DependentsService.getSingleDependent(id);
-        console.log("id from the controller", id);
-        DependentsService.getSingleDependent(id).success(function (singleDependent){
-          // var singleDependents = [];
-          $scope.singleDependent = singleDependent;
-          // singleDependent = singleDependents;
-          singleDep.push(singleDependent);
-          // console.log(singleDep);
-          // console.log(singleDep.name);
-          console.log($scope.singleDependent);
-          console.log(singleDependent._id);
-          console.log(singleDependent.name);
-          console.log(singleDependent.dob);
-          console.log(singleDependent.history);
-          // console.log("singleDependents:", singleDependents.name);
-          $location.path('/app/userprofile/dependent/'+ singleDependent._id);
-        });
-    };
-
-        // $scope.dependent = dependent;
-      //   $location.path('/app/userprofile/dependent/'+ id);
-      // };
-
-
-
-      $scope.newDependent = function (dependent) {
-        console.log('new dependent firing!', dependent);
-        DependentsService.addDependent(dependent);
-        $location.path('/app/userprofile');
-      };
-
-      // vm.title = "this is add dependent - calvin";
-      $scope.editDependent = function (editedDependent) {
-        console.log(editedDependent);
-        DependentsService.updateDependent(editedDependent).success(function() {
-          console.log("EDIT",editedDependent);
-          $location.path('/app/userprofile');
-          $scope.dependent = dependent;
-        });
-      };
-
-      $scope.$on('user:edited', function () {
-
-      });
-
-      $scope.gotoeditDependent = function (id) {
-        DependentsService.getSingleDependent(id).success(function (dependent){
-          console.log(dependent);
-          $scope.dependent = dependent;
-          $location.path('/app/userprofile/dependent/'+ id + '/edit');
-        });
-      };
-      $scope.deleteDependent = function (dependentId) {
-        DependentsService.removeDependent(dependentId);
-      };
-
-      // $scope.gotodependentProfile = function (id) {
-      // console.log("go to dependent profile being fired!");
-      //   DependentsService.getSingleDependent(id).success(function (dependent){
-      //     console.log(dependent);
-      //     $scope.dependent = dependent;
-      //     $location.path('/app/userprofile/dependent/{{dependent._id}}');
-      // $location.path('/app/userprofile/dependent/'+ id);
-
-
-    // };
-  });
-
-=======
             $scope.deleteDependent = function(dependentId) {
                 DependentsService.removeDependent(
                     dependentId);
@@ -327,5 +192,4 @@
                 //     $location.path('/app/userprofile/dependent/{{dependent._id}}');
                 // $location.path('/app/userprofile/dependent/'+ id);
         });
->>>>>>> ec490cce809617090d17ac1ec4a111fcb0a51343
 }());

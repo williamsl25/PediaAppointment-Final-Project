@@ -1,37 +1,29 @@
+
 <ion-view>
+  <ion-content>
+    <ion-list can-swipe="true" option-buttons="itemButtons" ng-init="getSingleDependent()" >
 
-  <ion-content >
-    <!-- <ion-list can-swipe="true" option-buttons="itemButtons" > -->
-
-      <ion-item >
-        Name here:
-        {{singleDep.name}}
-        {{singleUser.name}}
+      <ion-item value="{{singleDependent.name}}">
+        <!-- {{singleUser.name}}
         {{singleDependent.name}}
-        {{singleDependent._id}}
-        {{dependent.name}}
+        {{user.name}} -->
+        Name:   {{singleDependent.name}}
 
         <!-- Name -->
       </ion-item>
       <ion-item>
-        {{singleDependent.name}}
-        {{singleDependent._id}}
-DOB here:
+
+        DOB: {{singleDependent.dob | date : short}}
         <!-- DOB -->
 
       </ion-item>
       <ion-item>
-<<<<<<< HEAD
-        {{dependent.medications}}
-        {{medications}}
-
+        Medications: {{singleDependent.medications}}
         <!-- Meds -->
 
       </ion-item>
       <ion-item>
-
-        {{singleDependent.history}}
-
+        Medical History: {{singleDependent.history}}
         <!-- hx -->
 
       </ion-item>
@@ -45,29 +37,6 @@ DOB here:
     <div class="buttons">
       <button class="button button-block button-positive" type="submit" ng-click="gotoeditDependent(dependent._id)">Edit Dependent</button>
     </div>
-
-
-
-    <form>
-      <div class="list-inset">
-        <label class="item item-input">
-          <span class="input-label"></span>
-          <input type="text"  value="{{singleDep.name}}">
-          Form Value here: {{name}}
-          {{singleDep.name}}
-          {{singleUser.name}}
-          {{singleDependent.name}}
-          {{singleDependent._id}}
-          {{dependent.name}}
-          {{user.name}}
-          {{singleDependents.name}}
-          {{name}}
-        </label>
-      </div>
-    </form>
-
-
-
 
 
   </ion-content>
