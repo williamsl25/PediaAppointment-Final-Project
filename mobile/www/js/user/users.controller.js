@@ -9,38 +9,12 @@
     //     $scope.users = users;
     //   });
     $scope.singleUser;
-// var dependentsArr = [];
-      // if($stateParams.userId) {
-      // UsersService.getSingleUser($stateParams.userId).success(function (singlePost) {
 
         UsersService.getSingleUser().success(function (singleUser) {
           console.log(singleUser);
           $scope.singleUser = singleUser;
+  });
 
-          DependentsService.getDependents().success(function (dependents) {
-            // console.log('what are these', dependents[3].user);
-            // console.log('get dependets',$scope.singleUser._id);
-            var userData = $scope.singleUser._id;
-            console.log('test', userData);
-            $scope.dependentsArr = [];
-                console.log('logging success',dependents[3].user);
-                // $scope.dependents = dependents[i];
-                console.log(dependents);
-                for(var i = 0; i <= dependents.length; i++) {
-                  console.log("this is i", i);
-                  if (userData === dependents[i].user){
-                    console.log(dependents[i].name);
-                    console.log(dependents[i]._id);
-                    // return dependents[i];
-                    // dependentsArr.push(dependents[i].name);
-                    $scope.dependentsArr.push(dependents[i]);
-                    console.log($scope.dependentsArr);
-                }else {
-                    console.log("User does not have dependents");
-                }
-              }
-          });
-        });
 
         MapsService.getPharmacy().success(function (pharmacy) {
         console.log("Pharmacy from users controller:",pharmacy);
@@ -65,9 +39,6 @@
       });
 
 
-      // $scope.newUser = function (user) {
-      //   console.log(user);
-      //   UsersService.addUser(user);
 
 
 
@@ -104,12 +75,6 @@
         //   $scope.dependent = dependent;
         //   $location.path('/app/userprofile/dependent/'+ dependent._id);
         // };
-
-
-
-
-
-
 
 
         $scope.newUser = function(user) {

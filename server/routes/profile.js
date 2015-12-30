@@ -99,9 +99,9 @@ router.route('/dependents')
       history: req.body.history,
       medication: req.body.medication,
       pediatrician: req.body.pediatricianName,
-      pedAddress: req.body.peditricianAddress,
-      pedPhone: req.body.peditricianPhone,
-      pedWeb: req.body.pediatricianWebsite
+      // pedAddress: req.body.peditricianAddress,
+      // pedPhone: req.body.peditricianPhone,
+      // pedWeb: req.body.pediatricianWebsite
     });
 
     console.log('new Dependent', dependent);
@@ -143,7 +143,12 @@ router.route('/dependents')
       });
     })
     .put(function (req, res) {
-    Dependent.findById(req.params.dependentId, function (err, dependent) {
+      console.log("this is the req.params", req.params);
+      console.log("This is the req.params.dependentID", req.params.dependentId);
+      console.log("This is the dependent", req.params.dependent);
+      console.log("This is the name", req.body.name);
+      console.log("this is the body", req.body);
+    Dependent.findById(req.params.id, function (err, dependent) {
       if (!dependent) { return res.status(400).send({ message: 'Dependent not found' }); }
       console.log ("Post in Single Dependent FIRING!", req.body.name);
       dependent.name = req.body.name || dependent.name;
