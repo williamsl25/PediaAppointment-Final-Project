@@ -17,17 +17,17 @@
         $scope.singleUser = singleUser;
       });
 
-      DependentsService.getSingleDependent().success(function (singleDependent) {
-          console.log(singleDependent);
-          $scope.singleDependent = singleDependent;
-        });
+      // DependentsService.getSingleDependent().success(function (singleDependent) {
+      //     console.log(singleDependent);
+      //     $scope.singleDependent = singleDependent;
+      //   });
 
       DependentsService.getDependents().success(function (dependents) {
         var userData = $scope.singleUser._id;
         console.log('test', userData);
         $scope.dependentsArr = [];
 
-            console.log('logging success',dependents[3].user);
+            // console.log('logging success',dependents[3].user);
             // $scope.dependents = dependents[i];
             console.log(dependents);
             for(var i = 0; i <= dependents.length; i++) {
