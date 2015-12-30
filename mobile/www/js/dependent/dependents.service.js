@@ -16,7 +16,7 @@
       //is not working but at some point was.  We see in the console logs the data we need but now it does not appear in the
       //the dependentProfile.html - its like we dont have access to that data ****//
 
-      var editDependent = "https://pediaserver.herokuapp.com/api/dependent/:dependentId";
+      var editDependent = "https://pediaserver.herokuapp.com/api/dependents";
 
 
       var addDependent = function (newDependent) {
@@ -37,7 +37,7 @@
 
 
       var updateDependent = function (updatedDependent) {
-        return $http.put(editDependent, updatedDependent);
+        return $http.put(editDependent + '/' + updatedDependent._id, updatedDependent );
       };
       var removeDependent = function (dependentId) {
         return $http.delete(url + '/' + dependentId);

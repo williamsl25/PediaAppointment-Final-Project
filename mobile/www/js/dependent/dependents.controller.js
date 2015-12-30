@@ -161,12 +161,9 @@
                 // vm.title = "this is add dependent - calvin";
             $scope.editDependent = function(editedDependent) {
                 console.log(editedDependent);
-                DependentsService.updateDependent(
-                    editedDependent).success(function() {
-                    console.log("EDIT",
-                        editedDependent);
-                    $location.path(
-                        '/app/userprofile');
+                DependentsService.updateDependent(editedDependent).success(function() {
+                    console.log("EDIT", editedDependent);
+                    $location.path('/app/userprofile');
                     $scope.singleDependent = singleDependent;
                 });
             };
@@ -174,8 +171,7 @@
 
 
             $scope.deleteDependent = function(dependentId) {
-                DependentsService.removeDependent(
-                    dependentId);
+                DependentsService.removeDependent(dependentId);
             };
                 // $scope.gotodependentProfile = function (id) {
                 // console.log("go to dependent profile being fired!");

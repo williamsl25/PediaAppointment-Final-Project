@@ -89,6 +89,8 @@ angular.module('PediaAppointment.controllers', [])
       };
 
   })
+
+
   .controller('AccountCtrl', function($scope, $auth) {
     $scope.settings = {
       enableFriends: true
