@@ -3,7 +3,7 @@
 
   angular
   .module('users')
-  .controller('UsersController', function ($scope, $auth, $stateParams, UsersService, DependentsService, $location, MapsService, $state, $window){
+  .controller('UsersController', function ($scope, $auth, $stateParams, UsersService, DependentsService, $location, MapsService, $state, $window, $ionicPopup){
     // UsersService.getUsers().success(function (users) {
     //   console.log(users);
     //     $scope.users = users;
@@ -77,22 +77,6 @@
         // };
 
 
-        $scope.newUser = function(user) {
-          console.log("User Being Created", user);
-          $auth.signup({
-            // displayName: $scope.displayName,
-            name: user.name,
-            password: user.password,
-            phone: user.phone,
-            email: user.email
-          }).catch(function(response) {
-           console.log("ERROR", response);
-          });
-          // $location.path('app/userprofile');
-          $location.path('auth/login');
-
-        };
-
 
 
 // navigates to the editUser.html with the gotoEditUser function
@@ -142,6 +126,14 @@
           $location.path('/app/userprofile/dependent/'+ id + '/edit');
         });
       };
+
+      $scope.saveProfile = function(){
+        $ionicPopup.alert({
+          title: 'Success',
+          content: 'Profile was saved!'
+        });
+        $state.go('app.appointment');
+      }
 
   });
 

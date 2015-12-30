@@ -17,6 +17,7 @@
       //the dependentProfile.html - its like we dont have access to that data ****//
 
       var editDependent = "https://pediaserver.herokuapp.com/api/dependents";
+       //The PUT route in profile.js from the server is working!!
 
 
       var addDependent = function (newDependent) {
@@ -39,8 +40,8 @@
       var updateDependent = function (updatedDependent) {
         return $http.put(editDependent + '/' + updatedDependent._id, updatedDependent );
       };
-      var removeDependent = function (dependentId) {
-        return $http.delete(url + '/' + dependentId);
+      var removeDependent = function (deleteDependent) {
+        return $http.delete(editDependent + '/' + deleteDependent._id);
       };
 
 

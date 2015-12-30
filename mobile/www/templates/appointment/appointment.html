@@ -17,12 +17,12 @@
 
 <!-- Original -->
     <h5>This Appointment is for:</h5>
-    <ion-list>
+    <!-- <ion-list>
       <ion-item ng-repeat="dependent in dependentsArr">
         <ion-checkbox ng-model="appointment.name" >{{dependent.name}}</ion-checkbox>
       </ion-item>
-      <!-- <ion-checkbox ng-model="appointment.patient2">Beth Parker</ion-checkbox> -->
-    </ion-list>
+      <! <ion-checkbox ng-model="appointment.patient2">Beth Parker</ion-checkbox> -->
+    <!-- </ion-list> -->
     <!-- Original -->
 
 
@@ -79,9 +79,13 @@
         </ion-list>
       </div>
     </div>
-    <label class="item item-input">
-      <input type="text" placeholder="Other" ng-model="appointment.otherSymptoms">
-    </label>
+    <div class="col">
+      <ion-list>
+        <label class="item item-input">
+          <input type="text" placeholder="Other" ng-model="appointment.otherSymptoms">
+        </label>
+      </ion-list>
+    </div>
 
     <h5>Appointment Date & Time Request:</h5>
 <div >

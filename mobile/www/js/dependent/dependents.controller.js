@@ -5,7 +5,7 @@
             $location, MapsService, $ionicLoading, $compile, $state,$window) {
             $scope.namePlace = [];
             var mapPlace = [];
-        
+
             UsersService.getSingleUser().success(function (singleUser) {
                 console.log(singleUser);
                 $scope.singleUser = singleUser;
@@ -134,6 +134,7 @@
                     dependent);
                 DependentsService.addDependent(dependent);
                 $location.path('/app/userprofile');
+
             };
 
 
@@ -142,16 +143,22 @@
                 DependentsService.updateDependent(editedDependent).success(function() {
                     console.log("EDIT", editedDependent);
                     $state.go('app.userprofile');
-                      $window.location.reload(true)
+                      $window.location.reload(true); //will refresh the page
                 });
             };
-            $scope.$on('editDependent', function() {
-              $route.reload();
-            });
+            // $scope.$on('editDependent', function() {
+            //   $route.reload();
+            // });
 
 
             $scope.deleteDependent = function(dependentId) {
-                DependentsService.removeDependent(dependentId);
+              console.log(dependentId)
+                DependentsService.removeDependent(dependentId).success(function(){
+                  console.log("dependent deleted", dependentId);
+                  $state.go('app.userprofile');
+                  $window.location.reload(true); //will refresh the page
+                });
+
             };
                 // $scope.gotodependentProfile = function (id) {
                 // console.log("go to dependent profile being fired!");
