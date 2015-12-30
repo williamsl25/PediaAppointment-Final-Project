@@ -5,6 +5,7 @@
     .module('maps')
     .factory('MapsService', function ($http) {
       var url = "https://pediaserver.herokuapp.com/api/pharmacy";
+      var removeUrl = "https://pediaserver.herokuapp.com/api/collections/pharmacies";
       // var url = "api/collections/PediaAppPharmacy";
       // var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppPharmacy";
       var addPharmacy = function (pharmacy) {
@@ -27,8 +28,8 @@
       //   return $http.get(url + '/' + dependentId);
       // };
       //
-      var deletePharmacy = function (dependentId) {
-        return $http.delete(url + '/' + dependentId);
+      var deletePharmacy = function (Id) {
+        return $http.delete(removeUrl + '/' + Id);
       };
 
 
