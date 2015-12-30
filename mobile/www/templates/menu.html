@@ -54,7 +54,7 @@
         <ion-item menu-close href="#/app/contact">
           Contact Us
         </ion-item>
-        <ion-item menu-close href="#/auth/logout">
+        <ion-item ng-controller="LoginController" menu-close ng-click="logout()">
           Logout
         </ion-item>
         <!-- <ion-item menu-close href="#/app/map">

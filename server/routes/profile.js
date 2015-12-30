@@ -81,6 +81,7 @@ router.route('/admin/users/:userId')
   });
 
 // Dependent Route
+//*** Get all dependents ***
 router.route('/dependents')
   .get(function(req,res) {
     Dependent.find({'user._id': req.user}, function(err, dependents) {
@@ -90,6 +91,7 @@ router.route('/dependents')
       res.status(200).send(dependents);
     });
   })
+  // POST new dependent
   .post(ensureAuthenticated, function (req, res, next) {
     console.log("POST IN DEPENDENT FIRING", req.user);
     var dependent = new Dependent({
@@ -114,7 +116,7 @@ router.route('/dependents')
 
 
 
-//test
+// NOT WORKING TO GET A SINGLE DEPENDENT -- works in the crudRoutes
   router.route('/dependents/:id')
     // .all(ensureAuthenticated, role.can('access all the things'))
 
@@ -142,6 +144,7 @@ router.route('/dependents')
 
       });
     })
+    // PUT route working to update single dependent
     .put(function (req, res) {
       console.log("this is the req.params", req.params);
       console.log("This is the req.params.dependentID", req.params.dependentId);
@@ -162,7 +165,12 @@ router.route('/dependents')
     });
   })
   .delete(function (req, res) {
-    Dependent.findByIdAndRemove(req.params.dependentId, function (err, dependent) {
+    console.log("this is the req.params", req.params);
+    console.log("This is the req.params.dependentID", req.params.dependentId);
+    console.log("This is the dependent", req.params.dependent);
+    console.log("This is the name", req.body.name);
+    console.log("this is the body", req.body);
+    Dependent.findByIdAndRemove(req.params.id, function (err, dependent) {
       if(err) { return next(err); }
       res.status(200).send({message: 'Successfuly Deleted Dependent'});
     });

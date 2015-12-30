@@ -3,7 +3,7 @@
 
   angular
   .module('appointments')
-  .controller('AppointmentsController', function ($scope, $auth, $stateParams, $ionicPopup, DependentsService, UsersService, AppointmentsService, $location){
+  .controller('AppointmentsController', function ($scope, $auth, $stateParams, $ionicPopup, DependentsService, UsersService, AppointmentsService, $location, $state){
     var vm = this;
     $scope.singleUser;
 
@@ -49,16 +49,17 @@
 
         });
 
-
-
-
       $scope.newAppointment = function (appointment) {
         console.log('new appointment firing!');
         console.log(appointment);
         // console.log(appointment);
         // console.log(appointment.fever)
         AppointmentsService.addAppointment(appointment);
-        $location.path('/app/confirmation');
+        $ionicPopup.alert({
+          title: 'Success',
+          content: 'Appointment request has been sent'
+        });
+        $state.go('app.confirmation');
       };
       vm.title = "this is add appointment - calvin";
       $scope.editAppointment = function (editedAppointment) {

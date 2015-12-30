@@ -41,14 +41,14 @@ angular
       }
     })
 
-      //addUser
-    .state('app.newuser', {
+      // addUser
+    .state('auth.newuser', {
       url: '/newuser',
 
       views: {
-        'menuContent': {
+        'login': {
           templateUrl: 'templates/user/newuser.html',
-          controller: 'UsersController'
+          controller: 'LoginController'
         }
       }
     });

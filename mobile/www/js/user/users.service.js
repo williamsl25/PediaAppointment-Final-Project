@@ -5,8 +5,8 @@
     .module('users')
     .factory('UsersService', function ($http) {
       var url = "https://pediaserver.herokuapp.com/auth/signup";
-      var getUser = "https://pediaserver.herokuapp.com/api/me";
-      var updateMe = "https://pediaserver.herokuapp.com/api/me";
+      var getUser = "https://pediaserver.herokuapp.com/api/me";  //GET route from profile.js
+      var updateMe = "https://pediaserver.herokuapp.com/api/me"; //PUT route from profile.js
 
       var addUser = function (newUser) {
         console.log(newUser);
