@@ -16,7 +16,7 @@
       //is not working but at some point was.  We see in the console logs the data we need but now it does not appear in the
       //the dependentProfile.html - its like we dont have access to that data ****//
 
-      var editDependent = "https://pediaserver.herokuapp.com/api/dependents/:dependentId";
+      var editDependent = "https://pediaserver.herokuapp.com/api/dependent/:dependentId";
 
 
       var addDependent = function (newDependent) {
@@ -32,8 +32,6 @@
       };
 
       var getSingleDependent = function (id) {
-        console.log("this is getsingledependent in dependent service:", id);
-        console.log("getsingledependent service is firing!");
         return $http.get(getDependent + id);
       };
 

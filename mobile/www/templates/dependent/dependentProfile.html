@@ -1,75 +1,34 @@
+
 <ion-view>
-  <ion-content ng-controller="DependentsController">
-    <!-- <ion-list can-swipe="true" option-buttons="itemButtons" > -->
+  <ion-content>
+    <form >
+      <div class="list-inset"ng-init="getSingleDependent()">
+        <label class="item item-input"> Name:  &nbsp&nbsp
 
-      <ion-item ng-controller="DependentsController" value="{{singleDependent.name}}">
-        Name here:
-        {{singleDep.name}}
-        {{singleUser.name}}
-        {{singleDependent.name'}}
-        {{singleDependent._id}}
-        {{dependent.name}}
-        {{user.name}}
-        {{singleDependents.name}}
-        {{name}}
+          <input type="text" ng-model="singleDependent.name" value="{{singleDependent.name}}">
+        </label>
+        <label class="item item-input"> DOB:  &nbsp&nbsp
 
+          <input type="text" ng-model="singleDependent.dob | date : short " value="{{singleDependent.dob | date : short}}">
+        </label>
+        <label class="item item-input"> Medications:  &nbsp&nbsp
 
-        <!-- Name -->
-      </ion-item>
-      <ion-item>
-        {{dependent.name}}
-        {{singleDependent.name}}
-        {{singleDependent._id}}
-DOB here:
-        <!-- DOB -->
+          <input type="text" ng-model="singleDependent.medication" value="{{singleDependent.medication}}">
+        </label>
+        <label class="item item-input"> Medical History:  &nbsp&nbsp
 
-      </ion-item>
-      <ion-item>
-        {{dependent.medications}}
-        {{medications}}
-        <!-- Meds -->
+          <input type="text" ng-model="singleDependent.history" value="{{singleDependent.history}}">
+        </label>
+        <label class="item item-input"> Pediatrician:  &nbsp&nbsp
 
-      </ion-item>
-      <ion-item>
-        {{dependent.history}}
-        {{hisrory}}
-        <!-- hx -->
-
-      </ion-item>
-      <ion-item>
-        {{dependent.pediatrician}}
-        <!-- pediatrician -->
-
-      </ion-item>
+          <input type="text" ng-model="singleDependent.pediatrician" value="{{singleDependent.pediatrician}}">
+        </label>
 
     </ion-list>
     <div class="buttons">
-      <button class="button button-block button-positive" type="submit" ng-click="gotoeditDependent(dependent._id)">Edit Dependent</button>
+      <button ng-click="editDependent(singleDependent)" class="button button-block button-positive" type="">Edit Dependent</button>
     </div>
 
-
-
-    <form>
-      <div class="list-inset">
-        <label class="item item-input">
-          <span class="input-label"></span>
-          <input type="text"  value="{{singleDep.name}}">
-          Form Value here: {{name}}
-          {{singleDep.name}}
-          {{singleUser.name}}
-          {{singleDependent.name}}
-          {{singleDependent._id}}
-          {{dependent.name}}
-          {{user.name}}
-          {{singleDependents.name}}
-          {{name}}
-        </label>
-      </div>
-    </form>
-
-
-
-
-
+    <form >
   </ion-content>
 </ion-view>

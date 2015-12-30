@@ -2,18 +2,6 @@
 <!-- <ion-view view-title="Profile Information"> -->
 <ion-view>
 
-  <!-- <ion-header-bar>
-    <h1 class="title">Profile Information</h1> -->
-    <!-- <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div> -->
-  <!-- </ion-header-bar> -->
-
-  <!-- <div class="bar bar-header">
-  <button class="button button-clear button-positive">Edit</button>
-</div> -->
-
-
 <ion-content>
 
   <div class="list">
@@ -60,7 +48,7 @@
         <ion-item ng-repeat="dependent in dependentsArr">
           <!-- {{dependent.name}} -->
             <div class="buttons">
-              <button ng-controller="DependentsController" type="" ng-click="getSingleDependent(dependent._id)" class="button button-block button-positive">{{dependent.name}}</button>
+              <button ng-controller="DependentsController" type="" ng-click="goToDepProfile(dependent._id)" class="button button-block button-positive">{{dependent.name}}</button>
             <!-- <button ng-controller="DependentsController" type="submit" ng-click="getSingleDependent(dependent)" class="button button-block button-positive">{{dependent.name}}</button> -->
             <!-- <a href="/app/userprofile/dependent/{{dependent._id}}">{{dependent.name}}</a> -->
 
@@ -94,7 +82,6 @@
   </ion-list>
 
 
-
   <!-- save profile  -->
   <!-- <button class="button button-block button-positive" type="submit">Save Profile</button> -->
 
@@ -102,7 +89,5 @@
     <a href="#/app/home" style="text-decoration: none"><button class="button button-block button-positive" type="submit" ng-click="addUserProfile()">Save Profile</button></a>
   </div>
 
-
-    </div>
   </ion-content>
 </ion-view>
