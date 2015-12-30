@@ -126,8 +126,8 @@
       //   console.log(pharmacy);
       //   UsersService.addUser.pharmacy(pharmacy);
       // };
-      $scope.deletePharmacy = function (pharmacy) {
-        UsersService.removeUser.pharmacy(pharmacy);
+      $scope.deletePharmacy = function (Id) {
+        MapsService.deletePharmacy(Id);
       };
 
       $scope.gotoeditDependent = function (id) {

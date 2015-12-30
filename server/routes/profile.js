@@ -198,7 +198,16 @@ router.route('/dependents')
         if(err) return next(err);
           res.status(200).send({msg: "it works"});
       });
+    })
+    .delete(function (req, res) {
+      Pharmacies.findByIdAndRemove(req.params.pharmiciesId, function (err, pharmacies) {
+        if(err) { return next(err); }
+        res.status(200).send({message: 'Successfuly Deleted Pharmacy'});
+      });
     });
+
+
+
 
 
 
