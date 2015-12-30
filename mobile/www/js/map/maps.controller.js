@@ -1,6 +1,6 @@
 angular
 .module('maps')
-.controller('MapsController', function($scope, $ionicLoading, $compile, MapsService, $location, DependentsService, UsersService) {
+.controller('MapsController', function($scope, $ionicLoading, $compile, MapsService, $location, DependentsService, UsersService, $state, $window) {
 
   $scope.namePlace = [];
   var mapPlace =[];
@@ -13,7 +13,8 @@ angular
       $location.path('/app/userprofile');
     } else {
     MapsService.addPharmacy(placeToSave);
-    $location.path('/app/userprofile');
+    $state.go('app.userprofile');
+      $window.location.reload(true)
     }
   };
 

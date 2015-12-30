@@ -3,7 +3,7 @@
 
   angular
   .module('users')
-  .controller('UsersController', function ($scope, $auth, $stateParams, UsersService, DependentsService, $location, MapsService){
+  .controller('UsersController', function ($scope, $auth, $stateParams, UsersService, DependentsService, $location, MapsService, $state, $window){
     // UsersService.getUsers().success(function (users) {
     //   console.log(users);
     //     $scope.users = users;
@@ -110,10 +110,13 @@
         console.log(singleUser);
         UsersService.updateUser(singleUser).success(function() {
           console.log("EDIT",singleUser);
-          $location.path('/app/userprofile');
-          $scope.singleUser = singleUser; // refreshes the profile page after the edit
+          $state.go('app.userprofile');
+          // $scope.singleUser = singleUser; // refreshes the profile page after the edit
+          $window.location.reload(true)
+
         });
       };
+
 
       $scope.$on('user:edited', function () {
 
@@ -128,6 +131,7 @@
       // };
       $scope.deletePharmacy = function (Id) {
         MapsService.deletePharmacy(Id);
+        $window.location.reload(true)
       };
 
       $scope.gotoeditDependent = function (id) {
