@@ -145,16 +145,19 @@
 
 
                 });
-            }
+              };
                 // $scope.dependent = dependent;
                 //   $location.path('/app/userprofile/dependent/'+ id);
                 // };
+
+
             $scope.newDependent = function(dependent) {
                 console.log('new dependent firing!',
                     dependent);
                 DependentsService.addDependent(dependent);
                 $location.path('/app/userprofile');
             };
+
                 // vm.title = "this is add dependent - calvin";
             $scope.editDependent = function(editedDependent) {
                 console.log(editedDependent);
