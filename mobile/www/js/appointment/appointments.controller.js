@@ -92,6 +92,35 @@
         }
       };
 
+      AppointmentsService.getAppointments().success(function (appointments) {
+        $scope.apptArr = [];
+        console.log($scope.apptArr);
+        console.log('get appointments',$scope.singleUser._id);
+        var appointmentData = $scope.singleUser._id;
+        console.log("This is scope.singleUser._id:", $scope.singleUser._id);
+        console.log('this is the appointment data', appointmentData);
+        var appt = $scope.apptArr[$scope.apptArr.length - 1];
+        console.log($scope.apptArr);
+        console.log(appointments);
+        console.log('logging an appointment success',appointments[1]);
+            // $scope.dependents = dependents[i];
+            // console.log(dependents);
+            for(var i = 0; i <= appointments.length; i++) {
+              console.log("this is i", i);
+              if (appointmentData === appointments[i].user){
+                console.log(appointments[i].fever);
+                console.log(appointments[i]._id);
+                // return dependents[i];
+                // dependentsArr.push(dependents[i].name);
+                $scope.apptArr.push(appointments[i]);
+                console.log($scope.apptArr);
+            }else {
+                console.log("User does not have any appointments");
+            }
+          }
+
+        });
+
   });
 
 }());

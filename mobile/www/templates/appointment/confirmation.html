@@ -3,14 +3,14 @@
 <!-- <ion-view>
 
   <ion-content> -->
-    <ion-view>
-    <ion-content>
-      <div class="list-inset">
+    <ion-view >
+    <ion-content >
+      <div  class="list-inset">
 
-        <ion-list>
+        <ion-list >
             <h5>Appointment Confirmation For:</h5>
           </ion-list>
-          <ion-item>
+          <ion-item >
             {{singleDependent.name}}
             dependent first, last name
           </ion-item>
@@ -20,11 +20,11 @@
             </ion-item>
         </ion-list>
 
-        <ion-list >
+        <ion-list ng-repeat="appointment in apptArr">
           <h5>Reason:</h5>
           <div class="row">
             <div class="col">
-              <ion-item>
+              <ion-item >
                 Fever: {{appointment.fever}}
               </ion-item>
             </div>
@@ -55,6 +55,24 @@
             <div class="col">
               <ion-item>
                 Diarrhea: {{appointment.diarrhea}}
+              </ion-item>
+            </div>
+          </div>
+          <h5>Appointment Time and Date Request:</h5>
+          <div class="row">
+            <div class="col">
+              <ion-item>
+                First Available: {{appointment.firstAvailable}}
+              </ion-item>
+            </div>
+            <div class="col">
+              <ion-item>
+                Morning: {{appointment.morning}}
+              </ion-item>
+            </div>
+            <div class="col">
+              <ion-item>
+                Afternoon: {{appointment.afternoon}}
               </ion-item>
             </div>
           </div>
