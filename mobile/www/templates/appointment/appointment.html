@@ -4,54 +4,58 @@
 
   <ion-content>
 
-
-    <!-- <ion-list can-swipe="true" option-buttons="itemButtons" >
-      <h5>Dependents:</h5>
-
-      <ion-item ng-repeat="dependent in dependentsArr" ng-click="gotodependentProfile(dependent._id)">
-        {{dependent.name}} -->
-        <!-- <ion-option-button class="button-dark" ng-click="gotoeditDependent(dependent._id)">Edit</ion-option-button> -->
-      <!-- </ion-item>
-    </ion-list> -->
-
-
-<!-- Original -->
     <h5>This Appointment is for:</h5>
-    <!-- <ion-list>
+
+<!-- <div>
+    <form>
+        <ion-item ng-repeat="dependent in dependentsArr" >
+          <ion-checkbox ng-model="appointment.name" for="{{dependent.name}}" ng-value="name" id="{{dependent.name}}" name="name">{{dependent.name}}</ion-checkbox>
+        </ion-item>
+    </form>
+</div> -->
+
+
+
+  <!-- <form>
+    <ion-list>
       <ion-item ng-repeat="dependent in dependentsArr">
-        <ion-checkbox ng-model="appointment.name" >{{dependent.name}}</ion-checkbox>
-      </ion-item>
-      <! <ion-checkbox ng-model="appointment.patient2">Beth Parker</ion-checkbox> -->
-    <!-- </ion-list> -->
+        <ion-checkbox ng-model="appointment.name" value="{{dependent.name}}">{{dependentsArr[0].name}}</ion-checkbox>
+      </ion-item> -->
+    <!-- </ion-list>
+  </form> -->
     <!-- Original -->
 
 
     <!-- <ion-list ng-repeat="dependent in dependentsArr">
 
-        <ion-checkbox ng-model="appointment.test" ng-true-value="yes" ng-false-value="'NO'" >test</ion-checkbox>
 
 
     </ion-list> -->
-    <div class="row">
-      <div class="col">
+    <!-- <div class="row">
+      <div class="col"> -->
+      <div class="name">
         <ion-list ng-repeat="dependent in dependentsArr" >
-          <ion-checkbox ng-model="dependent.name" value="{{dependent.name}}">
+          <ion-checkbox ng-model="appointment.name" >
             {{dependent.name}}
           </ion-checkbox>
         </ion-list>
       </div>
-    </div>
+      <!-- </div>
+    </div> -->
 
     <h5>The primary reason for this visit is:</h5>
     <div class="row">
       <div class="col">
         <ion-list>
           <ion-checkbox ng-model="appointment.fever" ng-true-value="'YES'" ng-false-value="'NO'">Fever</ion-checkbox>
+          <!-- <ion-checkbox ng-model="appointment.fever">Fever</ion-checkbox> -->
+
         </ion-list>
       </div>
       <div class="col">
         <ion-list>
           <ion-checkbox ng-model="appointment.cough" ng-true-value="'YES'" ng-false-value="'NO'">Cough</ion-checkbox>
+          <!-- <ion-checkbox ng-model="appointment.cough">Cough</ion-checkbox> -->
         </ion-list>
       </div>
     </div>
@@ -59,11 +63,13 @@
       <div class="col">
         <ion-list>
           <ion-checkbox ng-model="appointment.nausea" ng-true-value="'YES'" ng-false-value="'NO'">Nausea</ion-checkbox>
+          <!-- <ion-checkbox ng-model="appointment.nausea">Nausea</ion-checkbox> -->
         </ion-list>
       </div>
       <div class="col">
           <ion-list>
             <ion-checkbox ng-model="appointment.sorethroat" ng-true-value="'YES'" ng-false-value="'NO'">Sore Throat</ion-checkbox>
+            <!-- <ion-checkbox ng-model="appointment.sorethroat">Sore Throat</ion-checkbox> -->
           </ion-list>
       </div>
     </div>
@@ -76,21 +82,18 @@
       <div class="col">
         <ion-list>
           <ion-checkbox ng-model="appointment.diarrhea" ng-true-value="'YES'" ng-false-value="'NO'">Diarrhea</ion-checkbox>
+          <!-- <ion-checkbox ng-model="appointment.diarrhea">Diarrhea</ion-checkbox> -->
         </ion-list>
       </div>
     </div>
-    <div class="col">
-      <ion-list>
-        <label class="item item-input">
-          <input type="text" placeholder="Other" ng-model="appointment.otherSymptoms">
-        </label>
-      </ion-list>
-    </div>
+    <label class="item item-input">
+      <input type="text" placeholder="Other" ng-model="appointment.otherSymptoms">
+    </label>
 
     <h5>Appointment Date & Time Request:</h5>
 <div >
     <ionic-datepicker input-obj="datepickerObjectPopup" idate="currentDate" disablepreviousdates="true">
-      <button class="button button-block button-positive" ng-model="appointment.datepickerObjectPopup">Selected Date: {{datepickerObjectPopup.inputDate | date:'MMMM dd, yyyy'}} </button>
+      <button class="button button-block button-positive" ng-model="appointment.date">Selected Date: {{datepickerObjectPopup.inputDate | date:'MMMM dd, yyyy'}} </button>
     </ionic-datepicker>
 </div>
     <!-- How do we capture this date?
