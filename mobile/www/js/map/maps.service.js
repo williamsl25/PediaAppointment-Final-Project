@@ -6,11 +6,10 @@
     .factory('MapsService', function ($http) {
       var url = "https://pediaserver.herokuapp.com/api/pharmacy";
       var removeUrl = "https://pediaserver.herokuapp.com/api/collections/pharmacies";
-      // var url = "api/collections/PediaAppPharmacy";
-      // var url = "https://tiny-tiny.herokuapp.com/collections/PediaAppPharmacy";
+
       var addPharmacy = function (pharmacy) {
         console.log(pharmacy);
-        $http.post(url, pharmacy).then(function(data) {
+        return $http.post(url, pharmacy).then(function(data) {
           console.log("ADD PHARMACY SERVICE", data);
         });
       };

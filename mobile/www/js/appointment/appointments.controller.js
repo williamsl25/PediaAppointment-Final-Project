@@ -3,13 +3,16 @@
 
   angular
   .module('appointments')
-  .controller('AppointmentsController', function ($scope, $auth, $stateParams, $ionicPopup, DependentsService, UsersService, AppointmentsService, $location, $state){
-    var vm = this;
-    $scope.singleUser;
+  .controller('AppointmentsController', function ($scope, $auth, $stateParams, $ionicPopup,
+    DependentsService, UsersService, AppointmentsService, $location, $state){
 
+    // var vm = this;
+    //***Not sure if this is needed since singleUser is being defined below***
+    $scope.singleUser;
 
     AppointmentsService.getAppointments().success(function (appointments) {
         $scope.appointments = appointments;
+        console.log(appointments);
       });
 
       UsersService.getSingleUser().success(function (singleUser) {
@@ -17,37 +20,25 @@
         $scope.singleUser = singleUser;
       });
 
-      // DependentsService.getSingleDependent().success(function (singleDependent) {
-      //     console.log(singleDependent);
-      //     $scope.singleDependent = singleDependent;
-      //   });
-
       DependentsService.getDependents().success(function (dependents) {
         var userData = $scope.singleUser._id;
         console.log('test', userData);
         $scope.dependentsArr = [];
-
-            // console.log('logging success',dependents[3].user);
-            // $scope.dependents = dependents[i];
-            console.log(dependents);
+        console.log(dependents);
             for(var i = 0; i <= dependents.length; i++) {
               // console.log("this is i.user", dependents[i].user);
               console.log("this is i", i);
               if (userData === dependents[i].user){
                 console.log(dependents[i].name);
-
                 // $scope.dependentsArr.push(dependents[i].name);
                 $scope.dependentsArr.push(dependents[i]);
                 console.log($scope.dependentsArr);
-
                 // return dependents[i];
-
-            }else {
+              }else {
                 console.log("User does not have dependents");
+              }
             }
-          }
-
-        });
+      });
 
       $scope.newAppointment = function (appointment) {
         console.log('new appointment firing!');
@@ -56,30 +47,24 @@
         // console.log(appointment.fever)
         AppointmentsService.addAppointment(appointment);
         $ionicPopup.alert({
-          title: 'Success',
-          content: 'Appointment request has been sent'
+          title: 'Appointment request has been sent'
         });
-        $state.go('app.confirmation');
+          $state.go('app.confirmation');
       };
-      vm.title = "this is add appointment - calvin";
-      $scope.editAppointment = function (editedAppointment) {
-        AppointmentsService.updateAppointment(editedAppointment);
-      };
+
+      // vm.title = "this is add appointment - calvin";
+      // $scope.editAppointment = function (editedAppointment) {
+      //   AppointmentsService.updateAppointment(editedAppointment);
+      // };
+
       $scope.deleteAppointment = function (appointmentId) {
         AppointmentsService.removeAppointment(appointmentId);
       };
 
-
-
-
-
       // This is for the date picker
-
       // $scope.datepickerObject.inputDate = new Date();
       $scope.currentDate = new Date();
-
       $scope.datepickerObjectPopup = {
-
         todayLabel: 'Today', //Optional
         closeLabel: 'Close', //Optional
         setLabel: 'Save', //Optional
@@ -88,7 +73,6 @@
         modalHeaderColor:'bar-positive', //Optional
         modalFooterColor:'bar-positive', //Optional
         templateType:'popup', //Optional
-
         mondayFirst: true, //Optional
         // disabledDates:disabledDates, //Optional
         monthList:["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"], //Optional

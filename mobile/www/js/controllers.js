@@ -47,10 +47,6 @@ angular.module('PediaAppointment.controllers', [])
 
             console.log(res);
             $window.localStorage.setItem('userRole', res.data.role);
-            $ionicPopup.alert({
-              title: 'Success',
-              content: 'You have successfully logged in!'
-            });
             $state.go('app.userprofile');
           })
           .catch(function(response) {
@@ -62,8 +58,7 @@ angular.module('PediaAppointment.controllers', [])
           .then(function(res) {
             $window.localStorage.setItem('userRole', res.data.role);
             $ionicPopup.alert({
-              title: 'Success',
-              content: 'You have successfully logged in!'
+              title: 'You have successfully logged in!'
             });
             alert('this is working');
             // $state.go('tab.photos');
@@ -78,23 +73,6 @@ angular.module('PediaAppointment.controllers', [])
 
           });
       };
-
-      $scope.newUser = function(user) {
-        console.log("User Being Created", user);
-        $auth.signup({
-          // displayName: $scope.displayName,
-          name: user.name,
-          password: user.password,
-          phone: user.phone,
-          email: user.email
-        }).catch(function(response) {
-         console.log("ERROR", response);
-        });
-        // $location.path('app/userprofile');
-        $state.go('auth.login');
-
-      };
-
       $scope.logout = function() {
         console.log("logout being fired");
         $auth.logout().then(function () {
