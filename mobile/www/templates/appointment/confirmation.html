@@ -6,99 +6,112 @@
     <ion-view >
     <ion-content >
       <div  class="list-inset">
-
         <ion-list >
             <h5>Appointment Confirmation For:</h5>
+              <ion-item >
+                {{dependentsArr[0].name}}
+              </ion-item>
           </ion-list>
-          <ion-item >
-            {{singleDependent.name}}
-            dependent first, last name
-          </ion-item>
-          <h5>Date & Time:</h5>
-            <ion-item>
-            <!-- {{dependent.symptoms[0]}} ", " {{dependent.symptoms[1]}} etc.   -->
-            </ion-item>
+
+
+        <ion-list >
+            <h5>Date:</h5>
+              <ion-item>
+                Date Here
+                {{appt.date | date : short}}
+              </ion-item>
         </ion-list>
 
-        <ion-list ng-repeat="appointment in apptArr">
+                  <h5>Time Requested:</h5>
+                    <div class="row">
+                      <div class="col">
+                        <ion-item>
+                          First Available: {{apptArr[0].firstAvailable}}
+                        </ion-item>
+                      </div>
+                      <div class="col">
+                        <ion-item>
+                          Morning: {{apptArr[0].morning}}
+                        </ion-item>
+                      </div>
+                      <div class="col">
+                        <ion-item>
+                          Afternoon: {{appt[0].afternoon}}
+                        </ion-item>
+                      </div>
+                    </div>
+                </ion-list>
+
+        <!-- <ion-list>
           <h5>Reason:</h5>
+            <ion-item>
+              {{appt[0].fever}}
+              {{appt[0].cough}}
+              {{appt[0].nausea}}
+              {{apptArr[0].sorethroat}}
+              {{apptArr[0].rash}}
+              {{apptArr[0].diarrhea}}<br>
+              {{apptToDisplay[0].otherSymptoms}}
+              {{apptToDisplay[0].comments}}
+            </ion-item>
+        </ion-list> -->
+
+        <h5>Reason:</h5>
           <div class="row">
             <div class="col">
               <ion-item >
-                Fever: {{appointment.fever}}
+                Fever: {{apptArr[0].fever}}
               </ion-item>
             </div>
             <div class="col">
               <ion-item>
-                Cough: {{appointment.cough}}
+                Cough: {{apptArr[0].cough}}
               </ion-item>
             </div>
           </div>
           <div class="row">
             <div class="col">
               <ion-item>
-                Nausea: {{appointment.nausea}}
+                Nausea: {{apptArr[0].nausea}}
               </ion-item>
             </div>
             <div class="col">
               <ion-item>
-                Sore Throat: {{appointment.sorethroat}}
+                Sore Throat: {{apptArr[0].sorethroat}}
               </ion-item>
             </div>
           </div>
           <div class="row">
             <div class="col">
               <ion-item>
-                Rash: {{appointment.rash}}
+                Rash: {{apptArr[0].rash}}
               </ion-item>
             </div>
             <div class="col">
               <ion-item>
-                Diarrhea: {{appointment.diarrhea}}
+                Diarrhea: {{apptArr[0].diarrhea}}
               </ion-item>
             </div>
           </div>
-          <h5>Appointment Time and Date Request:</h5>
-          <div class="row">
-            <div class="col">
-              <ion-item>
-                First Available: {{appointment.firstAvailable}}
-              </ion-item>
-            </div>
-            <div class="col">
-              <ion-item>
-                Morning: {{appointment.morning}}
-              </ion-item>
-            </div>
-            <div class="col">
-              <ion-item>
-                Afternoon: {{appointment.afternoon}}
-              </ion-item>
-            </div>
-          </div>
-        </ion-list>
-
 
         <ion-list >
             <h5>Pediatrician:</h5>
               <ion-item class="item item-icon-right">
                 <i class="icon ion-medkit"></i>
-
-                <!-- {{pediatrician.name}} -->
-                pediatrician office
+                {{pharmacyArr[0].name}}
               </ion-item>
-              <!-- <div class="list"> -->
-                <a class="item item-icon-right" href="#/app/map">
+                <!-- <a class="item item-icon-right" href="#/app/map">
                   <i class="icon ion-ios-location"></i>
+                  {{pharmacyArr[0].address}}
                   address
-                  <!-- {{pediatrician.address}} -->
-                </a>
-              <!-- </div> -->
+                </a> -->
+              <ion-item class="item item-icon-right">
+                  <i class="icon ion-ios-location"></i>
+                    {{pharmacyArr[0].address}}
+              </ion-item>
               <ion-item class="item item-icon-right">
                 <i class="icon ion-ios-telephone"></i>
-
-                <!-- {{pediatrician.phone}} " -->
-                phone
+                {{pharmacyArr[0].phone}}<br>
               </ion-item>
         </ion-list>
       <!-- <ion-list> -->

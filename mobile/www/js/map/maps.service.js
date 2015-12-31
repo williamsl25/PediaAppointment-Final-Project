@@ -36,10 +36,7 @@
       return {
         addPharmacy: addPharmacy,
         getPharmacy: getPharmacy,
-        // getSingleDependent: getSingleDependent,
         deletePharmacy: deletePharmacy,
-        // updateDependent: updateDependent,
-        // getDependents: getDependents
       };
     });
 

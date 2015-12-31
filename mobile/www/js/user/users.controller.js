@@ -3,8 +3,8 @@
 
   angular
   .module('users')
-  .controller('UsersController', function ($scope, $auth, $stateParams, UsersService,
-    DependentsService, $location, MapsService, $state, $window, $ionicPopup){
+  .controller('UsersController', function ($scope, $auth, $stateParams, $location, UsersService,
+    DependentsService, MapsService, $state, $window, $ionicPopup){
 
 //***Not sure if this is needed since singleUser is being defined just below***
     $scope.singleUser;
