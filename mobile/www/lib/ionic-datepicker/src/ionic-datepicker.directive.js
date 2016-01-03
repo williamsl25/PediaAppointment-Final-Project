@@ -208,6 +208,7 @@
         scope.date_selection.selectedDate = scope.ipDate;
 
         scope.dateSelected = function (date) {
+          console.log("scope date selection is firing");
           if(!date) return;
           scope.selctedDateString = date.dateString;
           scope.selctedDateStringCopy = angular.copy(scope.selctedDateString);
@@ -218,6 +219,7 @@
 
         //Called when the user clicks on any date.
         function dateSelected() {
+          console.log("Date selection is firing");
           scope.date_selection.submitted = true;
           if (scope.date_selection.selected === true) {
             scope.inputObj.callback(scope.date_selection.selectedDate);
@@ -226,6 +228,7 @@
 
         //Called when the user clicks on the 'Today' button
         function todaySelected() {
+          console.log("Today selected is firing");
           var today = new Date();
           today.setHours(0);
           today.setMinutes(0);
@@ -252,6 +255,7 @@
 
         //Called when the user clicks on the 'Close' button of the modal
         scope.closeIonicDatePickerModal = function () {
+          console.log("close is firing");
           scope.inputObj.callback(undefined);
           scope.closeModal();
         };
@@ -261,6 +265,7 @@
         };
         //Called when the user clicks on the Set' button of the modal
         scope.setIonicDatePickerDate = function () {
+          console.log("Set button is firing");
           dateSelected();
           scope.closeModal();
         };
@@ -277,6 +282,8 @@
         };
 
         scope.closeModal = function () {
+          console.log("close is firing");
+
           scope.modal.hide();
         };
 

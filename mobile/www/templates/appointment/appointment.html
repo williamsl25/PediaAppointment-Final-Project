@@ -91,8 +91,8 @@
     </label>
 
     <h5>Appointment Date & Time Request:</h5>
-<div style="text-align: center; margin-bottom: 10px; font-size: 1.2em" ng-controller="AppointmentsController">
-    <ionic-datepicker input-obj="datepickerObjectPopup" idate="" disablepreviousdates="true">
+<div style="text-align: center; margin-bottom: 10px; font-size: 1.2em">
+    <ionic-datepicker input-obj="datepickerObjectPopup" date="currentDate" disablepreviousdates="true" callback="datePickerCallbackPopup">
       <button class="button button-block button-positive">Click Here To Select Date</button>
     </ionic-datepicker>
 </div>

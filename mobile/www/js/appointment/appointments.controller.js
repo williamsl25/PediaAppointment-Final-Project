@@ -4,7 +4,7 @@
   angular
   .module('appointments')
   .controller('AppointmentsController', function ($scope, $auth, $stateParams, $location, $state, $ionicPopup,
-    UsersService, DependentsService, AppointmentsService, MapsService){
+    UsersService, DependentsService, AppointmentsService, MapsService, $ionicModal){
 
     $scope.singleuserArr = [];
     var pickerVal = "";
@@ -109,7 +109,8 @@
       };
       // $scope.val = "";
       // This is for the date picker
-      // $scope.currentDate = new Date();
+      $scope.currentDate = new Date();
+
       $scope.datepickerObjectPopup = {
         inputDate: new Date(),
         todayLabel: 'Today', //Optional
@@ -121,6 +122,8 @@
         modalFooterColor:'bar-positive', //Optional
         templateType:'popup', //Optional
         mondayFirst: true, //Optional
+        // weekDaysList:["M", "T", "W", "TH", "F"],
+        // yearsList: [2016, 2017, 2018, 2019, 2020],
         // disabledDates:disabledDates, //Optional
         monthList:["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"], //Optional
         from: new Date(2016, 1, 1), //Optional
