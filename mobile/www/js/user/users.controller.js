@@ -101,9 +101,9 @@
       };
 
       $scope.saveProfile = function(){
-        $ionicPopup.alert({
-          title: 'Profile was saved!'
-        });
+        // $ionicPopup.alert({
+        //   title: 'Profile was saved!'
+        // });
         $state.go('app.appointment');
       };
 

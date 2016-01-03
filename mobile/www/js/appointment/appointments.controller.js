@@ -7,6 +7,7 @@
     UsersService, DependentsService, AppointmentsService, MapsService){
 
     $scope.singleuserArr = [];
+    var pickerVal = "";
 
     UsersService.getSingleUser().success(function (singleUser) {
       console.log(singleUser);
@@ -98,7 +99,7 @@
         // console.log(appointment.fever)
         AppointmentsService.addAppointment(appointment);
         $ionicPopup.alert({
-          title: 'Appointment request has been sent'
+          title: 'Appointment Request Sent'
         });
           $state.go('app.confirmation');
       };
@@ -106,11 +107,11 @@
       $scope.deleteAppointment = function (appointmentId) {
         AppointmentsService.removeAppointment(appointmentId);
       };
-
+      // $scope.val = "";
       // This is for the date picker
-      // $scope.datepickerObject.inputDate = new Date();
-      $scope.currentDate = new Date();
+      // $scope.currentDate = new Date();
       $scope.datepickerObjectPopup = {
+        inputDate: new Date(),
         todayLabel: 'Today', //Optional
         closeLabel: 'Close', //Optional
         setLabel: 'Save', //Optional
@@ -134,6 +135,11 @@
           console.log('No date selected');
         } else {
           $scope.datepickerObjectPopup.inputDate = val;
+          pickerVal = val;
+          // console.log($scope.val);
+          console.log(pickerVal);
+
+          // $scope.datepickerObjectPopup.inputDate = new Date();
           console.log('Selected date is : ', val);
         }
       };

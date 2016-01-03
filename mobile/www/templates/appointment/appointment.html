@@ -91,11 +91,34 @@
     </label>
 
     <h5>Appointment Date & Time Request:</h5>
-<div >
-    <ionic-datepicker input-obj="datepickerObjectPopup" idate="currentDate" disablepreviousdates="true">
-      <button class="button button-block button-positive" ng-model="appointment.date">Selected Date: {{datepickerObjectPopup.inputDate | date:'MMMM dd, yyyy'}} </button>
+<div style="text-align: center; margin-bottom: 10px; font-size: 1.2em" ng-controller="AppointmentsController">
+    <ionic-datepicker input-obj="datepickerObjectPopup" idate="" disablepreviousdates="true">
+      <button class="button button-block button-positive">Click Here To Select Date</button>
     </ionic-datepicker>
 </div>
+
+      <ion-list>
+        <ion-item id="datePicked" ng-model="appointment.date" >
+          {{datepickerObjectPopup.inputDate | date:'MMMM dd, yyyy'}}
+        </ion-item>
+      <ion-list>
+
+      <!-- <label class="item item-input" id="datePicked" ng-model="appointment.date" > -->
+        <!-- <span class="input-label" style="align-items: center"></span> -->
+
+
+      <!-- <input id="datePicked" type="text" style="" ng-controller="AppointmentsController" ng-model="appointment.date"> -->
+      <!-- {{datepickerObjectPopup.inputDate | date:'MMMM dd, yyyy'}} -->
+      <!-- {{val | date:'MMMM dd, yyyy'}}
+      {{$scope.val}}
+      {{val}}
+      {{pickerVal}} -->
+      <!-- This is a Test -->
+      <!-- </input> -->
+    <!-- </label> -->
+
+    <!-- </ionic-datepicker>
+</div> -->
     <!-- How do we capture this date?
     {{ data.choosenDate = currentDate; }} declare this on the view and it is available on the controller on $scope.data. -->
 

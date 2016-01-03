@@ -17,8 +17,9 @@
         <ion-list >
             <h5>Date:</h5>
               <ion-item>
-                Date Here
-                {{appt.date | date : short}}
+                <!-- Date Here -->
+                <!-- {{appt.date | date : short}} -->
+                {{datepickerObjectPopup.inputDate | date:'MMMM dd, yyyy'}}
               </ion-item>
         </ion-list>
 
@@ -29,11 +30,15 @@
                           First Available: {{apptArr[0].firstAvailable}}
                         </ion-item>
                       </div>
+                    </div>
+                    <div class="row">
                       <div class="col">
                         <ion-item>
                           Morning: {{apptArr[0].morning}}
                         </ion-item>
                       </div>
+                    </div>
+                    <div class="row">
                       <div class="col">
                         <ion-item>
                           Afternoon: {{appt[0].afternoon}}

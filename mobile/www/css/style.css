@@ -80,3 +80,9 @@ i.ion-android-drafts {
 i.ion-android-call{
   font-size: 20px;
 }
+.datePicker {
+  text-align: center;
+}
+#datePicked {
+  text-align: center;
+}
