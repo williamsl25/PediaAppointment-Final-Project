@@ -61,8 +61,8 @@
                     // dependentsArr.push(dependents[i].name);
                     $scope.apptArr.push(appointments[i]);
                     console.log("These are the appointments for the logged in user",$scope.apptArr);
-                    // $scope.apptToDisplay = $scope.apptArr[$scope.apptArr.length - 1];
-                    // console.log("This is the appt to display", $scope.apptToDisplay);
+                    $scope.apptToDisplay = $scope.apptArr[$scope.apptArr.length - 1];
+                    console.log("This is the appt to display", $scope.apptToDisplay);
                     // console.log($scope.apptToDisplay.comments);
 
                 }else {
