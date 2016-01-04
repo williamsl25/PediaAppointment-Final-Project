@@ -4,7 +4,8 @@
   angular
   .module('appointments')
   .controller('AppointmentsController', function ($scope, $auth, $stateParams, $location, $state, $ionicPopup,
-    UsersService, DependentsService, AppointmentsService, MapsService, $ionicModal){
+    UsersService, DependentsService, AppointmentsService, MapsService, userId){
+      console.log("this is the user id, calvin here: ", userId);
 
     $scope.singleuserArr = [];
     var pickerVal = "";
@@ -16,7 +17,7 @@
     });
 
     DependentsService.getDependents().success(function (dependents) {
-      var userData = $scope.singleuserArr._id;
+      var userData = userId;
       console.log('test', userData);
       $scope.dependentsArr = [];
       console.log(dependents);
@@ -46,7 +47,7 @@
             // console.log($scope.apptArr);
             console.log('this is singleuserArr in get Appointments', $scope.singleuserArr);
             console.log('get appointments for this logged in user',$scope.singleuserArr._id);
-            var appointmentUser = $scope.singleuserArr._id;
+            var appointmentUser = userId;
             console.log('this is the get appointment data user', appointmentUser);
             console.log("These are all the appointments to loop over", appointments);
             // console.log('logging an appointment success',appointments[1]);
@@ -73,7 +74,7 @@
 
         MapsService.getPharmacy().success(function (pharmacy) {
           console.log("Pharmacy from users controller:",pharmacy);
-          var pharmacyId = $scope.singleuserArr._id;
+          var pharmacyId = userId;
           console.log("This is scope.singleuserArr._id:", $scope.singleuserArr._id);
           console.log(pharmacyId);
           $scope.pharmacyArr = [];
@@ -109,7 +110,10 @@
       };
 
       // This is for the date picker
+      // $scope.pickerVal = "";
       $scope.currentDate = new Date();
+      // $scope.inputDate = new Date();
+
       $scope.datepickerObjectPopup = {
         inputDate: new Date(),
         todayLabel: 'Today', //Optional
@@ -125,7 +129,7 @@
         // yearsList: [2016, 2017, 2018, 2019, 2020],
         // disabledDates:disabledDates, //Optional
         monthList:["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"], //Optional
-        from: new Date(2016, 1, 1), //Optional
+        from: new Date(2015, 1, 1), //Optional
         to: new Date(2018, 1, 1), //Optional
         callback: function (val) { //Optional
           $scope.datePickerCallbackPopup(val);
@@ -138,6 +142,7 @@
         } else {
           $scope.datepickerObjectPopup.inputDate = val;
           pickerVal = val;
+          $scope.inputDate = val;
           // console.log($scope.val);
           console.log(pickerVal);
           // $scope.datepickerObjectPopup.inputDate = new Date();

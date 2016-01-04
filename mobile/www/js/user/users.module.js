@@ -25,7 +25,16 @@ angular
       views: {
         'menuContent': {
           templateUrl: 'templates/user/userprofile.html',
-          controller: 'UsersController'
+          controller: 'UsersController',
+          resolve: {
+            userId: function ($q, UsersService) {
+              var deferred = $q.defer();
+              UsersService.getSingleUser().success(function (singleUser) {
+                deferred.resolve(singleUser._id);
+              });
+              return deferred.promise;
+            }
+          }
         }
       }
     })

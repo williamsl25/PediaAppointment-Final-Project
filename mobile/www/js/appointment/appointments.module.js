@@ -12,7 +12,17 @@ angular
     views: {
       'menuContent': {
         templateUrl: 'templates/appointment/appointment.html',
-        controller: 'AppointmentsController'
+        controller: 'AppointmentsController',
+        resolve: {
+          userId: function ($q, UsersService) {
+            var deferred = $q.defer();
+            UsersService.getSingleUser().success(function (singleUser) {
+              deferred.resolve(singleUser._id);
+            });
+            return deferred.promise;
+          }
+
+        }
       }
     }
   })
@@ -23,7 +33,18 @@ angular
     views: {
       'menuContent': {
         templateUrl: 'templates/appointment/confirmation.html',
-        controller: 'AppointmentsController'
+        controller: 'AppointmentsController',
+        resolve: {
+          userId: function ($q, UsersService) {
+            var deferred = $q.defer();
+            UsersService.getSingleUser().success(function (singleUser) {
+              deferred.resolve(singleUser._id);
+            });
+            return deferred.promise;
+          }
+
+        }
+
       }
     }
   });

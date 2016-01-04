@@ -4,20 +4,21 @@
   angular
   .module('users')
   .controller('UsersController', function ($scope, $auth, $stateParams, $location, UsersService,
-    DependentsService, MapsService, $state, $window, $ionicPopup){
+    DependentsService, MapsService, $state, $window, $ionicPopup, userId){
 
 //***Not sure if this is needed since singleUser is being defined just below***
     $scope.singleUser;
 
         UsersService.getSingleUser().success(function (singleUser) {
           console.log(singleUser);
+          // localStorage.setItem('userId', singleUser._id);
           $scope.singleUser = singleUser;
         });
 
         DependentsService.getDependents().success(function (dependents) {
           // console.log('what are these', dependents[3].user);
           // console.log('get dependets',$scope.singleUser._id);
-          var userData = $scope.singleUser._id;
+          var userData = userId;
           console.log("This is scope.singleUser._id:", $scope.singleUser._id);
 
           console.log('test', userData);
@@ -42,7 +43,7 @@
 
         MapsService.getPharmacy().success(function (pharmacy) {
         console.log("Pharmacy from users controller:",pharmacy);
-        var pharmacyId = $scope.singleUser._id;
+        var pharmacyId = userId;
         console.log("This is scope.singleUser._id:", $scope.singleUser._id);
         console.log(pharmacyId);
         $scope.pharmacyArr = [];
