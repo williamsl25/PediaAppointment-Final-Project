@@ -10,7 +10,7 @@
     $scope.singleUser;
 
         UsersService.getSingleUser().success(function (singleUser) {
-          console.log(singleUser);
+          // console.log(singleUser);
           // localStorage.setItem('userId', singleUser._id);
           $scope.singleUser = singleUser;
         });
@@ -19,9 +19,8 @@
           // console.log('what are these', dependents[3].user);
           // console.log('get dependets',$scope.singleUser._id);
           var userData = userId;
-          console.log("This is scope.singleUser._id:", $scope.singleUser._id);
-
-          console.log('test', userData);
+          // console.log("This is scope.singleUser._id:", $scope.singleUser._id);
+          // console.log('test', userData);
           $scope.dependentsArr = [];
               // console.log('logging success',dependents[3].user);
               // $scope.dependents = dependents[i];
@@ -42,20 +41,20 @@
           });
 
         MapsService.getPharmacy().success(function (pharmacy) {
-        console.log("Pharmacy from users controller:",pharmacy);
+        // console.log("Pharmacy from users controller:",pharmacy);
         var pharmacyId = userId;
-        console.log("This is scope.singleUser._id:", $scope.singleUser._id);
-        console.log(pharmacyId);
+        // console.log("This is scope.singleUser._id:", $scope.singleUser._id);
+        // console.log(pharmacyId);
         $scope.pharmacyArr = [];
         // $scope.pharmacy = pharmacy;
         for(var i = 0; i <= pharmacy.length; i++) {
-          console.log("this is pharmacy i", i);
+          // console.log("this is pharmacy i", i);
           if (pharmacyId === pharmacy[i].user){
-            console.log(pharmacy[i].name);
-            console.log(pharmacy[i]._id);
+            // console.log(pharmacy[i].name);
+            // console.log(pharmacy[i]._id);
             // pharmacyArr.push(pharmacy[i].name);
             $scope.pharmacyArr.push(pharmacy[i]);
-            console.log($scope.pharmacyArr);
+            // console.log($scope.pharmacyArr);
         }else {
             console.log("User does not have a current pharmacy on file");
             }
@@ -65,17 +64,17 @@
 // navigates to the editUser.html with the gotoEditUser function
       $scope.gotoeditUser = function (id) {
         UsersService.getSingleUser(id).success(function (singleUser){
-          console.log(singleUser);
+          // console.log(singleUser);
           $scope.singleUser = singleUser;
-          console.log(singleUser._id);
+          // console.log(singleUser._id);
           $location.path('/app/users/' + singleUser._id +'/edit');
         });
       };
 
       $scope.editUser = function (singleUser) {
-        console.log(singleUser);
+        // console.log(singleUser);
         UsersService.updateUser(singleUser).success(function() {
-          console.log("EDIT",singleUser);
+          // console.log("EDIT",singleUser);
           $state.go('app.userprofile');
           // $scope.singleUser = singleUser; // refreshes the profile page after the edit
           $window.location.reload(true);
@@ -93,9 +92,9 @@
       };
 
       $scope.gotoeditDependent = function (id) {
-        console.log("go to edit dependent being fired!");
+        // console.log("go to edit dependent being fired!");
         DependentsService.getSingleDependent(id).success(function (dependent){
-          console.log(dependent);
+          // console.log(dependent);
           $scope.dependent = dependent;
           $location.path('/app/userprofile/dependent/'+ id + '/edit');
         });

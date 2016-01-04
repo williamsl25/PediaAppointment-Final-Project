@@ -5,65 +5,58 @@
   .module('appointments')
   .controller('AppointmentsController', function ($scope, $auth, $stateParams, $location, $state, $ionicPopup,
     UsersService, DependentsService, AppointmentsService, MapsService, userId){
-      console.log("this is the user id, calvin here: ", userId);
 
     $scope.singleuserArr = [];
     var pickerVal = "";
 
     UsersService.getSingleUser().success(function (singleUser) {
-      console.log(singleUser);
+      // console.log(singleUser);
       $scope.singleuserArr = singleUser;
-      console.log("This is the singleuserArr", $scope.singleuserArr);
+      // console.log("This is the singleuserArr", $scope.singleuserArr);
     });
 
     DependentsService.getDependents().success(function (dependents) {
       var userData = userId;
-      console.log('test', userData);
+      // console.log('test', userData);
       $scope.dependentsArr = [];
-      console.log(dependents);
+      // console.log(dependents);
           for(var i = 0; i <= dependents.length; i++) {
             // console.log("this is i.user", dependents[i].user);
-            console.log("this is i", i);
             if (userData === dependents[i].user){
-              console.log(dependents[i].name);
+              // console.log(dependents[i].name);
               // $scope.dependentsArr.push(dependents[i].name);
               $scope.dependentsArr.push(dependents[i]);
-              console.log($scope.dependentsArr);
+              // console.log($scope.dependentsArr);
               // return dependents[i];
             }else {
-              console.log("User does not have dependents");
+              // console.log("User does not have dependents");
             }
           }
     });
-
-    // AppointmentsService.getAppointments().success(function (appointments) {
-    //     $scope.appointments = appointments;
-    //     console.log(appointments);
-      // });
 
       AppointmentsService.getAppointments().success(function (appointments) {
             $scope.apptArr = [];
             $scope.apptToDisplay = [];
             // console.log($scope.apptArr);
-            console.log('this is singleuserArr in get Appointments', $scope.singleuserArr);
-            console.log('get appointments for this logged in user',$scope.singleuserArr._id);
+            // console.log('this is singleuserArr in get Appointments', $scope.singleuserArr);
+            // console.log('get appointments for this logged in user',$scope.singleuserArr._id);
             var appointmentUser = userId;
-            console.log('this is the get appointment data user', appointmentUser);
-            console.log("These are all the appointments to loop over", appointments);
+            // console.log('this is the get appointment data user', appointmentUser);
+            // console.log("These are all the appointments to loop over", appointments);
             // console.log('logging an appointment success',appointments[1]);
                 // $scope.dependents = dependents[i];
                 // console.log(dependents);
                 for(var i = 0; i <= appointments.length; i++) {
-                  console.log("this is i", i);
+                  // console.log("this is i", i);
                   if (appointmentUser === appointments[i].user){
-                    console.log(appointments[i].fever);
-                    console.log(appointments[i]._id);
+                    // console.log(appointments[i].fever);
+                    // console.log(appointments[i]._id);
                     // return dependents[i];
                     // dependentsArr.push(dependents[i].name);
                     $scope.apptArr.push(appointments[i]);
-                    console.log("These are the appointments for the logged in user",$scope.apptArr);
+                    // console.log("These are the appointments for the logged in user",$scope.apptArr);
                     $scope.apptToDisplay = $scope.apptArr[$scope.apptArr.length - 1];
-                    console.log("This is the appt to display", $scope.apptToDisplay);
+                    // console.log("This is the appt to display", $scope.apptToDisplay);
                     // console.log($scope.apptToDisplay.comments);
 
                 }else {
@@ -73,20 +66,20 @@
         });
 
         MapsService.getPharmacy().success(function (pharmacy) {
-          console.log("Pharmacy from users controller:",pharmacy);
+          // console.log("Pharmacy from users controller:",pharmacy);
           var pharmacyId = userId;
-          console.log("This is scope.singleuserArr._id:", $scope.singleuserArr._id);
-          console.log(pharmacyId);
+          // console.log("This is scope.singleuserArr._id:", $scope.singleuserArr._id);
+          // console.log(pharmacyId);
           $scope.pharmacyArr = [];
           // $scope.pharmacy = pharmacy;
             for(var i = 0; i <= pharmacy.length; i++) {
-              console.log("this is pharmacy i", i);
+              // console.log("this is pharmacy i", i);
               if (pharmacyId === pharmacy[i].user){
-                console.log(pharmacy[i].name);
-                console.log(pharmacy[i]._id);
+                // console.log(pharmacy[i].name);
+                // console.log(pharmacy[i]._id);
                 // pharmacyArr.push(pharmacy[i].name);
                 $scope.pharmacyArr.push(pharmacy[i]);
-                console.log($scope.pharmacyArr);
+                // console.log($scope.pharmacyArr);
             }else {
                 console.log("User does not have a current pharmacy on file");
                 }
@@ -94,8 +87,8 @@
       });
 
       $scope.newAppointment = function (appointment) {
-        console.log('new appointment firing!');
-        console.log(appointment);
+        // console.log('new appointment firing!');
+        // console.log(appointment);
         // console.log(appointment);
         // console.log(appointment.fever)
         AppointmentsService.addAppointment(appointment);

@@ -4,9 +4,9 @@ angular
   $location, DependentsService, UsersService, $state, $window) {
 
     $scope.addPharmacy = function () {
-      console.log('new pharmacy firing!');
+      // console.log('new pharmacy firing!');
       var placeToSave = $scope.namePlace[$scope.namePlace.length - 1];
-      console.log(placeToSave);
+      // console.log(placeToSave);
       if (placeToSave === null || placeToSave === undefined) {
         $location.path('/app/userprofile');
       } else {
@@ -22,7 +22,7 @@ angular
     var mapPlace =[];
 
     $scope.$on('location:added', function() {
-      console.log("adding to namePlace array");
+      // console.log("adding to namePlace array");
       var place = $scope.namePlace[$scope.namePlace.length - 1];
       $scope.address = place.address;
       $scope.name = place.name;
@@ -73,7 +73,7 @@ angular
           if (!place || place === 'undefined' || place.length === 0) {
             return;
           }
-          console.log('place', lat, long, place);
+          // console.log('place', lat, long, place);
       //  console.log(place[0].name);
       //  console.log(place[0].formatted_address);
       //  console.log(place[0].formatted_phone_number);
@@ -93,9 +93,9 @@ angular
           mapurl: place[0].url,
           icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
       };
-        console.log(newPlace);
+        // console.log(newPlace);
         $scope.namePlace.push(newPlace);
-        console.log('scope nameplace', $scope.namePlace);
+        // console.log('scope nameplace', $scope.namePlace);
         $scope.$broadcast("location:added");
       }
     };
