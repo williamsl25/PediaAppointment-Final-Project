@@ -105,7 +105,6 @@ router.route('/dependents')
       // pedPhone: req.body.peditricianPhone,
       // pedWeb: req.body.pediatricianWebsite
     });
-
     console.log('new Dependent', dependent);
     dependent.save(function (err,dependent) {
       console.log("err", err);
