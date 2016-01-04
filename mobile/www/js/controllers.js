@@ -30,12 +30,35 @@ angular.module('PediaAppointment.controllers', [])
   };
   $scope.sendReset = function(){
     $scope.modal.hide();
+    $ionicPopup.alert({
+      title: 'See Email For Password Reset Instructions.'
+    });
+
     $scope.go('auth/login');
   };
 })
 
 .controller('LoginController', function ($scope,$state, $stateParams, $auth, $ionicPopup, $window, $ionicModal) {
 
+
+  $scope.newUser = function(user) {
+  console.log("User Being Created", user);
+  $auth.signup({
+   // displayName: $scope.displayName,
+  name: user.name,
+   password: user.password,
+   phone: user.phone,
+   email: user.email
+   }).catch(function(response) {
+   console.log("ERROR", response);
+   });
+   $ionicPopup.alert({
+     title: 'New User Created. Please Login.'
+   });
+   // $location.path('app/userprofile');
+   $state.go('auth.login');
+
+   };
 
     // $scope.sillyData = "this quick brown fox!";
     $scope.login = function() {

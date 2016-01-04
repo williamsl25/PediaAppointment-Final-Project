@@ -4,9 +4,10 @@
   angular
   .module('appointments')
   .controller('AppointmentsController', function ($scope, $auth, $stateParams, $location, $state, $ionicPopup,
-    UsersService, DependentsService, AppointmentsService, MapsService){
+    UsersService, DependentsService, AppointmentsService, MapsService, $ionicModal){
 
     $scope.singleuserArr = [];
+    var pickerVal = "";
 
     UsersService.getSingleUser().success(function (singleUser) {
       console.log(singleUser);
@@ -98,7 +99,7 @@
         // console.log(appointment.fever)
         AppointmentsService.addAppointment(appointment);
         $ionicPopup.alert({
-          title: 'Appointment request has been sent'
+          title: 'Appointment Request Sent'
         });
           $state.go('app.confirmation');
       };
@@ -108,9 +109,9 @@
       };
 
       // This is for the date picker
-      // $scope.datepickerObject.inputDate = new Date();
       $scope.currentDate = new Date();
       $scope.datepickerObjectPopup = {
+        inputDate: new Date(),
         todayLabel: 'Today', //Optional
         closeLabel: 'Close', //Optional
         setLabel: 'Save', //Optional
@@ -120,6 +121,8 @@
         modalFooterColor:'bar-positive', //Optional
         templateType:'popup', //Optional
         mondayFirst: true, //Optional
+        // weekNames:["M", "T", "W", "TH", "F"],
+        // yearsList: [2016, 2017, 2018, 2019, 2020],
         // disabledDates:disabledDates, //Optional
         monthList:["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"], //Optional
         from: new Date(2016, 1, 1), //Optional
@@ -134,6 +137,10 @@
           console.log('No date selected');
         } else {
           $scope.datepickerObjectPopup.inputDate = val;
+          pickerVal = val;
+          // console.log($scope.val);
+          console.log(pickerVal);
+          // $scope.datepickerObjectPopup.inputDate = new Date();
           console.log('Selected date is : ', val);
         }
       };

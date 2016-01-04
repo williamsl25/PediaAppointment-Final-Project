@@ -109,7 +109,7 @@ angular.module('PediaAppointment', [
               controller: 'PlaylistCtrl'
             }
           }
-      })
+      });
 
 
   // if none of the above states are matched, use this as the fallback
