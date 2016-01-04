@@ -125,7 +125,7 @@
         // yearsList: [2016, 2017, 2018, 2019, 2020],
         // disabledDates:disabledDates, //Optional
         monthList:["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"], //Optional
-        from: new Date(2016, 1, 1), //Optional
+        from: new Date(2015, 1, 1), //Optional
         to: new Date(2018, 1, 1), //Optional
         callback: function (val) { //Optional
           $scope.datePickerCallbackPopup(val);
