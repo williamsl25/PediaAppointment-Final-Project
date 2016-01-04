@@ -95,3 +95,6 @@ h4 {
 #datePicked {
   text-align: center;
 }
+#googleResults {
+  display: hidden;
+}

@@ -7,7 +7,7 @@
     <ion-content >
       <div  class="list-inset">
         <ion-list >
-            <h5>Appointment Confirmation For:</h5>
+            <h5><span style="color: red">Pending </span>Appointment For:</h5>
               <ion-item >
                 {{dependentsArr[0].name}}
               </ion-item>
@@ -20,6 +20,7 @@
                 <!-- Date Here -->
                 <!-- {{appt.date | date : short}} -->
                 {{datepickerObjectPopup.inputDate | date:'MMMM dd, yyyy'}}
+
               </ion-item>
         </ion-list>
 

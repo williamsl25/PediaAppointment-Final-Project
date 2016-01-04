@@ -30,6 +30,10 @@ angular.module('PediaAppointment.controllers', [])
   };
   $scope.sendReset = function(){
     $scope.modal.hide();
+    $ionicPopup.alert({
+      title: 'See Email For Password Reset Instructions.'
+    });
+
     $scope.go('auth/login');
   };
 })

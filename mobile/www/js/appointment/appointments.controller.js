@@ -107,10 +107,9 @@
       $scope.deleteAppointment = function (appointmentId) {
         AppointmentsService.removeAppointment(appointmentId);
       };
-      // $scope.val = "";
+
       // This is for the date picker
       $scope.currentDate = new Date();
-
       $scope.datepickerObjectPopup = {
         inputDate: new Date(),
         todayLabel: 'Today', //Optional
@@ -122,7 +121,7 @@
         modalFooterColor:'bar-positive', //Optional
         templateType:'popup', //Optional
         mondayFirst: true, //Optional
-        // weekDaysList:["M", "T", "W", "TH", "F"],
+        // weekNames:["M", "T", "W", "TH", "F"],
         // yearsList: [2016, 2017, 2018, 2019, 2020],
         // disabledDates:disabledDates, //Optional
         monthList:["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"], //Optional
@@ -141,7 +140,6 @@
           pickerVal = val;
           // console.log($scope.val);
           console.log(pickerVal);
-
           // $scope.datepickerObjectPopup.inputDate = new Date();
           console.log('Selected date is : ', val);
         }
