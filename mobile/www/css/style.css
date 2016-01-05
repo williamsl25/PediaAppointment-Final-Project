@@ -16,6 +16,12 @@
   letter-spacing: 2px;
   font-family: 'Open Sans ', sans-serif;
 }
+.button.button-balanced {
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-family: 'Open Sans ', sans-serif;
+}
+
 .item-content{
   letter-spacing: 2px;
 }
