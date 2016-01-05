@@ -64,9 +64,9 @@
 // navigates to the editUser.html with the gotoEditUser function
       $scope.gotoeditUser = function (id) {
         UsersService.getSingleUser(id).success(function (singleUser){
-          // console.log(singleUser);
+          console.log(singleUser);
           $scope.singleUser = singleUser;
-          // console.log(singleUser._id);
+          console.log(singleUser._id);
           $location.path('/app/users/' + singleUser._id +'/edit');
         });
       };
@@ -77,7 +77,7 @@
           // console.log("EDIT",singleUser);
           $state.go('app.userprofile');
           // $scope.singleUser = singleUser; // refreshes the profile page after the edit
-          $window.location.reload(true);
+          // $window.location.reload(true);
         });
       };
 

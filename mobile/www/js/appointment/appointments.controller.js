@@ -8,6 +8,9 @@
 
     $scope.singleuserArr = [];
     var pickerVal = "";
+    var date = localStorage.getItem('pickerVal');
+    console.log("This is the date from local storage", date);
+
 
     UsersService.getSingleUser().success(function (singleUser) {
       // console.log(singleUser);
@@ -134,7 +137,9 @@
           console.log('No date selected');
         } else {
           $scope.datepickerObjectPopup.inputDate = val;
-          pickerVal = val;
+          localStorage.setItem("pickerVal", val);
+          // console.log(dateChosen);
+          // pickerVal = val;
           $scope.inputDate = val;
           // console.log($scope.val);
           console.log(pickerVal);
