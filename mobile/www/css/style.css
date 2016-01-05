@@ -1,4 +1,42 @@
 /* Empty. Add your own CSS if you like */
+
+ .profile  {
+  font-size: 35px;
+  letter-spacing: 3px;
+  font-family: 'Wire One', sans-serif;
+  font-weight: bolder;
+}
+.phone, .email {
+ font-size: 18px;
+ letter-spacing: 2px;
+ font-family: 'Open Sans ', sans-serif;
+}
+.button.button-positive {
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-family: 'Open Sans ', sans-serif;
+}
+.item-content{
+  letter-spacing: 2px;
+}
+.list{
+  letter-spacing: 2px;
+}
+.item{
+  letter-spacing: 2px;
+}
+
+.addPed {
+  font-size: 22px;
+  letter-spacing: 3px;
+  font-family: 'Open Sans ', sans-serif;
+  text-align: center;
+}
+input {
+  letter-spacing: 2px;
+
+}
+
 .angular-google-map-container {
   height: 300px;
   margin-top: 40px;

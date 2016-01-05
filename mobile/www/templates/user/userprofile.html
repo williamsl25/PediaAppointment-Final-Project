@@ -3,7 +3,7 @@
 
   <div class="list">
   <div class="buttons">
-    <a href="#/app/addDependent" style="text-decoration: none"><button class="button button-outline button-block button-positive icon ion-person-add" type="">&nbsp&nbspAdd Dependent</button></a>
+    <a href="#/app/addDependent" style="text-decoration: none"><button class="button button-outline button-block button-positive icon ion-person-add addPed" type="">&nbsp&nbspAdd Dependent</button></a>
   </div>
       <ion-list can-swipe="true" option-buttons="itemButtons" >
         <!-- <h5>Dependents: </h5> -->
@@ -15,7 +15,7 @@
       </ion-list>
 
   <div class="buttons">
-    <a href="#/app/map" style="text-decoration: none"><button class="button button-outline button-block button-positive icon ion-medkit" type="">&nbsp&nbsp Add Pediatrician</button></a>
+    <a href="#/app/map" style="text-decoration: none"><button class="button button-outline button-block button-positive icon ion-medkit addPed" type="">&nbsp&nbsp Add Pediatrician</button></a>
   </div>
 
   <ion-list can-swipe="true" option-buttons="itemButtons">
@@ -29,26 +29,26 @@
   </ion-list>
 
   <div class="buttons">
-    <a style="text-decoration: none"><button class="button button-outline button-block button-positive icon ion-person" type="">&nbsp&nbsp User Profile</button></a>
+    <button class="button button-block button-stable icon ion-person addPed" type="">&nbsp&nbsp User Profile</button>
   </div>
   <ion-list can-swipe="true" option-buttons="itemButtons">
     <!-- <h5>User Information: </h5> -->
-    <ion-item>
+    <ion-item class="profile">
       <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       {{singleUser.name}}
     </ion-item>
-    <ion-item>
+    <ion-item class="phone">
       <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       {{singleUser.phone}}
     </ion-item>
-    <ion-item>
+    <ion-item class="email">
       <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       {{singleUser.email}}
     </ion-item>
   </ion-list>
 
-  <div class="buttons">
-    <button ng-click="saveProfile()" class="button button-block button-positive">Save</button>
+  <div class="buttons ">
+    <button ng-click="saveProfile()" class="button button-block button-positive save">Save</button>
   </div>
 
   </ion-content>
