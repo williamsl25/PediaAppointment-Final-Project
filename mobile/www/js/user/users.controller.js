@@ -68,6 +68,7 @@
           $scope.singleUser = singleUser;
           console.log(singleUser._id);
           $location.path('/app/users/' + singleUser._id +'/edit');
+
         });
       };
 
