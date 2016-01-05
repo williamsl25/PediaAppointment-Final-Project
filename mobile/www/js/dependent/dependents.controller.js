@@ -29,7 +29,7 @@
                 // console.log('new dependent firing!',dependent);
                 DependentsService.addDependent(dependent);
                   $state.go('app.userprofile');
-                  $window.location.reload(true);
+
               };
 
             $scope.editDependent = function(editedDependent) {
@@ -37,7 +37,7 @@
                 DependentsService.updateDependent(editedDependent).success(function() {
                   // console.log("EDIT", editedDependent);
                   $state.go('app.userprofile');
-                  $window.location.reload(true); //will refresh the page
+                  // $window.location.reload(true); //will refresh the page
                 });
             };
 
@@ -46,7 +46,7 @@
               DependentsService.removeDependent(dependentId).success(function(){
                 // console.log("dependent deleted", dependentId);
                 $state.go('app.userprofile');
-                $window.location.reload(true); //will refresh the page
+                // $window.location.reload(true); //will refresh the page
               });
             };
       });
