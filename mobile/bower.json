@@ -10,6 +10,7 @@
     "lodash": "~3.10.1",
     "angular-google-maps": "~2.2.1",
     "satellizer": "~0.13.2",
-    "font-awesome": "fontawesome#~4.5.0"
+    "font-awesome": "fontawesome#~4.5.0",
+    "ngCordova": "~0.1.23-alpha"
   }
 }

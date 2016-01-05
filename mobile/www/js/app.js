@@ -13,7 +13,8 @@ angular.module('PediaAppointment', [
   'appointments',
   'maps',
   'uiGmapgoogle-maps',
-  'satellizer'
+  'satellizer',
+  'ngCordova'
 
 ])
 
