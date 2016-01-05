@@ -1,10 +1,10 @@
 /* Empty. Add your own CSS if you like */
 
  .profile  {
-  font-size: 35px;
+  font-size: 25px;
   letter-spacing: 3px;
-  font-family: 'Wire One', sans-serif;
-  font-weight: bolder;
+  font-family: 'Open Sans' , sans-serif;
+
 }
 .phone, .email {
  font-size: 18px;
@@ -12,12 +12,27 @@
  font-family: 'Open Sans ', sans-serif;
 }
 .button.button-positive {
-  font-size: 22px;
+  font-size: 1.5em;
   letter-spacing: 2px;
   font-family: 'Open Sans ', sans-serif;
 }
 .button.button-balanced {
-  font-size: 22px;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  font-family: 'Open Sans ', sans-serif;
+}
+.button.button-dark edit{
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  font-family: 'Open Sans ', sans-serif;
+}
+.delete{
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  font-family: 'Open Sans ', sans-serif;
+}
+.button.button-block.button-positive.dateSelector {
+  font-size: 1.0em;
   letter-spacing: 2px;
   font-family: 'Open Sans ', sans-serif;
 }

@@ -34,15 +34,15 @@
   <ion-list can-swipe="true" option-buttons="itemButtons">
     <!-- <h5>User Information: </h5> -->
     <ion-item class="profile">
-      <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
+      <ion-option-button class="button-dark edit" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       {{singleUser.name}}
     </ion-item>
     <ion-item class="phone">
-      <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
+      <ion-option-button class="button-dark edit" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       {{singleUser.phone}}
     </ion-item>
     <ion-item class="email">
-      <ion-option-button class="button-dark" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
+      <ion-option-button class="button-dark edit" ng-click="gotoeditUser(user._id)">Edit</ion-option-button>
       {{singleUser.email}}
     </ion-item>
   </ion-list>
