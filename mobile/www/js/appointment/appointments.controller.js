@@ -4,10 +4,19 @@
   angular
   .module('appointments')
   .controller('AppointmentsController', function ($scope, $auth, $stateParams, $location, $state, $ionicPopup,
-    UsersService, DependentsService, AppointmentsService, MapsService, userId){
+    UsersService, DependentsService, AppointmentsService, MapsService, userId, $cordovaCalendar){
 
     $scope.singleuserArr = [];
     var pickerVal = "";
+    var selectedDependent = "";
+
+    $scope.confirmedDate = Date.parse(localStorage.getItem('pickerVal'));
+    console.log("This is the date from local storage", $scope.confirmedDate);
+
+    $scope.dependentFromAppt = localStorage.getItem('selectedDependent');
+    console.log("This is the date from local storage", $scope.dependentFromAppt);
+
+
 
     UsersService.getSingleUser().success(function (singleUser) {
       // console.log(singleUser);
@@ -86,6 +95,12 @@
             }
       });
 
+      $scope.clickedDependent = function (dependentName) {
+        localStorage.setItem("selectedDependent", dependentName);
+        // selectedDependent = dependent;
+        console.log("This is the selectedDependent:", dependentName);
+      };
+
       $scope.newAppointment = function (appointment) {
         // console.log('new appointment firing!');
         // console.log(appointment);
@@ -134,14 +149,42 @@
           console.log('No date selected');
         } else {
           $scope.datepickerObjectPopup.inputDate = val;
-          pickerVal = val;
+          localStorage.setItem("pickerVal", val);
+          // console.log(dateChosen);
+          // pickerVal = val;
           $scope.inputDate = val;
           // console.log($scope.val);
-          console.log(pickerVal);
+          // console.log(pickerVal);
           // $scope.datepickerObjectPopup.inputDate = new Date();
           console.log('Selected date is : ', val);
         }
       };
+
+      //This is for the Add to calendar in ios - Calendar PhoneGap plugins
+    $scope.addToCalendar = function() {
+      console.log("new event is being created with cordova calendar");
+    // $cordovaCalendar.createEvent({
+    $cordovaCalendar.createEventInteractively({
+        title: 'Pediatric Appointment Today',
+        location: 'Doctors Office',
+        notes: 'This appointment was taken from PediaAppointment',
+        startDate: new Date(2016, 0, 8, 15, 30, 0, 0, 0),
+        endDate: new Date(2016, 0, 15, 16, 30, 0, 0, 0)
+    }).then(function (result) {
+        console.log("Event created successfully");
+    }, function (err) {
+        console.error("There was an error: " + err);
+    });
+};
+
+
+      // $scope.onSuccess = function (msg) {
+      //   alert('Calendar success: ' + JSON.stringify(msg));
+      // };
+      //
+      // $scope.onError = function (msg) {
+      //   alert('Calendar error: ' + JSON.stringify(msg));
+      // };
 
   });
 }());

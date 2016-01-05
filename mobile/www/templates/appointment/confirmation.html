@@ -7,9 +7,9 @@
     <ion-content >
       <div  class="list-inset">
         <ion-list >
-            <h5><span style="color: red">Pending </span>Appointment For:</h5>
+            <h5><span style="color: #33CD5F">CONFIRMED </span>Appointment For:</h5>
               <ion-item >
-                {{dependentsArr[0].name}}
+                {{dependentFromAppt}}
               </ion-item>
           </ion-list>
 
@@ -17,12 +17,7 @@
         <ion-list >
             <h5>Date:</h5>
               <ion-item>
-                <!-- Date Here -->
-                {{datepickerObjectPopup.inputDate | date:'MM/dd/yyyy'}}
-                <!-- {{val}} -->
-                <!-- {{$scope.pickerVal}} -->
-                <!-- {{pickerVal}}
-                {{inputDate}} -->
+                {{confirmedDate | date:'MMMM dd, yyyy'}}
               </ion-item>
         </ion-list>
 
@@ -141,7 +136,7 @@
     <!-- add dependent to list with modal -->
 
       <div class="buttons">
-        <button class="button button-block button-positive icon ion-calendar" type="submit" ng-click="addToCalendar()">&nbsp&nbspAdd to Calendar</button></a>
+        <button class="button button-block button-balanced icon ion-calendar" ng-click="addToCalendar()">&nbsp&nbspAdd to Calendar</button></a>
       </div>
 
 

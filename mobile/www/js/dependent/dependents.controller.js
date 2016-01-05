@@ -29,7 +29,7 @@
                 // console.log('new dependent firing!',dependent);
                 DependentsService.addDependent(dependent);
                   $state.go('app.userprofile');
-
+                  // $window.location.reload(true);
               };
 
             $scope.editDependent = function(editedDependent) {

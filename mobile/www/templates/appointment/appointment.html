@@ -35,7 +35,7 @@
       <div class="col"> -->
       <div class="name">
         <ion-list ng-repeat="dependent in dependentsArr" >
-          <ion-checkbox ng-model="appointment.name" >
+          <ion-checkbox ng-model="appointment.name" ng-click="clickedDependent(dependent.name)" >
             {{dependent.name}}
           </ion-checkbox>
         </ion-list>
