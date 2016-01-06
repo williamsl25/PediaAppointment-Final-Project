@@ -26,6 +26,11 @@
   letter-spacing: 2px;
   font-family: 'Open Sans ', sans-serif;
 }
+.button.button-positive.datePickerSave{
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  font-family: 'Open Sans ', sans-serif;
+}
 .delete{
   font-size: 1.5em;
   letter-spacing: 2px;

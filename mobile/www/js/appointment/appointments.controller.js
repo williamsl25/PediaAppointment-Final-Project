@@ -128,7 +128,7 @@
         closeLabel: 'Close', //Optional
         setLabel: 'Save', //Optional
         errorMsgLabel : 'Please select time.', //Optional
-        setButtonType : 'button-positive', //Optional
+        setButtonType : 'button-positive datePickerSave', //Optional
         modalHeaderColor:'bar-positive', //Optional
         modalFooterColor:'bar-positive', //Optional
         templateType:'popup', //Optional
