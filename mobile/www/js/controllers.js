@@ -67,12 +67,15 @@ angular.module('PediaAppointment.controllers', [])
             password: $scope.password
           })
           .then(function(res) {
-
-            console.log(res);
+            // console.log(res);
             $window.localStorage.setItem('userRole', res.data.role);
             $state.go('app.userprofile');
           })
           .catch(function(response) {
+            $ionicPopup.alert({
+              title: 'Email and Password Do Not Match!'
+            });
+
 
           });
       };
@@ -97,9 +100,8 @@ angular.module('PediaAppointment.controllers', [])
           });
       };
       $scope.logout = function() {
-        console.log("logout being fired");
+        // console.log("logout being fired");
         $auth.logout().then(function () {
-
           $ionicPopup.alert({
             title: "You've been logged out!"
           });
@@ -111,7 +113,6 @@ angular.module('PediaAppointment.controllers', [])
       };
 
   })
-
 
   .controller('AccountCtrl', function($scope, $auth) {
     $scope.settings = {

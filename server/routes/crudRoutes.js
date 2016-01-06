@@ -51,6 +51,8 @@ router.route('/:collectionName/:id')
         delete req.body._id;
         req.collection.update(req.params.id, {$set: req.body}, function (e, result) {
             res.status(200).send({msg: "Sending collection/:id"},result);
+            // res.status(200).json({msg: "Sending collection/:id"},result);
+
         });
 
     })
