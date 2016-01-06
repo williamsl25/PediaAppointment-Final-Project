@@ -13,6 +13,7 @@ var uploadRoutes = require('./routes/upload');
 var crudRoutes = require('./routes/crudRoutes');
 var role = require('./routes/roles');
 var cors = require('cors');
+var request = require('request');
 
 mongoose.connect(config.MONGO_URI);
 mongoose.connection.on('error', function() {
@@ -47,6 +48,18 @@ app.use('/auth', authRoutes);
 app.use('/api', profileRoutes);
 app.use('/api/uploads', uploadRoutes);
 app.use('/api/collections', crudRoutes);
+
+app.get('/google/:placeId', function(req,res,next) {
+  var url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + req.params.placeId + "&key=AIzaSyA6BW1g3JXNqR3aHf1QqQo0EUEhZ7ihZc4";
+  request.get({url: url}, function(err,response,data) {
+    if(err) {
+      console.log("ERROR", err);
+    }
+    if(err) return next(err);
+    console.log("GOOGLE", data);
+    res.send(JSON.parse(response.body));
+  });
+});
 
 
 app.listen(app.get('port'), function() {
