@@ -99,9 +99,9 @@ router.route('/dependents')
       history: req.body.history,
       medication: req.body.medication,
       pediatrician: req.body.pediatricianName,
-      pedAddress: req.body.peditricianAddress,
-      pedPhone: req.body.peditricianPhone,
-      pedWeb: req.body.pediatricianWebsite
+      // pedAddress: req.body.peditricianAddress,
+      // pedPhone: req.body.peditricianPhone,
+      // pedWeb: req.body.pediatricianWebsite
     });
 
     console.log('new Dependent', dependent);

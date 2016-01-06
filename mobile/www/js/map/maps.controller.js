@@ -78,14 +78,14 @@ angular
 
     var events = {
       places_changed: function (searchBox) {
-        console.log("This is searchbox", searchBox);
+        // console.log("This is searchbox", searchBox);
       var place = searchBox.getPlaces();
         lat = place[0].geometry.location.lat();
         long = place[0].geometry.location.lng();
           if (!place || place === 'undefined' || place.length === 0) {
             return;
           }
-       console.log('place', lat, long, place);
+      //  console.log('place', lat, long, place);
       //  console.log(place[0].name);
       //  console.log(place[0].formatted_address);
       //  console.log(place[0].formatted_phone_number);
