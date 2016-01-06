@@ -21,6 +21,17 @@ angular
     $scope.namePlace = [];
     var mapPlace =[];
 
+//     $scope.disableTap = function(){
+//         console.log("disable Tab is firing");
+//         container = document.getElementsById('.googleMap');
+//         // disable ionic data tab
+//         angular.element(container).attr('data-tap-disabled', 'true');
+//         // leave input field if google-address-entry is selected
+//         angular.element(container).on("click", function(){
+//           document.getElementById('#searchBar').blur();
+//   });
+// };
+
     $scope.$on('location:added', function() {
       // console.log("adding to namePlace array");
       var place = $scope.namePlace[$scope.namePlace.length - 1];
@@ -67,18 +78,20 @@ angular
 
     var events = {
       places_changed: function (searchBox) {
+        console.log("This is searchbox", searchBox);
       var place = searchBox.getPlaces();
         lat = place[0].geometry.location.lat();
         long = place[0].geometry.location.lng();
           if (!place || place === 'undefined' || place.length === 0) {
             return;
           }
-          // console.log('place', lat, long, place);
+       console.log('place', lat, long, place);
       //  console.log(place[0].name);
       //  console.log(place[0].formatted_address);
       //  console.log(place[0].formatted_phone_number);
       //  console.log(place[0].website);
       //  console.log(place[0].email);
+
 
       var newPlace = {
         name: place[0].name,
@@ -100,4 +113,34 @@ angular
       }
     };
     $scope.searchbox = { template:'searchbox.tpl.html', events:events};
+
+
+    //////////////////////////////////
+    // CHANGE event
+    /////////////////////////////////
+
+    // var searchBox = new google.maps.places.SearchBox(document.getElementsByTagName('input')[0]);
+    //
+    // searchBox.addEventListener('keypress', function(event) {
+    //   console.log("PLACE CHANGED", event);
+    //   var key = e.which || e.keyCode;
+    //   if(key === 13) {
+    //     console.log('pressed enter');
+    //   }
+    //   var place = searchBox.getPlaces()[0];
+    //   console.log("PLACE FIRST", place);
+    // });
+    // google.maps.event.addListener(searchBox, 'places_changed', function(event) {
+    //   var place = searchBox.getPlaces()[0];
+    //   console.log("hello", place);
+    //
+    //   if (!place.geometry) return;
+    //
+    //   if (place.geometry.viewport) {
+    //     map.fitBounds(place.geometry.viewport);
+    //   } else {
+    //     map.setCenter(place.geometry.location);
+    //     map.setZoom(16);
+    //   }
+    // });
 });
