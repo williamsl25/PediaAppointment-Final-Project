@@ -2,6 +2,11 @@
 .login {
   padding-top: 20px;
 }
+.button.button-positive.resetPasswd {
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  font-family: 'Open Sans ', sans-serif;
+}
  .profile  {
   font-size: 25px;
   letter-spacing: 3px;
