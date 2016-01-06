@@ -10,9 +10,9 @@
       var editDependent = "https://pediaserver.herokuapp.com/api/dependents";
 
       var addDependent = function (newDependent) {
-        console.log("ADD DEP SERV", newDependent);
+        // console.log("ADD DEP SERV", newDependent);
          $http.post(url, newDependent).then(function(data) {
-          console.log("ADD DEPENDENT SERVICE", data);
+          // console.log("ADD DEPENDENT SERVICE", data);
         });
       };
 
@@ -28,6 +28,7 @@
         return $http.put(editDependent + '/' + updatedDependent._id, updatedDependent );
       };
       var removeDependent = function (deleteDependent) {
+        // console.log("This is the remove dependent service firing!", deleteDependent);
         return $http.delete(editDependent + '/' + deleteDependent._id);
       };
 

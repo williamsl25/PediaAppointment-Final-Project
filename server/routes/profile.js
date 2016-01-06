@@ -85,7 +85,7 @@ router.route('/dependents')
   .get(function(req,res) {
     Dependent.find({'user._id': req.user}, function(err, dependents) {
       console.log("This is the route GET /dependents firing!");
-      console.log("FOUND DEPS", dependents);
+      // console.log("FOUND DEPS", dependents);
       if(!dependents)  { return res.status(400).send({ message: 'User not found / No Dependents' }); }
       res.status(200).send(dependents);
     });
@@ -99,14 +99,14 @@ router.route('/dependents')
       history: req.body.history,
       medication: req.body.medication,
       pediatrician: req.body.pediatricianName,
-      pedAddress: req.body.peditricianAddress,
-      pedPhone: req.body.peditricianPhone,
-      pedWeb: req.body.pediatricianWebsite
+      // pedAddress: req.body.peditricianAddress,
+      // pedPhone: req.body.peditricianPhone,
+      // pedWeb: req.body.pediatricianWebsite
     });
 
-    console.log('new Dependent', dependent);
+    // console.log('new Dependent', dependent);
     dependent.save(function (err,dependent) {
-      console.log("err", err);
+      // console.log("err", err);
       if(err) return next(err);
         res.status(200).send({msg: "it works"});
     });
@@ -120,22 +120,17 @@ router.route('/dependents')
 
     .get(function (req, res) {
 
-      console.log("This is the entire request body:", req.body);
-      console.log("This is the entire request params:", req.params);
+      // console.log("This is the entire request body:", req.body);
+      // console.log("This is the entire request params:", req.params);
 
       Dependent.findById(req.params.dependentId, function (err, dependent) {
-        console.log("This is the route GET /dependents/dependentID firing!");
-        console.log("This is the request id:", req.id);
-        console.log("This is the dependent:", req.params.dependent);
-        console.log("This is the name:", req.params.name, req.body.name);
-        console.log("This is the user:", req.user);
-        console.log("This is the entire request body:", req.body);
-        console.log("This is the entire request params:", req.params);
-
-
-
-
-
+        // console.log("This is the route GET /dependents/dependentID firing!");
+        // console.log("This is the request id:", req.id);
+        // console.log("This is the dependent:", req.params.dependent);
+        // console.log("This is the name:", req.params.name, req.body.name);
+        // console.log("This is the user:", req.user);
+        // console.log("This is the entire request body:", req.body);
+        // console.log("This is the entire request params:", req.params);
         if (!dependent) { return res.status(400).send({ message: 'Dependent not found' }); }
         res.status(200).send(dependent);
 
@@ -143,12 +138,12 @@ router.route('/dependents')
       });
     })
     .put(function (req, res) {
-      console.log("This is the req.params", req.params);
-      console.log("This is the req.params.dependentID",req.params.dependentID);
-      console.log("This is the dependent:", req.params.dependent);
-      console.log("This is the name:", req.params.name, req.body.name);
+      // console.log("This is the req.params", req.params);
+      // console.log("This is the req.params.dependentID",req.params.dependentID);
+      // console.log("This is the dependent:", req.params.dependent);
+      // console.log("This is the name:", req.params.name, req.body.name);
 
-    Dependent.findById(req.params.dependentId, function (err, dependent) {
+    Dependent.findById(req.params.id, function (err, dependent) {
       if (!dependent) { return res.status(400).send({ message: 'Dependent not found' }); }
       console.log ("Post in Single Dependent FIRING!", req.body.name);
       dependent.name = req.body.name || dependent.name;
@@ -162,7 +157,7 @@ router.route('/dependents')
     });
   })
   .delete(function (req, res) {
-    Dependent.findByIdAndRemove(req.params.dependentId, function (err, dependent) {
+    Dependent.findByIdAndRemove(req.params.id, function (err, dependent) {
       if(err) { return next(err); }
       res.status(200).send({message: 'Successfuly Deleted Dependent'});
     });

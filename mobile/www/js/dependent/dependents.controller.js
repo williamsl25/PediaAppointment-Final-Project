@@ -43,6 +43,7 @@
 
             $scope.deleteDependent = function(dependentId) {
               // console.log(dependentId);
+              // console.log("Delete dependent firing in controller");
               DependentsService.removeDependent(dependentId).success(function(){
                 // console.log("dependent deleted", dependentId);
                 $state.go('app.userprofile');
