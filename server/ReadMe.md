@@ -25,8 +25,7 @@ Technology:
 -  MongoDB
 -  MongoLabs
 -  Heroku
--  Google Maps API
--  Google Places Search API
+-  Google API
 
 MVP Features:
 - User will be able to log in or create a New User account.
