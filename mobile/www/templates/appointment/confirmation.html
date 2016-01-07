@@ -107,10 +107,10 @@
 
           <ion-list >
               <h5>Additional Information:</h5>
-                <ion-item>
+                <ion-item class="item-text-wrap">
                   {{apptToDisplay.otherSymptoms}}
                 </ion-item>
-                <ion-item>
+                <ion-item class="item-text-wrap">
                   {{apptToDisplay.comments}}
                 </ion-item>
           </ion-list>
@@ -118,7 +118,7 @@
 
         <ion-list >
             <h5>Pediatrician:</h5>
-              <ion-item class="item item-icon-right">
+              <ion-item class="item-text-wrap item item-icon-right">
                 <i class="icon ion-medkit"></i>
                 {{pharmacyArr[0].name}}
               </ion-item>
@@ -127,11 +127,11 @@
                   {{pharmacyArr[0].address}}
                   address
                 </a> -->
-              <ion-item class="item item-icon-right">
+              <ion-item class="item-text-wrap item item-icon-right">
                   <i class="icon ion-ios-location"></i>
                     {{pharmacyArr[0].address}}
               </ion-item>
-              <ion-item class="item item-icon-right">
+              <ion-item class="item-text-wrap item item-icon-right">
                 <i class="icon ion-ios-telephone"></i>
                 {{pharmacyArr[0].phone}}<br>
               </ion-item>
