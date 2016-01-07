@@ -21,17 +21,6 @@ angular
     $scope.namePlace = [];
     var mapPlace =[];
 
-//     $scope.disableTap = function(){
-//         console.log("disable Tab is firing");
-//         container = document.getElementsById('.googleMap');
-//         // disable ionic data tab
-//         angular.element(container).attr('data-tap-disabled', 'true');
-//         // leave input field if google-address-entry is selected
-//         angular.element(container).on("click", function(){
-//           document.getElementById('#searchBar').blur();
-//   });
-// };
-
     $scope.$on('location:added', function() {
       // console.log("adding to namePlace array");
       var place = $scope.namePlace[$scope.namePlace.length - 1];
@@ -78,41 +67,47 @@ angular
 
     var events = {
       places_changed: function (searchBox) {
-        console.log("This is searchbox", searchBox);
+        // console.log("This is searchbox", searchBox);
       var place = searchBox.getPlaces();
         lat = place[0].geometry.location.lat();
         long = place[0].geometry.location.lng();
           if (!place || place === 'undefined' || place.length === 0) {
             return;
           }
-       console.log('place', lat, long, place);
-      //  console.log(place[0].name);
-      //  console.log(place[0].formatted_address);
-      //  console.log(place[0].formatted_phone_number);
-      //  console.log(place[0].website);
-      //  console.log(place[0].email);
+      // https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key=YOUR_API_KEY
+      MapsService.getGoogleInfo(place[0].place_id).success(function(data) {
+        console.log("YAY", data);
+        console.log('data', lat, long, data);
+        console.log(data.result.name);
+        console.log(data.result.formatted_address);
+        console.log(data.result.formatted_phone_number);
+        console.log(data.result.website);
+        // console.log(data.result.email);
 
-
-      var newPlace = {
-        name: place[0].name,
-        address: place[0].formatted_address,
-        phone: place[0].formatted_phone_number,
-        website: place[0].website,
-        coords: {
-          latitude: place[0].geometry.location.lat(),
-          longitude: place[0].geometry.location.lng()
-        },
-          id: place[0].place_id,
-          mapurl: place[0].url,
-          icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
-      };
-        // console.log(newPlace);
+        var newPlace = {
+          name: data.result.name,
+          address: data.result.formatted_address,
+          phone: data.result.formatted_phone_number,
+          website: data.result.website,
+          coords: {
+            latitude: place[0].geometry.location.lat(),
+            longitude: place[0].geometry.location.lng()
+          },
+            id: place[0].place_id,
+            mapurl: place[0].url,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+        };
+        console.log(newPlace);
         $scope.namePlace.push(newPlace);
         // console.log('scope nameplace', $scope.namePlace);
         $scope.$broadcast("location:added");
-      }
-    };
-    $scope.searchbox = { template:'searchbox.tpl.html', events:events};
+      })
+      .error(function(data) {
+        console.log("DAMN", data);
+      });
+    }
+  };
+  $scope.searchbox = { template:'searchbox.tpl.html', events:events};
 
 
     //////////////////////////////////
