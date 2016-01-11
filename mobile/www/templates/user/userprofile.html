@@ -9,7 +9,7 @@
         <!-- <h5>Dependents: </h5> -->
         <ion-item ng-repeat="dependent in dependentsArr">
             <div class="buttons">
-              <button ng-controller="DependentsController" type="" ng-click="goToDepProfile(dependent._id)" class="button button-block button-balanced">{{dependent.name}}</button>
+              <button class="button button-block button-balanced dependentName" ng-controller="DependentsController" type="" ng-click="goToDepProfile(dependent._id)" class="button button-block button-balanced">{{dependent.name}}</button>
             </div>
         </ion-item>
       </ion-list>

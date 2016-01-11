@@ -169,7 +169,7 @@
         location: 'Doctors Office',
         notes: 'This appointment was taken from PediaAppointment',
         startDate: new Date(2016, 0, 8, 15, 30, 0, 0, 0),
-        endDate: new Date(2016, 0, 15, 16, 30, 0, 0, 0)
+        endDate: new Date(2016, 0, 8, 16, 30, 0, 0, 0)
     }).then(function (result) {
         console.log("Event created successfully");
     }, function (err) {
