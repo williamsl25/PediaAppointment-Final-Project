@@ -1,8 +1,9 @@
 ## PediaAppointment
 
 An Iron Yard Project From The Minds Of Dustin Guthrie & Lindsay Williams
-- Dustin Guthrie:  https://github.com/DustinGuthrie
-- Lindsay Williams:  https://github.com/williamsl25
+* **Lindsay Williams**:  [Github](https://github.com/williamsl25)
+* **Dustin Guthrie**:  [Github](https://github.com/DustinGuthrie)
+
 
 **PediaAppointment** _is a mobile application which will allow parents to schedule pediatrician appointments at any time and from any place regardless of standard doctors office hours.  The app will allow you to search for then save a primary pediatrician, add family members, and most importantly send vitals/health information to the doctor’s office when scheduling an appointment._
 
